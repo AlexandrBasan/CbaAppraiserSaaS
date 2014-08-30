@@ -1,9 +1,31 @@
-<h2>Import Products</h2>
-<%= form_tag import_products_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import" %>
-<% end %>
+<% @tests = Test.all %>
+<h1>Listing tests</h1>
 
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Col 1 s</th>
+    <th>Col 2 i</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @tests.each do |test| %>
+      <tr>
+        <td><%= test.col_1_s %></td>
+        <td><%= test.col_2_i %></td>
+        <td><%= link_to (I18n.t 'button.show'), test, class: "btn btn-sm btn-primary" %></td>
+        <td><%= link_to (I18n.t 'button.edit'), edit_test_path(test), class: "btn btn-sm btn-warning" %></td>
+        <td><%= link_to (I18n.t 'button.delete'), test, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Test', new_test_path %>
 
 <div class="progress">
   <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
@@ -12,10 +34,12 @@
 </div>
 
 
-<h1>Products</h1>
-
-<p>
-  Download:
-  <%= link_to "CSV", products_path(format: "csv") %> |
-  <%= link_to "Excel", products_path(format: "xls") %>
-</p>
+<!-- export to csv and xls -->
+<div class="panel panel-default">
+  <div align="center" class="panel-body">
+    <%= t ('or') %> <%= (I18n.t 'button.download') %> :
+    <%= link_to "CSV", tests_path(format: "csv"), class: "btn btn-xs btn-default" %> |
+    <%= link_to "Excel", tests_path(format: "xls"), class: "btn btn-xs btn-default" %>
+  </div>
+</div>
+<!-- export to csv and xls -->

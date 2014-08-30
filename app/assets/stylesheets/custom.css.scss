@@ -1,0 +1,270 @@
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+$grayLight:	#999;
+$grayDarker: #222;
+$gray: #555;
+$grayLighter: #eee;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $grayLight;
+}
+
+h6 {
+  font-weight: normal;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* header */
+/* Teleport Text Logo
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+} */
+
+/* SaaS Theme */
+.navbar .brand {
+  display: block;
+  /* height: 125px;
+  width: 246px; */
+  /* margin-left: -70px; */
+  height: 51px;
+  width: 300px;
+  padding: 0;
+  /*background: url('teleport_logo_saas_system_eng.png') no-repeat left center; */
+  float: left;
+  position: absolute;
+}
+
+.navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+  width: 940px;
+  height: 52px;
+}
+
+/*Menu styling - FOOTER*/
+.container {
+ /* width: 910px; */
+  width: 890px;
+}
+
+.navbar .nav.pull-right {
+  float: right;
+  margin-right: 0;
+  margin-top: 5px;
+}
+
+.data {
+  /* margin-left: 190px; */
+  /* padding-right:2px; */
+  /*Menu styling - FOOTER*/
+  /* margin-left: 175px; */
+  margin-left: 16.5%;
+  /*Menu styling - FOOTER*/
+  padding-right: 15px;
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover {
+      color: $grayDarker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+.listylenone {
+  list-style: none;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .form-group;
+  @extend .has-error;
+}
+
+/* Users index */
+
+
+/* backtotop button */
+#backtotop {
+  background: #F7F7F7;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px 5px 5px 5px;
+  bottom: 10px;
+  color: #333333;
+  cursor: pointer;
+  display: none;
+  height: 30px;
+  line-height: 30px;
+  padding: 5px;
+  position: fixed;
+  right: 10px;
+  text-align: center;
+  width: 31px;
+  height: 30px; /*width: 100px;*/
+  /* text-indent: -9999px; */
+  z-index: 1;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: url("backtotop30.png") no-repeat left center;
+}
+
+#backtotop:hover {
+  background: #EEEEEE;
+  background: url("backtotop30black.png") no-repeat left center;
+}
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 0px 0;
+  border-radius: 4px;
+}
+
+.overflow{
+  overflow: auto;
+  height: 100%;
+  max-height: 1000px;
+}
+
+.menu_border{
+  border-bottom: 1px solid lightgray;
+  list-style: none;
+}
+
+.bs-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+
+.bs-callout-danger {
+  border-left-color: #d9534f;
+}
+.bs-callout-info {
+  border-left-color: #5bc0de;
+}
+.bs-callout-warning {
+  border-left-color: #f0ad4e;
+}
+.bs-callout-success {
+  border-left-color: #5cb85c;
+}
+.bs-callout-primary {
+  border-left-color: #428bca;
+}

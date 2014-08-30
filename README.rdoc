@@ -1,31 +1,30 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# CBA APPRAISER SOFT
 
-Things you may want to cover:
+This is the CBA APPRAISER SOFT
 
-* Ruby version
+    $ cd /tmp
+    $ git clone https://github.com/railstutorial/sample_app_rails_4.git
+    $ cd sample_app_rails_4
+    $ cp config/database.yml.example config/database.yml
+    $ bundle install
+    $ bundle install --without production - without production gems
+    $ bundle exec rake db:migrate
+    $ bundle exec rake db:test:prepare
+    $ bundle exec rspec spec/
 
-* System dependencies
+Heroku
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+    $ rake assets:precompile
+    $ RAILS_ENV=production bundle exec rake assets:precompile
+    $ git push heroku master
+    $ heroku rake db:migrate
+    $ heroku restart
+    $ heroku open
+    $
+    $ heroku logs
+    $ heroku logs -n 1500
 
 
 http://railscasts.com/episodes/396-importing-csv-and-excel?view=asciicast

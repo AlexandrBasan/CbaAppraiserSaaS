@@ -1,0 +1,29 @@
+<h1>Listing tests</h1>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Col 1 s</th>
+      <th>Col 2 i</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tests.each do |test| %>
+      <tr>
+        <td><%= test.col_1_s %></td>
+        <td><%= test.col_2_i %></td>
+        <td><%= link_to 'Show', test %></td>
+        <td><%= link_to 'Edit', edit_test_path(test) %></td>
+        <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test', new_test_path %>

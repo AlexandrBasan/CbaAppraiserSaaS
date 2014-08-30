@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def new
-      @user = User.new
+    @user = User.new
   end
 
   def create
@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = I18n.t 'flash.welcome_to_saas'
+      redirect_to root_path
     else
       render 'new'
     end

@@ -25,7 +25,7 @@ class Test < ActiveRecord::Base
       if product.valid?
         product.save!
       else
-        @array_error.push(product)
+        @array_error.push(row["id"])
       end
     end
   end

@@ -26,7 +26,12 @@
                 <li><%= link_to (I18n.t 'menu.earth'), tests_path %></li>
               </ul>
             </li>
-        <% else %>
+            <% if current_user && current_user.try(:admin?) %>
+                <li><%= link_to 'Пользователи системы', users_path %></li>
+                <li class="divider"></li>
+            <% else %>
+            <% end %>
+      <% else %>
             <li><%= link_to 'Вход', signin_path %></li>
         <% end %>
       </ul>

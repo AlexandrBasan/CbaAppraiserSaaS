@@ -1,27 +1,25 @@
 <% if signed_in? %>
-    <h3 align="center">Listing tests</h3>
-    <table class="table table-bordered table-striped">
-      <thead>
-      <tr>
-        <th>Col 1 s</th>
-        <th>Col 2 i</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @tests.each do |test| %>
-          <tr>
-            <td><%= test.col_1_s %></td>
-            <td><%= test.col_2_i %></td>
-            <td><%= link_to (I18n.t 'button.show'), test, class: "btn btn-sm btn-primary" %></td>
-            <td><%= link_to (I18n.t 'button.edit'), edit_test_path(test), class: "btn btn-sm btn-warning" %></td>
-            <td><%= link_to (I18n.t 'button.delete'), test, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-sm btn-danger" %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+    <div class="row">
+      <div align="center">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= link_to (tests_path) do %>
+                <button type="button" class="btn btn-default btn-lg"><%= (I18n.t 'menu.test') %> <span class="badge"><%= @tests.count %></span></button>
+            <% end %>
+            <%= link_to (tests_path) do %>
+                <button type="button" class="btn btn-default btn-lg"><%= (I18n.t 'menu.house') %> <span class="badge"><%= @homes.count %></span></button>
+            <% end %>
+            <%= link_to (tests_path) do %>
+                <button type="button" class="btn btn-default btn-lg"><%= (I18n.t 'menu.appartment') %> <span class="badge"><%= @appartments.count %></span></button>
+            <% end %>
+            <%= link_to (tests_path) do %>
+                <button type="button" class="btn btn-default btn-lg"><%= (I18n.t 'menu.earth') %> <span class="badge"><%= @earths.count %></span></button>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+    </div>
 <% else %>
     <div class="center jumbotron">
       <h1>CBA APPRAISER</h1>

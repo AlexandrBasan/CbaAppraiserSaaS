@@ -23,16 +23,16 @@ class TestsController < ApplicationController
     Test.import(params[:file])
     if Test.check_import_errors == true
       respond_to do |format|
-        format.html { flash[:success] = 'Products imported.'
+        format.html { flash[:success] = 'Импорт успешно завершен.'
         redirect_to tests_path }
       end
     else
-      @error_import = " Rows: "
+      @error_import = " ID: "
       Test.check_import_errors.each_with_index do |product, index|
-        @error_import += "#{index} "
+        @error_import += "#{product} "
       end
       respond_to do |format|
-        format.html { flash[:danger] = ('Products import errors.' + @error_import)
+        format.html { flash[:danger] = ('Ошибка импорта данных. Проверьте данные.' + @error_import)
         redirect_to root_path }
       end
     end

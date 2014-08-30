@@ -45,7 +45,8 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # file formats
-#gem 'roo'
+gem 'roo'
+gem 'iconv'
 # pdf
 gem 'prawn'
 

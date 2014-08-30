@@ -1,7 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+# csv format for import and export
 require 'csv'
+# import csv and xls
+require 'iconv'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

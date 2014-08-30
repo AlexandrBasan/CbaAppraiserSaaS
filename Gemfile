@@ -55,9 +55,7 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate'
-
-# i18n multilanguage.
-gem 'rails-i18n', '~> 4.0.0'
+gem 'autoprefixer-rails'
 
 group :production do
   gem 'pg', '0.15.1'

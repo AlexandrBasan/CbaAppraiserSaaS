@@ -4,7 +4,7 @@ class TestsController < ApplicationController
   # GET /tests
   # GET /tests.json
   def index
-    @tests = Test.all
+    @tests = Test.paginate(page: params[:page])
     respond_to do |format|
       format.html
       # export to csv and xls

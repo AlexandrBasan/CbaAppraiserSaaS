@@ -1,5 +1,8 @@
 class Test < ActiveRecord::Base
 
+  validates :col_1_s, presence: true
+  validates :col_2_i, presence: true
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names

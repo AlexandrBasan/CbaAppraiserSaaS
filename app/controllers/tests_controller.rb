@@ -22,8 +22,8 @@ class TestsController < ApplicationController
     Test.import(params[:file])
     if Test.check_import_errors == true
       respond_to do |format|
-        format.html { flash[:success] = "Products imported."
-        redirect_to root_path }
+        format.html { flash[:success] = 'Products imported.'
+        redirect_to tests_path }
       end
     else
       @error_import = " Rows: "
@@ -31,7 +31,7 @@ class TestsController < ApplicationController
         @error_import += "#{index} "
       end
       respond_to do |format|
-        format.html { flash[:danger] = ("Products import errors." + @error_import)
+        format.html { flash[:danger] = ('Products import errors.' + @error_import)
         redirect_to root_path }
       end
     end

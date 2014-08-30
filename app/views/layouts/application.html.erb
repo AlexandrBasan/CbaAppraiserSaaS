@@ -9,6 +9,9 @@
 <body>
 <%= render 'layouts/header' %>
 <div class="data">
+  <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
 <%= content = yield %>
 <!--Back To Top Button-->
 <% if content.length > 1200 %>

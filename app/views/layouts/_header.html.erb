@@ -7,10 +7,23 @@
     </div>
     <nav>
       <ul class="nav nav-pills pull-right">
-        <li><%= link_to (I18n.t 'menu.appraiser') + " " + (I18n.t 'menu.test'), tests_path %></li>
-        <li><%= link_to (I18n.t 'menu.appraiser') + " " + (I18n.t 'menu.house'), tests_path %></li>
-        <li><%= link_to (I18n.t 'menu.appraiser') + " " + (I18n.t 'menu.appartment'), tests_path %></li>
-        <li><%= link_to (I18n.t 'menu.appraiser') + " " + (I18n.t 'menu.earth'), tests_path %></li>
+        <% if signed_in? %>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= current_user.email %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <!--Check user role and render Account Button-->
+                <%= render 'layouts/header/header_account_button' %>
+              </ul>
+            </li>
+            <li><%= link_to (I18n.t 'menu.appraiser') + " " + (I18n.t 'menu.test'), tests_path %></li>
+            <li><%= link_to (I18n.t 'menu.appraiser') + " " + (I18n.t 'menu.house'), tests_path %></li>
+            <li><%= link_to (I18n.t 'menu.appraiser') + " " + (I18n.t 'menu.appartment'), tests_path %></li>
+            <li><%= link_to (I18n.t 'menu.appraiser') + " " + (I18n.t 'menu.earth'), tests_path %></li>
+        <% else %>
+            <li><%= link_to 'Вход', signin_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>

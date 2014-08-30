@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
+  before_action :current_user_check_nil
 
   # GET /tests
   # GET /tests.json
@@ -84,6 +85,14 @@ class TestsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tests_url }
       format.json { head :no_content }
+    end
+  end
+
+  def current_user_check_nil
+    if current_user.nil?
+      redirect_to root_path
+      flash[:danger] = 'Доступ запрещен'
+    else
     end
   end
 

@@ -1,0 +1,96 @@
+<% provide(:title, 'All users') %>
+<h3 align="center"><%= t 'menu.companys_stuff' %> <span class="badge"><%= @users.count %></span></h3>
+<% if current_user.try(:admin?) %>
+
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th><%= 'Avatar' %></th>
+        <th><%= sortable "name", (t :name) %></th>
+        <th><%= sortable "e-mail", (t :email) %></th>
+        <th><%= sortable "created_at", (t :created_at) %></th>
+        <th><%= sortable "role", (t :user_role) %></th>
+        <th><%= sortable "provider", (t :provider) %></th>
+        <th><%= (t :company_name) %></th>
+        <th><%= (t :phone) %></th>
+        <th><%= (t 'last_seen_at') %></th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <div align="center">
+        <%= will_paginate %>
+      </div>
+
+      <tbody>
+      <% @users.each do |user| %>
+          <tr>
+            <% if (user.provider == "facebook") || (user.provider == "twitter") || (user.provider == "google_oauth2") %>
+                <td><%= image_tag user.oauth_link_image, class: "img-circle" %></td>
+            <% else %>
+                <td><%= gravatar_for user %></td>
+            <% end %>
+            <td><%= user.name %></td>
+            <td>
+              <%= user.email %>
+              <%= user.oauth_link %>
+            </td>
+            <td><%= user.created_at %></td>
+            <td>
+              <% if user.admin? %>
+                  <%= "Adminisrator" %>
+              <% else %>
+                  <%= user.role %>
+              <% end %></td>
+            <td><%= user.provider %></td>
+            <td>
+              <!-- Check user relationships -->
+              <% check_relationship = Relationship.where(followed_id: User.find(user)).take %>
+              <% if check_relationship.nil? %>
+              <% @company_name_for_show = nil %>
+              <% else %>
+                   <% user_in_team = User.find_by_id(check_relationship.follower_id) %>
+                   <% if user_in_team.role == "Delivery company" %>
+                        <% @company_name_for_show = user_in_team.delivery_company.name %>
+                        <% end %>
+                   <% if user_in_team.role == "Store" %>
+                        <% @company_name_for_show = user_in_team.store.name %>
+                        <% end %>
+                   <% if user_in_team.role == "Partner" %>
+                        <% @company_name_for_show = user_in_team.partner.name %>
+                        <% end %>
+                   <% end %>
+              <!-- Check user relationships -->
+              <% if user.admin? %>
+                  <%= (t 'not_found') %>
+              <% elsif user.delivery_company.nil? && user.store.nil? && user.partner.nil? %>
+                  <!-- Check user relationships -->
+                  <% if @company_name_for_show.nil? %>
+                  <%= (t 'not_found') %>
+                  <% else %>
+                      <%= @company_name_for_show %>
+                  <% end %>
+                  <!-- Check user relationships -->
+              <% elsif user.role == "Partner" %>
+                  <%= user.partner.name %>
+              <% elsif user.store.nil? %>
+                  <%= user.delivery_company.name %>
+              <% elsif user.delivery_company.nil? %>
+                  <%= user.store.name %>
+              <% end %></td>
+            <td><%= user.countrycode %><%= user.phone %></td>
+            <td><%= user.last_seen_at %></td>
+            <td><%= link_to (I18n.t 'button.show'), user, class: "btn btn-sm btn-primary" %></td>
+            <td><%= link_to (I18n.t 'button.edit'), edit_user_path(user), class: "btn btn-sm btn-warning" %></td>
+            <td><%= link_to (I18n.t 'button.delete'), user, method: :delete,
+                            data: {confirm: (t 'operations_confirmation.confirm')}, class: "btn btn-sm btn-danger" %></td>
+          </tr>
+      <% end %>
+
+      </tbody>
+    </table>
+<% else %>
+<% end %>
+<div align="center">
+  <%= will_paginate %>
+</div>

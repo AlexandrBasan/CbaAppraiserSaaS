@@ -1,24 +1,31 @@
-<h3 align="center">Listing tests</h3>
-
-<table class="table table-bordered table-striped">
-  <thead>
-  <tr>
-    <th>Col 1 s</th>
-    <th>Col 2 i</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @tests.each do |test| %>
+<% if signed_in? %>
+    <h3 align="center">Listing tests</h3>
+    <table class="table table-bordered table-striped">
+      <thead>
       <tr>
-        <td><%= test.col_1_s %></td>
-        <td><%= test.col_2_i %></td>
-        <td><%= link_to (I18n.t 'button.show'), test, class: "btn btn-sm btn-primary" %></td>
-        <td><%= link_to (I18n.t 'button.edit'), edit_test_path(test), class: "btn btn-sm btn-warning" %></td>
-        <td><%= link_to (I18n.t 'button.delete'), test, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-sm btn-danger" %></td>
+        <th>Col 1 s</th>
+        <th>Col 2 i</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+      <% @tests.each do |test| %>
+          <tr>
+            <td><%= test.col_1_s %></td>
+            <td><%= test.col_2_i %></td>
+            <td><%= link_to (I18n.t 'button.show'), test, class: "btn btn-sm btn-primary" %></td>
+            <td><%= link_to (I18n.t 'button.edit'), edit_test_path(test), class: "btn btn-sm btn-warning" %></td>
+            <td><%= link_to (I18n.t 'button.delete'), test, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-sm btn-danger" %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% else %>
+    <div class="center jumbotron">
+      <h1>CBA APPRAISER</h1>
+
+    </div>
+
+<% end %>

@@ -1,0 +1,28 @@
+<% provide(:title, 'Sign up') %>
+<h3 align="center"><%= t :sign_up %>!</h3>
+
+<div class="row" style="margin-right: 0px; margin-left: 0px;">
+  <div class="col-md-6 col-md-offset-3">
+
+    <div class="well">
+    <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label 'Имя' %>
+        <%= f.text_field :name %>
+
+        <%= f.label 'e-mail' %>
+        <%= f.text_field :email %>
+
+        <%= f.label 'Пароль' %>
+        <%= f.password_field :password %>
+
+        <%= f.label 'Подтверждение пароля' %>
+        <%= f.password_field :password_confirmation %>
+
+        <%= f.submit (t 'button.ok'), class: "btn btn-sm btn-primary" %>
+    <% end %>
+    </div>
+  </div>
+  </div>
+</div>

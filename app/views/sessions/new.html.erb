@@ -1,0 +1,18 @@
+<% provide(:title, "Sign in") %>
+<h3 align="center"><%= t 'Вход' %></h3>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="well">
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+        <%= f.label 'e-mail' %>
+        <%= f.text_field :email %>
+
+        <%= f.label 'Пароль' %>
+        <%= f.password_field :password %>
+
+        <%= f.submit 'Вход', class: "btn btn-sm btn-primary" %>
+    <% end %>
+    </div>
+  </div>
+</div>

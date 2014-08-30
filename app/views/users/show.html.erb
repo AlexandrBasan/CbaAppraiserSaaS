@@ -1,0 +1,59 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-12">
+    <section>
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title"><%= @user.email %></h3></div>
+        <div class="panel-body">
+          <!--GRAVATAR FOR USER-->
+          <!--<%= gravatar_for @user %>-->
+          <!--<%= @user.name %>-->
+          <!--<dl class="dl-horizontal">
+            <dt><%= t :name %>:</dt>
+            <dd><%= @user.name %></dd>
+            <dt><%= t :email %>:</dt>
+            <dd><%= @user.email %></dd>
+            <dt><%= t :created_at %>:</dt>
+            <dd><%= @user.created_at %></dd>
+            <dt><%= t :phone %>:</dt>
+            <dd><%= @user.countrycode %><%= @user.phone %></dd>
+            <dt><%= t :company_type %>:</dt>
+            <dd><%= @user.role %></dd>
+            <dt><%= t :company_name %>:</dt>
+            <dd><%= @company_name %></dd>
+          </dl>-->
+          <ul class="listylenone">
+            <% if current_user && current_user.admin? %>
+                <% if (@user.provider == "facebook") || (@user.provider == "twitter") || (@user.provider == "google_oauth2") %>
+                    <li><%= image_tag @user.oauth_link_image, class: "img-circle" %></li>
+                <% else %>
+                    <li><%= gravatar_for @user %></li>
+                <% end %>
+            <% end %>
+            <li><b><%= t :name %>:</b> <%= @user.name %></li>
+            <li><b><%= t :email %>:</b> <%= @user.email %></li>
+            <!--User created date-->
+            <li><b><%= t :created_at %>:</b> <%= @user.created_at %></li>
+            <!--Show user CountryCode-->
+            <li><b><%= t :phone %>:</b> <%= @user.countrycode %><!--Show user Phone--><%= @user.phone %></li>
+            <!--Show user Role-->
+            <li><b><%= t :company_type %>:</b> <%= @user.role %></li>
+            <li><b><%= t :company_name %>:</b> <%= @company_name %><%= @company_name_for_show %></li>
+            <% if current_user && current_user.admin? %>
+                <li><b><%= t (t 'last_seen_at') %>:</b> <%= @user.last_seen_at %></li>
+                <li><b><%= t :provider %>:</b> <%= @user.provider %></li>
+                <li><b><%= t :oauth_link %>:</b> <%= @user.oauth_link %></li>
+                <li><b><%= t :invitation_token %>:</b> <%= @user.invitation_token %></li>
+                <li><b><%= t ('unsubscribe_block.subscription') %>:</b> <%= @user.subscription %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <!--Edit User-->
+
+    </section>
+
+  </aside>
+
+</div>

@@ -1,0 +1,18 @@
+<li>
+  <!--GRAVATAR FOR USER-->
+  <!--<%= gravatar_for user, size: 52 %>-->
+  <!--<%= link_to user.name, user %>-->
+  <%= link_to user.email, user %>
+  <!--User created date-->
+  <%= link_to user.created_at, user %>
+  <!--Show user Role-->
+  <%= link_to user.role, user %>
+  <!--Show user CountryCode-->
+  <%= link_to user.countrycode, user %><!--Show user Phone--><%= link_to user.phone, user %>
+  <!--Edit User-->
+  | <%= link_to (I18n.t 'button.edit'), edit_user_path(user) %>
+  <% if current_user.admin? && !current_user?(user) %>
+      | <%= link_to (I18n.t 'button.delete'), user, method: :delete,
+                    data: {confirm: "You sure?"} %>
+  <% end %>
+</li>

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   before_action :check_admin, only: [:collaboration]
 
   def index
-    @users = User.paginate(page: params[:page]).order(sort_column + ' ' + sort_direction)
+    @users = User.paginate(page: params[:page])
   end
 
   def show
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] = I18n.t 'flash.profile_updated'
-      redirect_to @user
+      redirect_to root_path
     else
       render 'edit'
     end
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   def check_admin
     if current_user && current_user.admin?
       redirect_to root_path
-      flash[:danger] = I18n.t 'flash.access_deny_text'
+      flash[:danger] = 'Доступ запрещен'
     end
   end
 
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
   # Save information in database - PRIVAT
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation, :countrycode, :phone, :role, :terms_of_service, :invitation_token, :subscription)
+                                 :password_confirmation)
   end
 
   # Before filters

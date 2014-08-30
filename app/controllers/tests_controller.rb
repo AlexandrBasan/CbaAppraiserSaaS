@@ -20,33 +20,22 @@ class TestsController < ApplicationController
 
   def import
     Test.import(params[:file])
-    redirect_to root_url, notice: "Products imported."
-  end
-  def import
-    case File.extname(params[:file].original_filename)
-      when ".csv" then
-        DeliveryRate.import(params[:file])
-        if DeliveryRate.check_import_errors == true
-          respond_to do |format|
-            format.html { flash[:success] = (t 'notice.delivery_rates_import_success')
-            redirect_to delivery_rates_path }
-          end
-        else
-          @error_import = " Rows: "
-          DeliveryRate.check_import_errors.each_with_index do |product, index|
-            @error_import += "#{index} "
-          end
-          respond_to do |format|
-            format.html { flash[:danger] = ((t 'notice.delivery_rates_import_error') + @error_import)
-            redirect_to delivery_rates_path }
-          end
-        end
-      else
-        respond_to do |format|
-          format.html { flash[:success] = ((t 'notice.file_format_error') + "#{params[:file].original_filename}")
-          redirect_to delivery_rates_path }
-        end
+    if Test.check_import_errors == true
+      respond_to do |format|
+        format.html { flash[:success] = "Products imported."
+        redirect_to root_path }
+      end
+    else
+      @error_import = " Rows: "
+      Test.check_import_errors.each_with_index do |product, index|
+        @error_import += "#{index} "
+      end
+      respond_to do |format|
+        format.html { flash[:danger] = ("Products import errors." + @error_import)
+        redirect_to root_path }
+      end
     end
+    #redirect_to root_url, notice: "Products imported."
   end
 
   # GET /tests/new

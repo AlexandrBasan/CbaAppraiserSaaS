@@ -25,6 +25,15 @@
 <% else %>
     <div class="center jumbotron">
       <h1>CBA APPRAISER</h1>
+      <h2>
+        <%= 'Система расчета оценки для банков' %>
+      </h2>
+
+      <%= link_to 'Регистрация', signup_path,
+                  class: "btn btn-large btn-primary" %>
+      <h5 align="center" style="padding-top: 10px;">
+        <%= link_to 'Вход', signin_path %>
+      </h5>
 
     </div>
 

@@ -4,7 +4,6 @@
       <% cache "logo" do %>
       <%= link_to image_tag("cba_logo.png", alt: ""), root_path, :class => "brand" %>
       <% end %>
-    </div>
     <nav>
       <ul class="nav nav-pills pull-right">
         <% if signed_in? %>
@@ -16,14 +15,22 @@
                 <%= render 'layouts/header/header_account_button' %>
               </ul>
             </li>
-            <li><%= link_to (I18n.t 'menu.appraiser') + " " + (I18n.t 'menu.test'), tests_path %></li>
-            <li><%= link_to (I18n.t 'menu.appraiser') + " " + (I18n.t 'menu.house'), tests_path %></li>
-            <li><%= link_to (I18n.t 'menu.appraiser') + " " + (I18n.t 'menu.appartment'), tests_path %></li>
-            <li><%= link_to (I18n.t 'menu.appraiser') + " " + (I18n.t 'menu.earth'), tests_path %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= (I18n.t 'menu.appraiser') %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to (I18n.t 'menu.test'), tests_path %></li>
+                <li><%= link_to (I18n.t 'menu.house'), tests_path %></li>
+                <li><%= link_to (I18n.t 'menu.appartment'), tests_path %></li>
+                <li><%= link_to (I18n.t 'menu.earth'), tests_path %></li>
+              </ul>
+            </li>
         <% else %>
             <li><%= link_to 'Вход', signin_path %></li>
         <% end %>
       </ul>
     </nav>
+    </div>
   </div>
 </header>

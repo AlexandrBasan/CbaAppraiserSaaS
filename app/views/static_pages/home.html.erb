@@ -19,27 +19,38 @@
         <td><%= test.col_2_i %></td>
         <td><%= link_to (I18n.t 'button.show'), test, class: "btn btn-sm btn-primary" %></td>
         <td><%= link_to (I18n.t 'button.edit'), edit_test_path(test), class: "btn btn-sm btn-warning" %></td>
-        <td><%= link_to (I18n.t 'button.delete'), test, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+        <td><%= link_to (I18n.t 'button.delete'), test, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-sm btn-danger" %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Test', new_test_path %>
-
-<div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
-    2%
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag import_tests_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag (I18n.t 'button.import'), class: "btn btn-sm btn-primary" %>
+    <% end %>
   </div>
-</div>
 
-
-<!-- export to csv and xls -->
-<div class="panel panel-default">
-  <div align="center" class="panel-body">
-    <%= t ('or') %> <%= (I18n.t 'button.download') %> :
-    <%= link_to "CSV", tests_path(format: "csv"), class: "btn btn-xs btn-default" %> |
-    <%= link_to "Excel", tests_path(format: "xls"), class: "btn btn-xs btn-default" %>
+  <div class="col-md-6 col-md-offset-3">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
+        2%
+      </div>
+    </div>
   </div>
+
+  <div class="col-md-6 col-md-offset-3">
+    <!-- export to csv and xls -->
+    <div class="panel panel-default">
+      <div align="center" class="panel-body">
+        <%= t ('or') %> <%= (I18n.t 'button.download') %> :
+        <%= link_to "CSV", tests_path(format: "csv"), class: "btn btn-xs btn-default" %> |
+        <%= link_to "Excel", tests_path(format: "xls"), class: "btn btn-xs btn-default" %>
+      </div>
+    </div>
+    <!-- export to csv and xls -->
+  </div>
+
 </div>
-<!-- export to csv and xls -->

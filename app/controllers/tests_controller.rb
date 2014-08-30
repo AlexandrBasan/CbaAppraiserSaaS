@@ -18,6 +18,11 @@ class TestsController < ApplicationController
   def show
   end
 
+  def import
+    Test.import(params[:file])
+    redirect_to root_url, notice: "Products imported."
+  end
+
   # GET /tests/new
   def new
     @test = Test.new

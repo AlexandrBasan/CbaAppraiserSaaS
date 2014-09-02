@@ -12,6 +12,7 @@ class TestsController < ApplicationController
       # export to csv and xls
       format.csv { send_data @tests.to_csv }
       format.xls { send_data @tests.to_csv(col_sep: "\t") }
+      # format.xls # { send_data @tests.to_csv(col_sep: "\t") }
     end
   end
 

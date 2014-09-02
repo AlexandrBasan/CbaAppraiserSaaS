@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
 
   # GET /tests
   # GET /tests.json
@@ -93,6 +94,14 @@ class TestsController < ApplicationController
       redirect_to root_path
       flash[:danger] = 'Доступ запрещен'
     else
+    end
+  end
+
+  def check_verification
+    if current_user.try(:verification?)
+    else
+      redirect_to root_path
+      flash[:danger] = 'Доступ запрещен'
     end
   end
 

@@ -19,6 +19,10 @@
         <%= f.label 'Подтверждение пароля' %>
         <%= f.password_field :password_confirmation %>
 
+        <% if current_user && current_user.try(:admin?) %>
+        <%= f.label 'Верификация' %>
+        <%= f.select :verification, options_for_select([["Нет", false], ["Да", true]], selected: :option, :selected => @user.verification) %>
+        <% end %>
 
         <p align="center"><%= f.submit (t 'button.ok'), class: "btn btn-sm btn-primary" %></p>
     <% end %>

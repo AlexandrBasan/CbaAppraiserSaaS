@@ -20,6 +20,8 @@
         <%= f.label 'Подтверждение пароля' %>
         <%= f.password_field :password_confirmation %>
 
+          <%= f.hidden_field :verification, :value => false %>
+
         <%= f.submit (t 'button.ok'), class: "btn btn-sm btn-primary" %>
     <% end %>
     </div>

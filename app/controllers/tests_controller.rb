@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
 
   # GET /tests
   # GET /tests.json
@@ -11,6 +12,7 @@ class TestsController < ApplicationController
       # export to csv and xls
       format.csv { send_data @tests.to_csv }
       format.xls { send_data @tests.to_csv(col_sep: "\t") }
+      # format.xls # { send_data @tests.to_csv(col_sep: "\t") }
     end
   end
 
@@ -96,6 +98,14 @@ class TestsController < ApplicationController
     end
   end
 
+  def check_verification
+    if current_user.try(:verification?)
+    else
+      redirect_to root_path
+      flash[:danger] = 'Доступ запрещен'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_test
@@ -104,6 +114,6 @@ class TestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_params
-      params.require(:test).permit(:col_1_s, :col_2_i)
+      params.require(:test).permit(:col_1_s, :col_2_i, :col_3_ru)
     end
 end

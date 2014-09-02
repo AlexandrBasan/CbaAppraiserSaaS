@@ -5,7 +5,11 @@ class Test < ActiveRecord::Base
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
+      # column headers for table - language
+      column_header = ["ID","col_1_s","col_2_i","created_at","updated_at","Русский"]
       csv << column_names
+      # column headers for table - language
+      csv << column_header
       all.each do |product|
         csv << product.attributes.values_at(*column_names)
       end
@@ -14,7 +18,7 @@ class Test < ActiveRecord::Base
 
   def self.import(file)
     @array_error = Array.new([])
-    allowed_attributes = [ "id","col_1_s","col_2_i","created_at","updated_at"]
+    allowed_attributes = [ "id","col_1_s","col_2_i","col_3_ru","created_at","updated_at"]
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|

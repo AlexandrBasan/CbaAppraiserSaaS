@@ -66,7 +66,7 @@ class UsersController < ApplicationController
   # Save information in database - PRIVAT
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :verification)
   end
 
   # Before filters

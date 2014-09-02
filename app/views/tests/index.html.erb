@@ -37,8 +37,10 @@
 <table class="table table-bordered table-striped">
   <thead>
   <tr>
+    <th>ID</th>
     <th>Col 1 s</th>
     <th>Col 2 i</th>
+    <th>Col 3 ru</th>
     <th></th>
     <th></th>
     <th></th>
@@ -50,8 +52,10 @@
   <tbody>
   <% @tests.each do |test| %>
       <tr>
+        <td><%= test.id %></td>
         <td><%= test.col_1_s %></td>
         <td><%= test.col_2_i %></td>
+        <td><%= test.col_3_ru %></td>
         <td><%= link_to (I18n.t 'button.show'), test, class: "btn btn-sm btn-primary" %></td>
         <td><%= link_to (I18n.t 'button.edit'), edit_test_path(test), class: "btn btn-sm btn-warning" %></td>
         <td><%= link_to (I18n.t 'button.delete'), test, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-sm btn-danger" %></td>

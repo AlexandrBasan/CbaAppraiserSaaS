@@ -10,5 +10,10 @@
   <%= @test.col_2_i %>
 </p>
 
+<p>
+  <strong>Col 3 ru:</strong>
+  <%= @test.col_3_ru %>
+</p>
+
 <%= link_to (I18n.t 'button.edit'), edit_test_path(@test), class: "btn btn-sm btn-warning" %> |
 <%= link_to (I18n.t 'button.back'), tests_path, class: "btn btn-sm btn-primary" %>

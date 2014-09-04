@@ -1,15 +1,45 @@
 class ApartmentsController < ApplicationController
   before_action :set_apartment, only: [:show, :edit, :update, :destroy]
+  before_action :current_user_check_nil
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
+
 
   # GET /apartments
   # GET /apartments.json
   def index
-    @apartments = Apartment.all
+     @apartments= Apartment.paginate(page: params[:page])
+    respond_to do |format|
+      format.html
+      # export to csv and xls
+      format.csv { send_data @apartments.to_csv }
+      format.xls { send_data @apartments.to_csv(col_sep: "\t") }
+      # format.xls # { send_data @tests.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /apartments/1
   # GET /apartments/1.json
   def show
+  end
+
+  def import
+    Apartment.import(params[:file])
+    if Apartment.check_import_errors == true
+      respond_to do |format|
+        format.html { flash[:success] = 'Импорт успешно завершен.'
+        redirect_to apartments_path }
+      end
+    else
+      @error_import = " code_provision: "
+      Apartment.check_import_errors.each_with_index do |product, index|
+        @error_import += "#{product} "
+      end
+      respond_to do |format|
+        format.html { flash[:danger] = ('Ошибка импорта данных. Проверьте данные.' + @error_import)
+        redirect_to root_path }
+      end
+    end
+    #redirect_to root_url, notice: "Products imported."
   end
 
   # GET /apartments/new
@@ -58,6 +88,22 @@ class ApartmentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to apartments_url }
       format.json { head :no_content }
+    end
+  end
+
+  def current_user_check_nil
+    if current_user.nil?
+      redirect_to root_path
+      flash[:danger] = 'Доступ запрещен'
+    else
+    end
+  end
+
+  def check_verification
+    if current_user.try(:verification?)
+    else
+      redirect_to root_path
+      flash[:danger] = 'Доступ запрещен'
     end
   end
 

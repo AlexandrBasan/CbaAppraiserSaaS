@@ -110,5 +110,5 @@
   <%= @apartment.euro_market_value %>
 </p>
 
-<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
-<%= link_to 'Back', apartments_path %>
+<%= link_to (I18n.t 'button.edit'), edit_apartments_path(@apartment), class: "btn btn-sm btn-warning" %> |
+<%= link_to (I18n.t 'button.back'), apartments_path, class: "btn btn-sm btn-primary" %>

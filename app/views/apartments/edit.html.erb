@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @apartment %> |
-<%= link_to 'Back', apartments_path %>
+<%= link_to (I18n.t 'button.show'), @apartment, class: "btn btn-sm btn-default" %> |
+<%= link_to (I18n.t 'button.back'), apartments_path, class: "btn btn-sm btn-primary" %>

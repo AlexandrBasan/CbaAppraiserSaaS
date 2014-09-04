@@ -1,4 +1,6 @@
 CbaAppraiserSoft::Application.routes.draw do
+  resources :apartments
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup', to: 'users#new', via: 'get'

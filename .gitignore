@@ -21,3 +21,4 @@ test/
 .rvmrc
 .ruby-*
 .secret
+atlassian-ide-plugin.xml

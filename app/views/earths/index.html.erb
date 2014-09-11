@@ -1,0 +1,63 @@
+<h1>Listing earths</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code provision</th>
+      <th>Tip</th>
+      <th>Region</th>
+      <th>District</th>
+      <th>City</th>
+      <th>Street type</th>
+      <th>Street name</th>
+      <th>Street name2</th>
+      <th>Namber home</th>
+      <th>Number</th>
+      <th>Housing</th>
+      <th>Room apartment</th>
+      <th>Total area</th>
+      <th>Floor area</th>
+      <th>Area land</th>
+      <th>District number</th>
+      <th>Kategorіya repair</th>
+      <th>Uah market value</th>
+      <th>Usd market value</th>
+      <th>Euro market value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @earths.each do |earth| %>
+      <tr>
+        <td><%= earth.code_provision %></td>
+        <td><%= earth.tip %></td>
+        <td><%= earth.region %></td>
+        <td><%= earth.district %></td>
+        <td><%= earth.city %></td>
+        <td><%= earth.street_type %></td>
+        <td><%= earth.street_name %></td>
+        <td><%= earth.street_name2 %></td>
+        <td><%= earth.namber_home %></td>
+        <td><%= earth.number %></td>
+        <td><%= earth.housing %></td>
+        <td><%= earth.room_apartment %></td>
+        <td><%= earth.total_area %></td>
+        <td><%= earth.floor_area %></td>
+        <td><%= earth.area_land %></td>
+        <td><%= earth.district_number %></td>
+        <td><%= earth.kategorіya_repair %></td>
+        <td><%= earth.uah_market_value %></td>
+        <td><%= earth.usd_market_value %></td>
+        <td><%= earth.euro_market_value %></td>
+        <td><%= link_to 'Show', earth %></td>
+        <td><%= link_to 'Edit', edit_earth_path(earth) %></td>
+        <td><%= link_to 'Destroy', earth, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Earth', new_earth_path %>

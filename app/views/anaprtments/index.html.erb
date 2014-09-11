@@ -1,0 +1,47 @@
+<h1>Listing anaprtments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>District number</th>
+      <th>Numberpp</th>
+      <th>Location</th>
+      <th>Source</th>
+      <th>Area</th>
+      <th>Number rooms</th>
+      <th>Cost analogue usd</th>
+      <th>Floor</th>
+      <th>Storeys</th>
+      <th>Building type</th>
+      <th>Category repair</th>
+      <th>Cost one</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @anapartments.each do |anaprtment| %>
+      <tr>
+        <td><%= anaprtment.district_number %></td>
+        <td><%= anaprtment.numberpp %></td>
+        <td><%= anaprtment.location %></td>
+        <td><%= anaprtment.source %></td>
+        <td><%= anaprtment.area %></td>
+        <td><%= anaprtment.number_rooms %></td>
+        <td><%= anaprtment.cost_analogue_usd %></td>
+        <td><%= anaprtment.floor %></td>
+        <td><%= anaprtment.storeys %></td>
+        <td><%= anaprtment.building_type %></td>
+        <td><%= anaprtment.category_repair %></td>
+        <td><%= anaprtment.cost_one %></td>
+        <td><%= link_to 'Show', anaprtment %></td>
+        <td><%= link_to 'Edit', edit_anaprtment_path(anaprtment) %></td>
+        <td><%= link_to 'Destroy', anaprtment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Anaprtment', new_anaprtment_path %>

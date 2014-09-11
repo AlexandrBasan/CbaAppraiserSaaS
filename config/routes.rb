@@ -1,4 +1,12 @@
 CbaAppraiserSoft::Application.routes.draw do
+  resources :anearts
+
+  resources :anaprtments
+
+  resources :houses
+
+  resources :earths
+
   resources :apartments
 
   resources :users

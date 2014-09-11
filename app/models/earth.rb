@@ -1,12 +1,15 @@
-class Apartment < ActiveRecord::Base
+class Earth < ActiveRecord::Base
 
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       # column headers for table - language
-      column_header = [ "code_provision","new_code","account_number","alt_account_number","tip","region",                       "district", "type_settlement", "city", "street_type", "street_name",
-                        "room_apartment","area","floor_area","number_rooms","storey","floors","series_home",
-                        "district_number", "uah_market_value","usd_market_value","euro_market_value"]
+      column_header = [ "code_provision","tip","region","district",
+                        "city","street_type","street_name","street_name2",
+                        "number_home","number_housing","room_apartment",
+                        "total_area","floor_area","area_land","district_number",
+                        "category_repair","uah_market_value","usd_market_value",
+                        "euro_market_value"]
       csv << column_names
       # column headers for table - language
       csv << column_header
@@ -18,10 +21,11 @@ class Apartment < ActiveRecord::Base
 
   def self.import(file)
     @array_error = Array.new([])
-    allowed_attributes = [ "code_provision","new_code","account_number","alt_account_number","tip","region",
-                           "district","type_settlement","city","street_type","street_name","room_apartment",
-                           "area","floor_area","number_rooms","storey","floors","series_home","district_number",
-                           "uah_market_value","usd_market_value","euro_market_value"]
+    allowed_attributes = [ "code_provision","tip","region","district","city","street_type",
+                           "street_name","street_name2","number_home","number_housing",
+                           "room_apartment","total_area","floor_area","area_land",
+                           "district_number","category_repair","uah_market_value",
+                           "usd_market_value","euro_market_value"]
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|

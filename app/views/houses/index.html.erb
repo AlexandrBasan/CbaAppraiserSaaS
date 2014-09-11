@@ -1,0 +1,63 @@
+<h1>Listing houses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code provision</th>
+      <th>Tip</th>
+      <th>Region</th>
+      <th>District</th>
+      <th>City</th>
+      <th>Street type</th>
+      <th>Street name</th>
+      <th>Street name2</th>
+      <th>Namber home</th>
+      <th>Number</th>
+      <th>Housing</th>
+      <th>Room apartment</th>
+      <th>Total area</th>
+      <th>Floor area</th>
+      <th>Area land</th>
+      <th>District number</th>
+      <th>Kategorіya repair</th>
+      <th>Uah market value</th>
+      <th>Usd market value</th>
+      <th>Euro market value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @houses.each do |house| %>
+      <tr>
+        <td><%= house.code_provision %></td>
+        <td><%= house.tip %></td>
+        <td><%= house.region %></td>
+        <td><%= house.district %></td>
+        <td><%= house.city %></td>
+        <td><%= house.street_type %></td>
+        <td><%= house.street_name %></td>
+        <td><%= house.street_name2 %></td>
+        <td><%= house.namber_home %></td>
+        <td><%= house.number %></td>
+        <td><%= house.housing %></td>
+        <td><%= house.room_apartment %></td>
+        <td><%= house.total_area %></td>
+        <td><%= house.floor_area %></td>
+        <td><%= house.area_land %></td>
+        <td><%= house.district_number %></td>
+        <td><%= house.kategorіya_repair %></td>
+        <td><%= house.uah_market_value %></td>
+        <td><%= house.usd_market_value %></td>
+        <td><%= house.euro_market_value %></td>
+        <td><%= link_to 'Show', house %></td>
+        <td><%= link_to 'Edit', edit_house_path(house) %></td>
+        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New House', new_house_path %>

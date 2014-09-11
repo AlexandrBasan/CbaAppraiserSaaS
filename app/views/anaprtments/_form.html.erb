@@ -1,0 +1,65 @@
+<%= form_for(@anaprtment) do |f| %>
+  <% if @anaprtment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@anaprtment.errors.count, "error") %> prohibited this anaprtment from being saved:</h2>
+
+      <ul>
+      <% @anaprtment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :district_number %><br>
+    <%= f.text_field :district_number %>
+  </div>
+  <div class="field">
+    <%= f.label :numberpp %><br>
+    <%= f.text_field :numberpp %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
+  </div>
+  <div class="field">
+    <%= f.label :area %><br>
+    <%= f.text_field :area %>
+  </div>
+  <div class="field">
+    <%= f.label :number_rooms %><br>
+    <%= f.text_field :number_rooms %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_analogue_usd %><br>
+    <%= f.text_field :cost_analogue_usd %>
+  </div>
+  <div class="field">
+    <%= f.label :floor %><br>
+    <%= f.number_field :floor %>
+  </div>
+  <div class="field">
+    <%= f.label :storeys %><br>
+    <%= f.number_field :storeys %>
+  </div>
+  <div class="field">
+    <%= f.label :building_type %><br>
+    <%= f.text_field :building_type %>
+  </div>
+  <div class="field">
+    <%= f.label :category_repair %><br>
+    <%= f.text_field :category_repair %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_one %><br>
+    <%= f.text_field :cost_one %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

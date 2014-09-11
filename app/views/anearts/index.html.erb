@@ -1,0 +1,37 @@
+<h1>Listing anearts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>District number</th>
+      <th>Analogs address</th>
+      <th>Area</th>
+      <th>Purpose</th>
+      <th>Value proposition usd</th>
+      <th>Information source</th>
+      <th>Value proposition usdone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @anearts.each do |aneart| %>
+      <tr>
+        <td><%= aneart.district_number %></td>
+        <td><%= aneart.analogs_address %></td>
+        <td><%= aneart.area %></td>
+        <td><%= aneart.purpose %></td>
+        <td><%= aneart.value_proposition_usd %></td>
+        <td><%= aneart.information_source %></td>
+        <td><%= aneart.value_proposition_usdone %></td>
+        <td><%= link_to 'Show', aneart %></td>
+        <td><%= link_to 'Edit', edit_aneart_path(aneart) %></td>
+        <td><%= link_to 'Destroy', aneart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aneart', new_aneart_path %>

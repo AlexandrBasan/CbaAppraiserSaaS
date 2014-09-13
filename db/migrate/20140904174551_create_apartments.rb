@@ -12,6 +12,8 @@ class CreateApartments < ActiveRecord::Migration
       t.string :city
       t.string :street_type
       t.string :street_name
+      t.string :number_house
+      t.string :number_house2
       t.string :room_apartment
       t.decimal :area
       t.decimal :floor_area

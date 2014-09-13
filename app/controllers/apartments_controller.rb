@@ -13,7 +13,6 @@ class ApartmentsController < ApplicationController
       # export to csv and xls
       format.csv { send_data @apartments.to_csv }
       format.xls { send_data @apartments.to_csv(col_sep: "\t") }
-      # format.xls # { send_data @tests.to_csv(col_sep: "\t") }
     end
   end
 
@@ -115,6 +114,10 @@ class ApartmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_params
-      params.require(:apartment).permit(:code_provision, :new_code, :account_number, :alt_account_number, :tip, :region, :district, :type_settlement, :city, :street_type, :street_name, :room_apartment, :area, :floor_area, :number_rooms, :storey, :floors, :series_home, :district_number, :uah_market_value, :usd_market_value, :euro_market_value)
+      params.require(:apartment).permit(:code_provision, :new_code, :account_number, :alt_account_number,
+                                        :tip, :region, :district, :type_settlement, :city, :street_type, :street_name,
+                                        :number_house, :number_house2, :room_apartment, :area, :floor_area, :number_rooms, :storey,
+                                        :floors, :series_home, :district_number, :uah_market_value, :usd_market_value,
+                                        :euro_market_value)
     end
 end

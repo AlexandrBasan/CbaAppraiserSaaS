@@ -19,7 +19,7 @@
     <span class="element-divider"></span>
 
     <div class="element">
-      <a class="dropdown-toggle"><%= "Загрузка аналогов" %> </a>
+      <a class="dropdown-toggle" href="#"><%= "Загрузка аналогов" %> </a>
       <ul class="dropdown-menu" data-role="dropdown">
         <li><%= link_to (I18n.t 'menu.house'), anearts_path %></li>
         <li><%= link_to (I18n.t 'menu.appartment'), anaprtments_path %></li>
@@ -28,14 +28,14 @@
 
       <% if signed_in? %>
         <div class="element">
-          <a class="dropdown-toggle"> <%= current_user.email %></a>
+          <a class="dropdown-toggle" href="#"> <%= current_user.email %></a>
           <ul class="dropdown-menu" data-role="dropdown">
             <%= render 'layouts/header/header_account_button' %>
           </ul>
         </div>
       <% if current_user && current_user.try(:admin?) %>
             <div class="element">
-              <a class="dropdown-toggle"> <%= "Настройки системы" %></a>
+              <a class="dropdown-toggle" href="#"> <%= "Настройки системы" %></a>
               <ul class="dropdown-menu" data-role="dropdown">
                 <% if current_user && current_user.try(:admin?) %>
                     <li><%= link_to 'Пользователи системы', users_path %></li>
@@ -47,7 +47,7 @@
             </div>
       <% end %>
       <% else %>
-          <li><%= link_to 'Вход', signin_path %></li>
+
       <% end %>
 
   </nav>

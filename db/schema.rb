@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20140911213819) do
     t.string   "city"
     t.string   "street_type"
     t.string   "street_name"
+    t.string   "number_house"
+    t.string   "number_house2"
     t.string   "room_apartment"
     t.decimal  "area"
     t.decimal  "floor_area"
@@ -118,13 +120,6 @@ ActiveRecord::Schema.define(version: 20140911213819) do
     t.datetime "updated_at"
   end
 
-  create_table "tests", force: true do |t|
-    t.string   "col_1_s"
-    t.integer  "col_2_i"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "col_3_ru"
-  end
 
   create_table "users", force: true do |t|
     t.string   "name"

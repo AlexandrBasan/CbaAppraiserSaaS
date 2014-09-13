@@ -10,7 +10,7 @@
       <div class="panel-content">
         <%= form_tag import_apartments_path, multipart: true do %>
             <%= file_field_tag :file %>
-            <%= submit_tag (I18n.t 'button.import'), class: "btn btn-sm btn-primary" %>
+            <%= submit_tag (I18n.t 'button.import'), class: "button large" %>
         <% end %>
       </div>
     </div>
@@ -43,42 +43,46 @@
     </div>
   </div>
 </div>
-<h3 align="center">Listing apartments</h3>
-
-<table class="hovered">
+<div class="panel" data-role="panel">
+  <div class="panel-header bg-cyan">
+Список квартир
+  </div>
+  <div class="panel-content">
+<div align="center">
+<%= will_paginate %>
+</div>
+<table class="table table-striped table-hover hovered striped bordered">
   <thead>
     <tr>
-      <th>Code provision</th>
-      <th>New code</th>
-      <th>Account number</th>
-      <th>Alt account number</th>
-      <th>Tip</th>
-      <th>Region</th>
-      <th>District</th>
-      <th>Type settlement</th>
-      <th>City</th>
-      <th>Street type</th>
-      <th>Street name</th>
-      <th>Room apartment</th>
-      <th>Area</th>
-      <th>Floor area</th>
-      <th>Number rooms</th>
-      <th>Storey</th>
-      <th>Floors</th>
-      <th>Series home</th>
-      <th>District number</th>
-      <th>Uah market value</th>
-      <th>Usd market value</th>
-      <th>Euro market value</th>
-      <th></th>
-      <th></th>
+      <th>Kод oбеспечення</th>
+      <th>Новый код</th>
+      <th>Номер счета</th>
+      <th>Альтернативный номер счета</th>
+      <th>Тип обеспечения</th>
+      <th>Область</th>
+      <th>Район</th>
+      <th>Тип населенного пунтка</th>
+      <th>Город</th>
+      <th>Тип улицы</th>
+      <th>Название улицы</th>
+      <th>Номер дома</th>
+      <th>Номер дома</th>
+      <th>Номер квартиры</th>
+      <th>Площадь</th>
+      <th>Жилая площадь, кв.м</th>
+      <th>Кол. комнат</th>
+      <th>Этаж</th>
+      <th>Этажность</th>
+      <th>Серия дома</th>
+      <th>№ района</th>
+      <th>Рыночная стоимость, грн</th>
+      <th>Рыночная стоимость, дол.США</th>
+      <th>Рыночная стоимость, евро</th>
       <th></th>
     </tr>
   </thead>
-  <div align="center">
-    <%= will_paginate %>
-  </div>
   <tbody>
+
     <% @apartments.each do |apartment| %>
       <tr>
         <td><%= apartment.code_provision %></td>
@@ -92,6 +96,8 @@
         <td><%= apartment.city %></td>
         <td><%= apartment.street_type %></td>
         <td><%= apartment.street_name %></td>
+        <td><%= apartment.number_house %></td>
+        <td><%= apartment.number_house2 %></td>
         <td><%= apartment.room_apartment %></td>
         <td><%= apartment.area %></td>
         <td><%= apartment.floor_area %></td>
@@ -103,14 +109,14 @@
         <td><%= apartment.uah_market_value %></td>
         <td><%= apartment.usd_market_value %></td>
         <td><%= apartment.euro_market_value %></td>
-        <td><%= link_to 'Show', apartment %></td>
-        <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
-        <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_apartment_path(apartment) %>
+        <br/><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
-  <div align="center">
-    <%= will_paginate %>
-  </div>
 </table>
-
+<div align="center">
+  <%= will_paginate %>
+</div>
+  </div>
+</div>

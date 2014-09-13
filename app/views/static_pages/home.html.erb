@@ -1,8 +1,6 @@
 <% if signed_in? %>
-    <div class="row">
-      <div align="center">
-        <div class="panel panel-default">
-          <div class="panel-body">
+      <div class="6 offset3">
+
             <%= link_to (houses_path) do %>
                 <div class="tile bg-cyan">
                   <div class="tile-content icon">
@@ -10,7 +8,7 @@
                   </div>
                   <div class="tile-status">
                     <span class="name"><%= (I18n.t 'menu.house') %></span>
-                    <div class="badge"><%= @houses.count %></div>
+                    <div class="badge bg-red"><%= @houses.count %></div>
                   </div>
                 </div>
           <% end %>
@@ -21,7 +19,7 @@
                   </div>
                   <div class="tile-status">
                     <span class="name"><%= (I18n.t 'menu.appartment') %> </span>
-                    <div class="badge"><%= @apartments.count %></div>
+                    <div class="badge bg-red"><%= @apartments.count %></div>
                   </div>
                 </div>
             <% end %>
@@ -32,15 +30,13 @@
                   </div>
                   <div class="tile-status">
                     <span class="name"><%= (I18n.t 'menu.earth') %> </span>
-                    <div class="badge"><%= @earths.count %></div>
+                    <div class="badge bg-red"><%= @earths.count %></div>
                   </div>
                 </div>
             <% end %>
-          </div>
-        </div>
+
 
       </div>
-    </div>
 <% else %>
     <div class="center jumbotron">
       <h1>CBA APPRAISER</h1>

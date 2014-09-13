@@ -3,17 +3,38 @@
       <div align="center">
         <div class="panel panel-default">
           <div class="panel-body">
-            <%= link_to (tests_path) do %>
-                <button type="button" class="btn btn-default btn-lg"><%= (I18n.t 'menu.test') %> <span class="badge"><%= @tests.count %></span></button>
-            <% end %>
-            <%= link_to (tests_path) do %>
-                <button type="button" class="btn btn-default btn-lg"><%= (I18n.t 'menu.house') %> <span class="badge"><%= @homes.count %></span></button>
-            <% end %>
+            <%= link_to (houses_path) do %>
+                <div class="tile bg-cyan">
+                  <div class="tile-content icon">
+                    <i class="icon-home"></i>
+                  </div>
+                  <div class="tile-status">
+                    <span class="name"><%= (I18n.t 'menu.house') %></span>
+                    <div class="badge"><%= @houses.count %></div>
+                  </div>
+                </div>
+          <% end %>
             <%= link_to (apartments_path) do %>
-                <button type="button" class="btn btn-default btn-lg"><%= (I18n.t 'menu.appartment') %> <span class="badge"><%= @apartments %></span></button>
+                <div class="tile bg-amber">
+                  <div class="tile-content icon">
+                    <i class=" icon-key-2"></i>
+                  </div>
+                  <div class="tile-status">
+                    <span class="name"><%= (I18n.t 'menu.appartment') %> </span>
+                    <div class="badge"><%= @apartments.count %></div>
+                  </div>
+                </div>
             <% end %>
-            <%= link_to (tests_path) do %>
-                <button type="button" class="btn btn-default btn-lg"><%= (I18n.t 'menu.earth') %> <span class="badge"><%= @earths.count %></span></button>
+            <%= link_to (earths_path) do %>
+                <div class="tile bg-green">
+                  <div class="tile-content icon">
+                    <i class="icon-pie"></i>
+                  </div>
+                  <div class="tile-status">
+                    <span class="name"><%= (I18n.t 'menu.earth') %> </span>
+                    <div class="badge"><%= @earths.count %></div>
+                  </div>
+                </div>
             <% end %>
           </div>
         </div>

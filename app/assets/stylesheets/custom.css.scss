@@ -1,4 +1,3 @@
-@import "bootstrap";
 
 /* mixins, variables, etc. */
 
@@ -272,4 +271,8 @@ input {
 }
 .bs-callout-primary {
   border-left-color: #428bca;
+}
+
+.brand img {
+  width: 50px;
 }

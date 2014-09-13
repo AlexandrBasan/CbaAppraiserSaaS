@@ -3,10 +3,9 @@ class StaticPagesController < ApplicationController
 
 
   def home
-    @tests = Test.paginate(page: params[:page])
-    @earths = Test.paginate(page: params[:page])
-    @homes = Test.paginate(page: params[:page])
-    @appartments = Test.paginate(page: params[:page])
+    @earths = Earth.paginate(page: params[:page])
+    @houses = House.paginate(page: params[:page])
+    @apartments = Apartment.paginate(page: params[:page])
   end
 
 

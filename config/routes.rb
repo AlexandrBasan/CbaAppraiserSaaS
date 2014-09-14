@@ -16,10 +16,19 @@ CbaAppraiserSoft::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
 
-  resources :tests do
+  resources :apartments do
     collection { post :import }
   end
-  resources :apartments do
+  resources :earths do
+    collection { post :import }
+  end
+  resources :houses do
+    collection { post :import }
+  end
+  resources :anaprtments do
+    collection { post :import }
+  end
+  resources :anearts do
     collection { post :import }
   end
 

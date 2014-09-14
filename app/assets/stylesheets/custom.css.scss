@@ -280,3 +280,15 @@ input {
   border: 1px #eaeaea solid;
   margin-bottom: 20px;
 }
+
+button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-dialog-titlebar-close {
+  position: relative;
+  float: right;
+  z-index: 99999999;
+  background-color: red;
+  height: 25px;
+  width: 45px;
+  top: 18px;
+  content: open-quote;
+  right: 10px;
+}

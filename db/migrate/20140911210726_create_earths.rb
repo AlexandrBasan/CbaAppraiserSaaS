@@ -10,8 +10,7 @@ class CreateEarths < ActiveRecord::Migration
       t.string :street_name
       t.string :street_name2
       t.string :number_home
-      t.string :number
-      t.string :housing
+      t.string :number_housing
       t.string :room_apartment
       t.decimal :total_area
       t.decimal :floor_area

@@ -5,6 +5,7 @@ class AneartsController < ApplicationController
   # GET /anearts
   # GET /anearts.json
   def index
+    @aneart= Aneart.new
     @anearts= Aneart.paginate(page: params[:page])
     respond_to do |format|
       format.html
@@ -56,7 +57,7 @@ end
 
     respond_to do |format|
       if @aneart.save
-        format.html { redirect_to @aneart, notice: 'Aneart was successfully created.' }
+        format.html { redirect_to anearts_path, notice: 'Aneart was successfully created.' }
         format.json { render action: 'show', status: :created, location: @aneart }
       else
         format.html { render action: 'new' }

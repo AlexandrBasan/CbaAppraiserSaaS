@@ -6,12 +6,12 @@ class AnaprtmentsController < ApplicationController
   # GET /anaprtments
   # GET /anaprtments.json
   def index
-    @anapartments= Anaprtment.paginate(page: params[:page])
+    @anaprtments= Anaprtment.paginate(page: params[:page])
     respond_to do |format|
       format.html
       # export to csv and xls
-      format.csv { send_data @anapartments.to_csv }
-      format.xls { send_data @anapartments.to_csv(col_sep: "\t") }
+      format.csv { send_data @anaprtments.to_csv }
+      format.xls { send_data @anaprtments.to_csv(col_sep: "\t") }
       # format.xls # { send_data @tests.to_csv(col_sep: "\t") }
   end
 end

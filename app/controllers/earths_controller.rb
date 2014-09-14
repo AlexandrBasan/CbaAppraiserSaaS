@@ -25,8 +25,8 @@ class EarthsController < ApplicationController
         redirect_to earths_path }
       end
     else
-      @error_import = " district_number: "
-      aneart.check_import_errors.each_with_index do |product, index|
+      @error_import = " code_provision: "
+      Earth.check_import_errors.each_with_index do |product, index|
         @error_import += "#{product} "
       end
       respond_to do |format|

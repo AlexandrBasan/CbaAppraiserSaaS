@@ -1,0 +1,23 @@
+<%= link_to (users_path) do %>
+<div class="tile live bg-cyan" data-role="live-tile" data-effect="slideLeft">
+    <div class="tile-content icon">
+      <i class="icon-user-3"></i>
+      <span class="nametile">
+      <%= @users.last.name %>
+          </span>
+    </div>
+
+  <div class="tile-content icon">
+    <i class="icon-user-3"></i>
+    <span class="nametile">
+    <%= @users.first.name %>
+       </span>
+  </div>
+  <div class="brand">
+        <span class="name">
+            Пользо<br/>ватели
+        </span>
+    <div class="badge bg-red"><%= @users.count %></div>
+  </div>
+</div>
+<% end %>

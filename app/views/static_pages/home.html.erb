@@ -1,5 +1,5 @@
 <% if signed_in? %>
-      <div class="8 offset3">
+      <div class="10 offset1">
           <div class="span4">
             <h2>Данные банка</h2>
             <%= link_to (houses_path) do %>
@@ -61,7 +61,12 @@
               </div>
             </div>
         <% end %>
-</div>
+     </div>
+        <div class="span4">
+          <h2>Настройки</h2>
+<%= render 'shared/tiles_user' %>
+
+        </div>
 
       </div>
 <% else %>

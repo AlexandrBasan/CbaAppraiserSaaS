@@ -8,6 +8,7 @@ class StaticPagesController < ApplicationController
     @apartments = Apartment.paginate(page: params[:page])
     @anearts = Aneart.paginate(page: params[:page])
     @anaprtments = Anaprtment.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page])
   end
 
 

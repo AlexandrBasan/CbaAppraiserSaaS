@@ -7,6 +7,7 @@ class ApartmentsController < ApplicationController
   # GET /apartments
   # GET /apartments.json
   def index
+
      @apartments= Apartment.paginate(page: params[:page])
     respond_to do |format|
       format.html
@@ -89,6 +90,10 @@ class ApartmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+def delete_all
+  @apartment.delete_all
+
+end
 
   def current_user_check_nil
     if current_user.nil?

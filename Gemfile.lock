@@ -28,7 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
-    autoprefixer-rails (3.0.1.20140826)
+    autoprefixer-rails (3.1.0.20140911)
       execjs
     bcrypt-ruby (3.1.2)
     builder (3.2.2)
@@ -147,7 +147,7 @@ DEPENDENCIES
   faker (= 1.1.2)
   iconv
   jbuilder (~> 1.2)
-  jquery-rails
+  jquery-rails (~> 3.1.0)
   pg (= 0.15.1)
   prawn
   rails (= 4.1.5)

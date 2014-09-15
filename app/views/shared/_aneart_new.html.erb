@@ -12,34 +12,34 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :district_number %><br>
+      <%= f.label '№ района' %><br>
       <%= f.text_field :district_number %>
     </div>
     <div class="field">
-      <%= f.label :analogs_address %><br>
+      <%= f.label 'Аналоги, адреса' %><br>
       <%= f.text_field :analogs_address %>
     </div>
     <div class="field">
-      <%= f.label :area %><br>
+      <%= f.label 'Площа, кв м' %><br>
       <%= f.text_field :area %>
     </div>
     <div class="field">
-      <%= f.label :purpose %><br>
+      <%= f.label 'Призначення' %><br>
       <%= f.text_field :purpose %>
     </div>
     <div class="field">
-      <%= f.label :value_proposition_usd %><br>
+      <%= f.label 'Вартість пропозиції/дол США' %><br>
       <%= f.text_field :value_proposition_usd %>
     </div>
     <div class="field">
-      <%= f.label :information_source %><br>
+      <%= f.label 'Джерело інформації' %><br>
       <%= f.text_field :information_source %>
     </div>
     <div class="field">
-      <%= f.label :value_proposition_usdone %><br>
+      <%= f.label 'Вартість пропозиції, дол США/м2' %><br>
       <%= f.text_field :value_proposition_usdone %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Создать запись'%>
     </div>
 <% end %>

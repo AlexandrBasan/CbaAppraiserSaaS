@@ -1,6 +1,7 @@
 <% if signed_in? %>
-      <div class="6 offset3">
-
+      <div class="8 offset3">
+          <div class="span4">
+            <h2>Данные банка</h2>
             <%= link_to (houses_path) do %>
                 <div class="tile bg-cyan">
                   <div class="tile-content icon">
@@ -23,6 +24,7 @@
                   </div>
                 </div>
             <% end %>
+
             <%= link_to (earths_path) do %>
                 <div class="tile bg-green">
                   <div class="tile-content icon">
@@ -34,7 +36,32 @@
                   </div>
                 </div>
             <% end %>
-
+          </div>
+        <div class="span4">
+          <h2>Данные аналога</h2>
+        <%= link_to (anearts_path) do %>
+            <div class="tile bg-lightGreen">
+              <div class="tile-content icon">
+                <i class="icon-chart-alt"></i>
+              </div>
+              <div class="tile-status">
+                <span class="name">Аналоги земля</span>
+                <div class="badge bg-red"><%= @anearts.count %></div>
+              </div>
+            </div>
+        <% end %>
+        <%= link_to (anaprtments_path) do %>
+            <div class="tile bg-lightOrange">
+              <div class="tile-content icon">
+                <i class="icon-key"></i>
+              </div>
+              <div class="tile-status">
+                <span class="name">Аналоги квартир</span>
+                <div class="badge bg-red"><%= @anaprtments.count %></div>
+              </div>
+            </div>
+        <% end %>
+</div>
 
       </div>
 <% else %>

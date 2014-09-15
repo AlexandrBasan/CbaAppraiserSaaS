@@ -6,6 +6,8 @@ class StaticPagesController < ApplicationController
     @earths = Earth.paginate(page: params[:page])
     @houses = House.paginate(page: params[:page])
     @apartments = Apartment.paginate(page: params[:page])
+    @anearts = Aneart.paginate(page: params[:page])
+    @anaprtments = Anaprtment.paginate(page: params[:page])
   end
 
 

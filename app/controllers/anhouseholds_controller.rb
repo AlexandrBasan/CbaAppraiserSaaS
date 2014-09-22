@@ -1,11 +1,40 @@
 class AnhouseholdsController < ApplicationController
   before_action :set_anhousehold, only: [:show, :edit, :update, :destroy]
+  before_action :current_user_check_nil
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
 
   # GET /anhouseholds
   # GET /anhouseholds.json
   def index
-    @anhouseholds = Anhousehold.all
+    @anhouseholds = Anhousehold.paginate(page: params[:page])
+    respond_to do |format|
+      format.html
+      # export to csv and xls
+      format.csv { send_data @apartments.to_csv }
+      format.xls { send_data @apartments.to_csv(col_sep: "\t") }
+    end
   end
+
+  def import
+    Anhousehold.import(params[:file])
+    if Anhousehold.check_import_errors == true
+      respond_to do |format|
+        format.html { flash[:success] = 'Импорт успешно завершен.'
+        redirect_to anhousehold_path }
+      end
+    else
+      @error_import = " code_provision: "
+      Anhousehold.check_import_errors.each_with_index do |product, index|
+        @error_import += "#{product} "
+      end
+      respond_to do |format|
+        format.html { flash[:danger] = ('Ошибка импорта данных. Проверьте данные.' + @error_import)
+        redirect_to root_path }
+      end
+    end
+    #redirect_to root_url, notice: "Products imported."
+  end
+
 
   # GET /anhouseholds/1
   # GET /anhouseholds/1.json
@@ -61,6 +90,22 @@ class AnhouseholdsController < ApplicationController
     end
   end
 
+
+  def current_user_check_nil
+    if current_user.nil?
+      redirect_to root_path
+      flash[:danger] = 'Доступ запрещен'
+    else
+    end
+  end
+
+  def check_verification
+    if current_user.try(:verification?)
+    else
+      redirect_to root_path
+      flash[:danger] = 'Доступ запрещен'
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_anhousehold

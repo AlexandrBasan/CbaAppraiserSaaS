@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922133210) do
+ActiveRecord::Schema.define(version: 20140922150108) do
 
   create_table "anaprtments", force: true do |t|
-    t.integer   "district_number"
-    t.integer   "numberpp"
+    t.integer  "district_number"
+    t.integer  "numberpp"
     t.string   "location"
     t.string   "source"
     t.decimal  "area"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140922133210) do
     t.decimal  "cost_analogue_usd"
     t.integer  "floor"
     t.integer  "storeys"
-    t.integer   "building_type"
+    t.integer  "building_type"
     t.string   "category_repair"
     t.decimal  "cost_one"
     t.datetime "created_at"
@@ -31,13 +31,33 @@ ActiveRecord::Schema.define(version: 20140922133210) do
   end
 
   create_table "anearts", force: true do |t|
-    t.integer   "district_number"
+    t.integer  "district_number"
     t.string   "analogs_address"
     t.decimal  "area"
     t.string   "purpose"
     t.decimal  "value_proposition_usd"
     t.string   "information_source"
     t.decimal  "value_proposition_usdone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "anhouseholds", force: true do |t|
+    t.integer  "number_district"
+    t.string   "danalog"
+    t.decimal  "darea_building"
+    t.decimal  "darea_land"
+    t.decimal  "dvalue_proposition_usd"
+    t.decimal  "dvalue_proposition_usd_no_land"
+    t.decimal  "dvalue_proposition_usd_kvm"
+    t.string   "dcategory_repair"
+    t.string   "dsource_information"
+    t.string   "zanalog"
+    t.decimal  "zarea"
+    t.string   "zpurpose"
+    t.decimal  "zvalue_proposition_usd"
+    t.string   "zsource_information"
+    t.decimal  "zvalue_proposition_usd_kvm"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -117,7 +137,7 @@ ActiveRecord::Schema.define(version: 20140922133210) do
     t.decimal  "total_area"
     t.decimal  "floor_area"
     t.decimal  "area_land"
-    t.integer   "district_number"
+    t.integer  "district_number"
     t.string   "category_repair"
     t.decimal  "uah_market_value"
     t.decimal  "usd_market_value"
@@ -126,11 +146,31 @@ ActiveRecord::Schema.define(version: 20140922133210) do
     t.datetime "updated_at"
   end
 
+  create_table "kolrooms", force: true do |t|
+    t.integer  "num_analog"
+    t.integer  "o1"
+    t.integer  "o2"
+    t.integer  "o3"
+    t.integer  "o4"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "repairs", force: true do |t|
-    t.integer   "high"
-    t.integer   "eurorepair"
-    t.integer   "advanced"
-    t.integer   "simple"
+    t.integer  "high"
+    t.integer  "eurorepair"
+    t.integer  "advanced"
+    t.integer  "simple"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tiphouses", force: true do |t|
+    t.integer  "num_analog"
+    t.integer  "o1"
+    t.integer  "o2"
+    t.integer  "o3"
+    t.integer  "o4"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

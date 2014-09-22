@@ -8,6 +8,8 @@
 
     </div>
     <% if signed_in? %>
+
+        <span class="element-divider"></span>
     <div class="element">
       <a class="dropdown-toggle" href="#"><%= "Загрузка данных от банка" %></a>
       <ul class="dropdown-menu" data-role="dropdown">
@@ -26,12 +28,16 @@
         <li><%= link_to (I18n.t 'menu.appartment'), anaprtments_path %></li>
       </ul>
     </div>
+
+        <span class="element-divider"></span>
         <div class="element">
           <a class="dropdown-toggle" href="#"> <%= current_user.email %></a>
           <ul class="dropdown-menu" data-role="dropdown">
             <%= render 'layouts/header/header_account_button' %>
           </ul>
         </div>
+
+        <span class="element-divider"></span>
       <% if current_user && current_user.try(:admin?) %>
             <div class="element">
               <a class="dropdown-toggle" href="#"> <%= "Настройки системы" %></a>
@@ -42,11 +48,16 @@
                 <% else %>
                 <% end %>
                 <li><%= link_to "Настройка валют", currencies_path %></li>
+                <li class="divider"></li>
                 <li><%= link_to "Настройка категорий ремонта", repairs_path %></li>
-                <li><%= link_to "Настройка типов дома", tiphouse_path %></li>
-                <li><%= link_to "Настройка количества квартир", kolroom_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Настройка типов дома", tiphouses_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Настройка количества квартир", kolrooms_path %></li>
               </ul>
             </div>
+
+            <span class="element-divider"></span>
       <% end %>
       <% else %>
 

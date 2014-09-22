@@ -1,6 +1,6 @@
 <% if signed_in? %>
       <div class="10 offset1">
-          <div class="span4">
+        <div class="span4">
             <h2>Данные банка</h2>
             <%= link_to (houses_path) do %>
                 <div class="tile bg-cyan">
@@ -61,6 +61,17 @@
               </div>
             </div>
         <% end %>
+          <%= link_to (anhouseholds_path) do %>
+              <div class="tile bg-darkBlue">
+                <div class="tile-content icon">
+                  <i class="icon-key"></i>
+                </div>
+                <div class="tile-status">
+                  <span class="name">Домо<br/>владения</span>
+                  <div class="badge bg-red"><%= @anhouseholds.count %></div>
+                </div>
+              </div>
+          <% end %>
      </div>
         <div class="span4">
           <h2>Настройки</h2>
@@ -75,8 +86,44 @@
               <div class="badge bg-red"><%= @currencies.count %></div>
             </div>
           </div>
-        </div>
+
 <% end %>
+          <%= link_to (repairs_path) do %>
+              <div class="tile bg-lightOlive">
+                <div class="tile-content icon">
+                  <i class="icon-wrench"></i>
+                </div>
+                <div class="tile-status">
+                  <span class="name">Тип <br/>ремонта</span>
+                  <div class="badge bg-red"><%= @repairs.count %></div>
+                </div>
+              </div>
+
+          <% end %>
+          <%= link_to (tiphouses_path) do %>
+              <div class="tile bg-lightOlive">
+                <div class="tile-content icon">
+                  <i class="icon-folder-2"></i>
+                </div>
+                <div class="tile-status">
+                  <span class="name">Тип дома</span>
+                  <div class="badge bg-red"><%= @tiphouses.count %></div>
+                </div>
+              </div>
+
+          <% end %>
+          <%= link_to (kolrooms_path) do %>
+              <div class="tile bg-lightOlive">
+                <div class="tile-content icon">
+                  <i class="icon-folder-2"></i>
+                </div>
+                <div class="tile-status">
+                  <span class="name">Количество комнат</span>
+                  <div class="badge bg-red"><%= @kolrooms.count %></div>
+                </div>
+              </div>
+
+          <% end %>
       </div>
 <% else %>
     <div class="center jumbotron">
@@ -92,5 +139,5 @@
       </h5>
 
     </div>
-
+</div>
 <% end %>

@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911213819) do
+ActiveRecord::Schema.define(version: 20140922133210) do
 
   create_table "anaprtments", force: true do |t|
-    t.string   "district_number"
-    t.string   "numberpp"
+    t.integer   "district_number"
+    t.integer   "numberpp"
     t.string   "location"
     t.string   "source"
     t.decimal  "area"
-    t.decimal  "number_rooms"
+    t.integer  "number_rooms"
     t.decimal  "cost_analogue_usd"
     t.integer  "floor"
     t.integer  "storeys"
-    t.string   "building_type"
+    t.integer   "building_type"
     t.string   "category_repair"
     t.decimal  "cost_one"
     t.datetime "created_at"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140911213819) do
   end
 
   create_table "anearts", force: true do |t|
-    t.string   "district_number"
+    t.integer   "district_number"
     t.string   "analogs_address"
     t.decimal  "area"
     t.string   "purpose"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(version: 20140911213819) do
     t.datetime "updated_at"
   end
 
+  create_table "currencies", force: true do |t|
+    t.decimal  "value"
+    t.string   "symbol"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "earths", force: true do |t|
     t.string   "code_provision"
     t.string   "tip"
@@ -86,7 +93,7 @@ ActiveRecord::Schema.define(version: 20140911213819) do
     t.decimal  "total_area"
     t.decimal  "floor_area"
     t.decimal  "area_land"
-    t.string   "district_number"
+    t.integer  "district_number"
     t.string   "category_repair"
     t.decimal  "uah_market_value"
     t.decimal  "usd_market_value"
@@ -110,7 +117,7 @@ ActiveRecord::Schema.define(version: 20140911213819) do
     t.decimal  "total_area"
     t.decimal  "floor_area"
     t.decimal  "area_land"
-    t.string   "district_number"
+    t.integer   "district_number"
     t.string   "category_repair"
     t.decimal  "uah_market_value"
     t.decimal  "usd_market_value"
@@ -119,6 +126,14 @@ ActiveRecord::Schema.define(version: 20140911213819) do
     t.datetime "updated_at"
   end
 
+  create_table "repairs", force: true do |t|
+    t.integer   "high"
+    t.integer   "eurorepair"
+    t.integer   "advanced"
+    t.integer   "simple"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

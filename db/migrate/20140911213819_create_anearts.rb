@@ -1,7 +1,7 @@
 class CreateAnearts < ActiveRecord::Migration
   def change
     create_table :anearts do |t|
-      t.string :district_number
+      t.integer :district_number
       t.string :analogs_address
       t.decimal :area
       t.string :purpose

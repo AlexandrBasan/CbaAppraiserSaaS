@@ -9,6 +9,7 @@ class StaticPagesController < ApplicationController
     @anearts = Aneart.paginate(page: params[:page])
     @anaprtments = Anaprtment.paginate(page: params[:page])
     @users = User.paginate(page: params[:page])
+    @currencies = Currency
   end
 
 

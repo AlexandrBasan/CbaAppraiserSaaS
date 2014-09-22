@@ -1,0 +1,53 @@
+<h1>Listing anhouseholds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number district</th>
+      <th>Danalog</th>
+      <th>Darea building</th>
+      <th>Darea land</th>
+      <th>Dvalue proposition usd</th>
+      <th>Dvalue proposition usd no land</th>
+      <th>Dvalue proposition usd kvm</th>
+      <th>Dcategory repair</th>
+      <th>Dsource information</th>
+      <th>Zanalog</th>
+      <th>Zarea</th>
+      <th>Zpurpose</th>
+      <th>Zvalue proposition usd</th>
+      <th>Zsource information</th>
+      <th>Zvalue proposition usd kvm</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @anhouseholds.each do |anhousehold| %>
+      <tr>
+        <td><%= anhousehold.number_district %></td>
+        <td><%= anhousehold.danalog %></td>
+        <td><%= anhousehold.darea_building %></td>
+        <td><%= anhousehold.darea_land %></td>
+        <td><%= anhousehold.dvalue_proposition_usd %></td>
+        <td><%= anhousehold.dvalue_proposition_usd_no_land %></td>
+        <td><%= anhousehold.dvalue_proposition_usd_kvm %></td>
+        <td><%= anhousehold.dcategory_repair %></td>
+        <td><%= anhousehold.dsource_information %></td>
+        <td><%= anhousehold.zanalog %></td>
+        <td><%= anhousehold.zarea %></td>
+        <td><%= anhousehold.zpurpose %></td>
+        <td><%= anhousehold.zvalue_proposition_usd %></td>
+        <td><%= anhousehold.zsource_information %></td>
+        <td><%= anhousehold.zvalue_proposition_usd_kvm %></td>
+        <td><%= link_to 'Show', anhousehold %></td>
+        <td><%= link_to 'Edit', edit_anhousehold_path(anhousehold) %></td>
+        <td><%= link_to 'Destroy', anhousehold, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Anhousehold', new_anhousehold_path %>

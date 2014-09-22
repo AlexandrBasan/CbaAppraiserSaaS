@@ -15,7 +15,7 @@ class CreateHouses < ActiveRecord::Migration
       t.decimal :total_area
       t.decimal :floor_area
       t.decimal :area_land
-      t.string :district_number
+      t.integer :district_number
       t.string :category_repair
       t.decimal :uah_market_value
       t.decimal :usd_market_value

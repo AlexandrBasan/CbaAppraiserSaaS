@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>High:</strong>
+  <%= @repair.high %>
+</p>
+
+<p>
+  <strong>Eurorepair:</strong>
+  <%= @repair.eurorepair %>
+</p>
+
+<p>
+  <strong>Advanced:</strong>
+  <%= @repair.advanced %>
+</p>
+
+<p>
+  <strong>Simple:</strong>
+  <%= @repair.simple %>
+</p>
+
+<%= link_to 'Edit', edit_repair_path(@repair) %> |
+<%= link_to 'Back', repairs_path %>

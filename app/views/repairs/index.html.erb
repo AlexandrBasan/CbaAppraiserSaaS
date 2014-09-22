@@ -1,0 +1,31 @@
+<h1>Listing repairs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Высококачественный</th>
+      <th>Евроремонт</th>
+      <th>Улучшеный</th>
+      <th>Обычный</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @repairs.each do |repair| %>
+      <tr>
+        <td><%= repair.high %></td>
+        <td><%= repair.eurorepair %></td>
+        <td><%= repair.advanced %></td>
+        <td><%= repair.simple %></td>
+        <td><%= link_to 'Show', repair %><br/>
+        <%= link_to 'Edit', edit_repair_path(repair) %><br/>
+        <%= link_to 'Destroy', repair, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Repair', new_repair_path %>

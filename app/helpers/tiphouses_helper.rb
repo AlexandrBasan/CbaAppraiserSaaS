@@ -1,0 +1,2 @@
+module TiphousesHelper
+end

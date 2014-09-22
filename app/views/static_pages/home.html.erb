@@ -65,9 +65,18 @@
         <div class="span4">
           <h2>Настройки</h2>
 <%= render 'shared/tiles_user' %>
-
+          <%= link_to (currencies_path) do %>
+          <div class="tile bg-green">
+            <div class="tile-content icon">
+              <i class="icon-dollar-2"></i>
+            </div>
+            <div class="tile-status">
+              <span class="name">Валюта</span>
+              <div class="badge bg-red"><%= @currencies.count %></div>
+            </div>
+          </div>
         </div>
-
+<% end %>
       </div>
 <% else %>
     <div class="center jumbotron">

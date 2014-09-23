@@ -14,7 +14,9 @@
       <a class="dropdown-toggle" href="#"><%= "Загрузка данных от банка" %></a>
       <ul class="dropdown-menu" data-role="dropdown">
         <li><%= link_to (I18n.t 'menu.house'), houses_path %></li>
+        <li class="divider"></li>
         <li><%= link_to (I18n.t 'menu.appartment'), apartments_path %></li>
+        <li class="divider"></li>
         <li><%= link_to (I18n.t 'menu.earth'), earths_path %></li>
       </ul>
     </div>
@@ -25,7 +27,10 @@
       <a class="dropdown-toggle" href="#"><%= "Загрузка аналогов" %> </a>
       <ul class="dropdown-menu" data-role="dropdown">
         <li><%= link_to (I18n.t 'menu.earth'), anearts_path %></li>
+        <li class="divider"></li>
         <li><%= link_to (I18n.t 'menu.appartment'), anaprtments_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Домовладение", anhouseholds_path %></li>
       </ul>
     </div>
 

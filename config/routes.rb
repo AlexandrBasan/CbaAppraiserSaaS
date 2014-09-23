@@ -41,7 +41,9 @@ CbaAppraiserSoft::Application.routes.draw do
   resources :anearts do
     collection { post :import }
   end
-
+  resources :anhouseholds do
+    collection { post :import }
+  end
   resources :apartments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

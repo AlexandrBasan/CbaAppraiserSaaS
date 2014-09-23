@@ -1,6 +1,9 @@
-<h1>Listing repairs</h1>
-
-<table>
+<div class="panel" data-role="panel">
+  <div class="panel-header bg-cyan">
+    Тип ремонта
+  </div>
+  <div class="panel-content">
+    <table class="table table-striped table-hover hovered striped bordered">
   <thead>
     <tr>
       <th>Высококачественный</th>
@@ -18,14 +21,12 @@
         <td><%= repair.eurorepair %></td>
         <td><%= repair.advanced %></td>
         <td><%= repair.simple %></td>
-        <td><%= link_to 'Show', repair %><br/>
+        <td>
         <%= link_to 'Edit', edit_repair_path(repair) %><br/>
         <%= link_to 'Destroy', repair, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Repair', new_repair_path %>
+  </div>
+</div>

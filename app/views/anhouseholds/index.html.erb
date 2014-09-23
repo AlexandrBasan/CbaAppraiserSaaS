@@ -1,24 +1,79 @@
-<h1>Listing anhouseholds</h1>
 
-<table>
+<div class="span12">
+  <h1>Домовладение</h1>
+  <div class="row">
+    <div class="span6">
+      <div class="panel" data-role="panel">
+        <div class="panel-header bg-lime">
+          <%= (I18n.t 'button.import') %> *.XLS
+        </div>
+        <div class="panel-content">
+          <%= form_tag import_anhouseholds_path, multipart: true do %>
+              <%= file_field_tag :file %>
+              <%= submit_tag (I18n.t 'button.import'), class: "button large" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="panel" data-role="panel">
+        <div class="panel-header bg-lightOrange">
+          <%= (I18n.t 'button.download') %> *.XLS
+        </div>
+        <div class="panel-content">
+
+          <button class="image-button primary">
+            <%= link_to (I18n.t 'button.download') , anhouseholds_path(format: "xls")%>
+            <i class="icon-download-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="panel" data-role="panel">
+    <div class="panel-header bg-yellow">
+      <%= 'Обработка загруженных данных' %>
+    </div>
+    <div class="panel-content">
+      <h5 align="center"><%= link_to "Обработать данные", anhouseholds_path, class: "button large bg-green" %></h5>
+      <h5 align="center"><%= "Статус обработки..." %></h5>
+      <div class="progress-bar large" data-role="progress-bar" data-color="bg-green">20%</div>
+    </div>
+  </div>
+</div>
+<div class="panel" data-role="panel">
+  <div class="panel-header bg-cyan">
+    Список домовладений
+  </div>
+  <div class="panel-content">
+    <div align="center">
+      <%= will_paginate %>
+    </div>
+
+    <table class="table table-striped table-hover hovered striped bordered">
   <thead>
     <tr>
-      <th>Number district</th>
-      <th>Danalog</th>
-      <th>Darea building</th>
-      <th>Darea land</th>
-      <th>Dvalue proposition usd</th>
-      <th>Dvalue proposition usd no land</th>
-      <th>Dvalue proposition usd kvm</th>
-      <th>Dcategory repair</th>
-      <th>Dsource information</th>
-      <th>Zanalog</th>
-      <th>Zarea</th>
-      <th>Zpurpose</th>
-      <th>Zvalue proposition usd</th>
-      <th>Zsource information</th>
-      <th>Zvalue proposition usd kvm</th>
-      <th colspan="3"></th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>№ района</th>
+      <th>Аналоги, адреса</th>
+      <th>Площа будівля, приміщення, кв.м.</th>
+      <th>Площа землі, кв.м.</th>
+      <th>Вартість пропозиції/дол. США</th>
+      <th>Вартість пропозиції без землі/дол. США</th>
+      <th>Вартість пропозиції, м.кв./дол. США</th>
+      <th>Категорія ремонту</th>
+      <th>Джерело інформації</th>
+      <th>Аналоги, адреса</th>
+      <th>Площа, кв.м.</th>
+      <th>Призначення</th>
+      <th>Вартість пропозиції/дол. США</th>
+      <th>Джерело інформації</th>
+      <th>Вартість пропозиції, дол. США/м2</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -40,14 +95,14 @@
         <td><%= anhousehold.zvalue_proposition_usd %></td>
         <td><%= anhousehold.zsource_information %></td>
         <td><%= anhousehold.zvalue_proposition_usd_kvm %></td>
-        <td><%= link_to 'Show', anhousehold %></td>
-        <td><%= link_to 'Edit', edit_anhousehold_path(anhousehold) %></td>
-        <td><%= link_to 'Destroy', anhousehold, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_anhousehold_path(anhousehold) %><br/>
+        <%= link_to 'Destroy', anhousehold, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Anhousehold', new_anhousehold_path %>
+<div align="center">
+  <%= will_paginate %>
+</div>
+</div>
+</div>

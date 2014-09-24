@@ -1,7 +1,7 @@
 class ApartmentsController < ApplicationController
   before_action :set_apartment, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
 
 
   # GET /apartments
@@ -89,9 +89,7 @@ class ApartmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def destroy_all
-    Apartment.delete_all
-  end
+
 
 
   def current_user_check_nil

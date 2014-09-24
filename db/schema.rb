@@ -165,6 +165,14 @@ ActiveRecord::Schema.define(version: 20140922150108) do
     t.datetime "updated_at"
   end
 
+  create_table "tests", force: true do |t|
+    t.string   "col_1_s"
+    t.integer  "col_2_i"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "col_3_ru"
+  end
+
   create_table "tiphouses", force: true do |t|
     t.integer  "num_analog"
     t.integer  "o1"
@@ -182,7 +190,7 @@ ActiveRecord::Schema.define(version: 20140922150108) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           default: false
+    t.boolean  "admin"
     t.boolean  "verification"
   end
 

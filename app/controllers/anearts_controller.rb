@@ -1,7 +1,7 @@
 class AneartsController < ApplicationController
   before_action :set_aneart, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
   # GET /anearts
   # GET /anearts.json
   def index
@@ -90,9 +90,6 @@ end
     end
   end
 
-  def destroy_all
-    Aneart.delete_all
-  end
 
   def current_user_check_nil
     if current_user.nil?

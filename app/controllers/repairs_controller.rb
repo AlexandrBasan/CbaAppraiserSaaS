@@ -1,5 +1,7 @@
 class RepairsController < ApplicationController
   before_action :set_repair, only: [:show, :edit, :update, :destroy]
+  before_action :current_user_check_nil
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
 
   # GET /repairs
   # GET /repairs.json
@@ -58,6 +60,29 @@ class RepairsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to repairs_url }
       format.json { head :no_content }
+    end
+  end
+
+  def current_user_check_nil
+    if current_user.nil?
+      redirect_to root_path
+      flash[:danger] = 'Доступ запрещен'
+    else
+    end
+  end
+
+  def check_verification
+    if current_user.try(:verification?)
+    else
+      redirect_to root_path
+      flash[:danger] = 'Доступ запрещен'
+    end
+  end
+
+  def check_admin
+    if current_user && current_user.admin?
+      redirect_to root_path
+      flash[:danger] = 'Доступ запрещен'
     end
   end
 

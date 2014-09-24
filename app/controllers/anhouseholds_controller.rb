@@ -1,7 +1,7 @@
 class AnhouseholdsController < ApplicationController
   before_action :set_anhousehold, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
 
   # GET /anhouseholds
   # GET /anhouseholds.json
@@ -88,9 +88,6 @@ class AnhouseholdsController < ApplicationController
       format.html { redirect_to anhouseholds_url }
       format.json { head :no_content }
     end
-  end
-  def destroy_all
-    Anhousehold.delete_all
   end
 
 

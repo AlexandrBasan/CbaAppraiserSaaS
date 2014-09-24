@@ -54,6 +54,7 @@ gem 'roo'
 gem 'iconv'
 # pdf
 gem 'prawn'
+gem 'destroyall'
 
 
 gem 'bcrypt-ruby', '3.1.2'

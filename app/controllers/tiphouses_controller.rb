@@ -1,5 +1,7 @@
 class TiphousesController < ApplicationController
   before_action :set_tiphouse, only: [:show, :edit, :update, :destroy]
+  before_action :current_user_check_nil
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all]
 
   # GET /tiphouses
   # GET /tiphouses.json
@@ -58,6 +60,26 @@ class TiphousesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tiphouses_url }
       format.json { head :no_content }
+    end
+  end
+  def destroy_all
+    Tiphouse.delete_all
+  end
+
+
+  def current_user_check_nil
+    if current_user.nil?
+      redirect_to root_path
+      flash[:danger] = 'Доступ запрещен'
+    else
+    end
+  end
+
+  def check_verification
+    if current_user.try(:verification?)
+    else
+      redirect_to root_path
+      flash[:danger] = 'Доступ запрещен'
     end
   end
 

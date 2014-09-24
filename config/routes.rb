@@ -1,4 +1,24 @@
 CbaAppraiserSoft::Application.routes.draw do
+  resources :anhouseholds
+
+  resources :kolrooms
+
+  resources :tiphouses
+
+  resources :repairs
+
+  resources :currencies
+
+  resources :anearts
+
+  resources :anaprtments
+
+  resources :houses
+
+  resources :earths
+
+  resources :apartments
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup', to: 'users#new', via: 'get'
@@ -6,10 +26,25 @@ CbaAppraiserSoft::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
 
-  resources :tests do
+  resources :apartments do
     collection { post :import }
   end
-
+  resources :earths do
+    collection { post :import }
+  end
+  resources :houses do
+    collection { post :import }
+  end
+  resources :anaprtments do
+    collection { post :import }
+  end
+  resources :anearts do
+    collection { post :import }
+  end
+  resources :anhouseholds do
+    collection { post :import }
+  end
+  resources :apartments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

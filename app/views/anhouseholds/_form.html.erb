@@ -1,0 +1,77 @@
+<%= form_for(@anhousehold) do |f| %>
+  <% if @anhousehold.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@anhousehold.errors.count, "error") %> prohibited this anhousehold from being saved:</h2>
+
+      <ul>
+      <% @anhousehold.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number_district %><br>
+    <%= f.number_field :number_district %>
+  </div>
+  <div class="field">
+    <%= f.label :danalog %><br>
+    <%= f.text_field :danalog %>
+  </div>
+  <div class="field">
+    <%= f.label :darea_building %><br>
+    <%= f.text_field :darea_building %>
+  </div>
+  <div class="field">
+    <%= f.label :darea_land %><br>
+    <%= f.text_field :darea_land %>
+  </div>
+  <div class="field">
+    <%= f.label :dvalue_proposition_usd %><br>
+    <%= f.text_field :dvalue_proposition_usd %>
+  </div>
+  <div class="field">
+    <%= f.label :dvalue_proposition_usd_no_land %><br>
+    <%= f.text_field :dvalue_proposition_usd_no_land %>
+  </div>
+  <div class="field">
+    <%= f.label :dvalue_proposition_usd_kvm %><br>
+    <%= f.text_field :dvalue_proposition_usd_kvm %>
+  </div>
+  <div class="field">
+    <%= f.label :dcategory_repair %><br>
+    <%= f.text_field :dcategory_repair %>
+  </div>
+  <div class="field">
+    <%= f.label :dsource_information %><br>
+    <%= f.text_field :dsource_information %>
+  </div>
+  <div class="field">
+    <%= f.label :zanalog %><br>
+    <%= f.text_field :zanalog %>
+  </div>
+  <div class="field">
+    <%= f.label :zarea %><br>
+    <%= f.text_field :zarea %>
+  </div>
+  <div class="field">
+    <%= f.label :zpurpose %><br>
+    <%= f.text_field :zpurpose %>
+  </div>
+  <div class="field">
+    <%= f.label :zvalue_proposition_usd %><br>
+    <%= f.text_field :zvalue_proposition_usd %>
+  </div>
+  <div class="field">
+    <%= f.label :zsource_information %><br>
+    <%= f.text_field :zsource_information %>
+  </div>
+  <div class="field">
+    <%= f.label :zvalue_proposition_usd_kvm %><br>
+    <%= f.text_field :zvalue_proposition_usd_kvm %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

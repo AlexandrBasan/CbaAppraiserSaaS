@@ -1,0 +1,105 @@
+<%= form_for(@apartment) do |f| %>
+  <% if @apartment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
+
+      <ul>
+      <% @apartment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code_provision %><br>
+    <%= f.text_field :code_provision %>
+  </div>
+  <div class="field">
+    <%= f.label :new_code %><br>
+    <%= f.text_field :new_code %>
+  </div>
+  <div class="field">
+    <%= f.label :account_number %><br>
+    <%= f.text_field :account_number %>
+  </div>
+  <div class="field">
+    <%= f.label :alt_account_number %><br>
+    <%= f.text_field :alt_account_number %>
+  </div>
+  <div class="field">
+    <%= f.label :tip %><br>
+    <%= f.text_field :tip %>
+  </div>
+  <div class="field">
+    <%= f.label :region %><br>
+    <%= f.text_field :region %>
+  </div>
+  <div class="field">
+    <%= f.label :district %><br>
+    <%= f.text_field :district %>
+  </div>
+  <div class="field">
+    <%= f.label :type_settlement %><br>
+    <%= f.text_field :type_settlement %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :street_type %><br>
+    <%= f.text_field :street_type %>
+  </div>
+  <div class="field">
+    <%= f.label :street_name %><br>
+    <%= f.text_field :street_name %>
+  </div>
+  <div class="field">
+    <%= f.label :room_apartment %><br>
+    <%= f.text_field :room_apartment %>
+  </div>
+  <div class="field">
+    <%= f.label :area %><br>
+    <%= f.text_field :area %>
+  </div>
+  <div class="field">
+    <%= f.label :floor_area %><br>
+    <%= f.text_field :floor_area %>
+  </div>
+  <div class="field">
+    <%= f.label :number_rooms %><br>
+    <%= f.number_field :number_rooms %>
+  </div>
+  <div class="field">
+    <%= f.label :storey %><br>
+    <%= f.number_field :storey %>
+  </div>
+  <div class="field">
+    <%= f.label :floors %><br>
+    <%= f.number_field :floors %>
+  </div>
+  <div class="field">
+    <%= f.label :series_home %><br>
+    <%= f.number_field :series_home %>
+  </div>
+  <div class="field">
+    <%= f.label :district_number %><br>
+    <%= f.number_field :district_number %>
+  </div>
+  <div class="field">
+    <%= f.label :uah_market_value %><br>
+    <%= f.text_field :uah_market_value %>
+  </div>
+  <div class="field">
+    <%= f.label :usd_market_value %><br>
+    <%= f.text_field :usd_market_value %>
+  </div>
+  <div class="field">
+    <%= f.label :euro_market_value %><br>
+    <%= f.text_field :euro_market_value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

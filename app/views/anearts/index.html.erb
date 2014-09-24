@@ -1,0 +1,108 @@
+<div class="span12">
+  <h1>Аналоги земли</h1>
+  <div class="row">
+    <div class="span6">
+      <div class="panel" data-role="panel">
+        <div class="panel-header bg-lime">
+          <%= (I18n.t 'button.import') %> *.XLS
+        </div>
+        <div class="panel-content">
+          <%= form_tag import_anearts_path, multipart: true do %>
+              <%= file_field_tag :file %>
+              <%= submit_tag (I18n.t 'button.import'), class: "button large" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="panel" data-role="panel">
+        <div class="panel-header bg-lightOrange">
+          <%= (I18n.t 'button.download') %> *.XLS
+        </div>
+        <div class="panel-content">
+
+          <button class="image-button primary">
+            <%= link_to (I18n.t 'button.download') , anearts_path(format: "xls")%>
+            <i class="icon-download-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="panel" data-role="panel">
+    <div class="panel-header bg-yellow">
+      <%= 'Обработка загруженных данных' %>
+    </div>
+    <div class="panel-content">
+      <h5 align="center"><%= link_to "Обработать данные", anearts_path, class: "button large bg-green" %></h5>
+      <h5 align="center"><%= "Статус обработки..." %></h5>
+      <div class="progress-bar large" data-role="progress-bar" data-color="bg-green">20%</div>
+    </div>
+  </div>
+</div>
+<div class="panel" data-role="panel">
+  <div class="panel-header bg-cyan">
+    Список аналогов земли
+  </div>
+  <div id="dialog2" class="window">
+    <div class="caption">
+      <span class="icon icon-windows"></span>
+      <div class="title">Запись аналога земли</div>
+    </div>
+    <div class="content">
+      <%= render 'shared/aneart_new'%>
+    </div>
+  </div>
+  <button id="opener2" class="button large info">Новая запись</button>
+  <div class="panel-content">
+
+    <div align="center">
+      <%= will_paginate %>
+    </div>
+    <table class="table table-striped table-hover hovered striped bordered">
+  <thead>
+    <tr>
+      <th>№ района</th>
+      <th>Аналоги, адреса</th>
+      <th>Площа, кв.м.</th>
+      <th>Призначення</th>
+      <th>Вартість пропозиції/дол. США</th>
+      <th>Джерело інформації</th>
+      <th>Вартість пропозиції, дол. США/м2</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @anearts.each do |aneart| %>
+      <tr>
+        <td><%= aneart.district_number %></td>
+        <td><%= aneart.analogs_address %></td>
+        <td><%= aneart.area %></td>
+        <td><%= aneart.purpose %></td>
+        <td><%= aneart.value_proposition_usd %></td>
+        <td><%= aneart.information_source %></td>
+        <td><%= aneart.value_proposition_usdone %></td>
+        <td><%= link_to 'Edit', edit_aneart_path(aneart) %></td>
+        <td><%= link_to 'Destroy', aneart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div align="center">
+  <%= will_paginate %>
+</div>
+</div>
+</div>
+<div id="dialog" class="window">
+  <div class="caption">
+    <span class="icon icon-windows"></span>
+    <div class="title">Запись аналога земли</div>
+  </div>
+  <div class="content">
+<%= render 'shared/aneart_new'%>
+  </div>
+</div>
+<button id="opener"  class="button large info">Новая запись</button>

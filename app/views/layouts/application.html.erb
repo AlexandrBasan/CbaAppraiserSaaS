@@ -7,28 +7,31 @@
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
-<body>
+<body class="metro">
 <%= render 'layouts/header' %>
-<div class="data">
+<div class="grid fluid">
+  <div class="row">
+
   <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
+    <div class="6 offset 3">
 <%= content = yield %>
+    </div>
 <!--Back To Top Button-->
-<% if content.length > 1200 %>
+<% if content.length > 3200 %>
     <%= link_to("#top") do %>
         <div id="backtotop" style="display: block;">
         </div>
     <% end %>
 <% end %>
-</div>
-<div class="container">
+
+<div class="span12">
   <% cache "footer" do %>
       <%= render 'layouts/footer' %>
   <% end %>
-  <%= debug(params) if Rails.env.development? %>
 </div>
-
-
+</div>
+</div>
 </body>
 </html>

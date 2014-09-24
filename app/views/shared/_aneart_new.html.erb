@@ -1,0 +1,45 @@
+<%= form_for(@aneart) do |f| %>
+    <% if @aneart.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@aneart.errors.count, "error") %> prohibited this aneart from being saved:</h2>
+
+          <ul>
+            <% @aneart.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label '№ района' %><br>
+      <%= f.text_field :district_number %>
+    </div>
+    <div class="field">
+      <%= f.label 'Аналоги, адреса' %><br>
+      <%= f.text_field :analogs_address %>
+    </div>
+    <div class="field">
+      <%= f.label 'Площа, кв м' %><br>
+      <%= f.text_field :area %>
+    </div>
+    <div class="field">
+      <%= f.label 'Призначення' %><br>
+      <%= f.text_field :purpose %>
+    </div>
+    <div class="field">
+      <%= f.label 'Вартість пропозиції/дол США' %><br>
+      <%= f.text_field :value_proposition_usd %>
+    </div>
+    <div class="field">
+      <%= f.label 'Джерело інформації' %><br>
+      <%= f.text_field :information_source %>
+    </div>
+    <div class="field">
+      <%= f.label 'Вартість пропозиції, дол США/м2' %><br>
+      <%= f.text_field :value_proposition_usdone %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Создать запись'%>
+    </div>
+<% end %>

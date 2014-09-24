@@ -2,9 +2,8 @@
 <h3 align="center"><%= t :sign_up %>!</h3>
 
 <div class="row" style="margin-right: 0px; margin-left: 0px;">
-  <div class="col-md-6 col-md-offset-3">
 
-    <div class="well">
+
     <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
 
@@ -24,7 +23,6 @@
 
         <%= f.submit (t 'button.ok'), class: "btn btn-sm btn-primary" %>
     <% end %>
-    </div>
-  </div>
+
   </div>
 </div>

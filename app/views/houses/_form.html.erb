@@ -1,0 +1,97 @@
+<%= form_for(@house) do |f| %>
+  <% if @house.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@house.errors.count, "error") %> prohibited this house from being saved:</h2>
+
+      <ul>
+      <% @house.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code_provision %><br>
+    <%= f.text_field :code_provision %>
+  </div>
+  <div class="field">
+    <%= f.label :tip %><br>
+    <%= f.text_field :tip %>
+  </div>
+  <div class="field">
+    <%= f.label :region %><br>
+    <%= f.text_field :region %>
+  </div>
+  <div class="field">
+    <%= f.label :district %><br>
+    <%= f.text_field :district %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :street_type %><br>
+    <%= f.text_field :street_type %>
+  </div>
+  <div class="field">
+    <%= f.label :street_name %><br>
+    <%= f.text_field :street_name %>
+  </div>
+  <div class="field">
+    <%= f.label :street_name2 %><br>
+    <%= f.text_field :street_name2 %>
+  </div>
+  <div class="field">
+    <%= f.label :namber_home %><br>
+    <%= f.text_field :namber_home %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :housing %><br>
+    <%= f.text_field :housing %>
+  </div>
+  <div class="field">
+    <%= f.label :room_apartment %><br>
+    <%= f.text_field :room_apartment %>
+  </div>
+  <div class="field">
+    <%= f.label :total_area %><br>
+    <%= f.text_field :total_area %>
+  </div>
+  <div class="field">
+    <%= f.label :floor_area %><br>
+    <%= f.text_field :floor_area %>
+  </div>
+  <div class="field">
+    <%= f.label :area_land %><br>
+    <%= f.text_field :area_land %>
+  </div>
+  <div class="field">
+    <%= f.label :district_number %><br>
+    <%= f.text_field :district_number %>
+  </div>
+  <div class="field">
+    <%= f.label :kategorіya_repair %><br>
+    <%= f.text_field :kategorіya_repair %>
+  </div>
+  <div class="field">
+    <%= f.label :uah_market_value %><br>
+    <%= f.text_field :uah_market_value %>
+  </div>
+  <div class="field">
+    <%= f.label :usd_market_value %><br>
+    <%= f.text_field :usd_market_value %>
+  </div>
+  <div class="field">
+    <%= f.label :euro_market_value %><br>
+    <%= f.text_field :euro_market_value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,9 +1,11 @@
-<header class="navbar navbar-default navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
+<header>
+<nav class="navigation-bar">
+  <nav class="navigation-bar-content">
+    <div class="element">
       <% cache "logo" do %>
-      <%= link_to image_tag("cba_logo.png", alt: ""), root_path, :class => "brand" %>
+          <%= link_to image_tag("cba_logo.png", alt: ""), root_path, :class => "brand" %>
       <% end %>
+<<<<<<< HEAD
     <nav>
       <ul class="nav nav-pills pull-right">
         <% if signed_in? %>
@@ -58,20 +60,71 @@
                 <%= "Настройки системы" %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
+=======
+
+    </div>
+    <% if signed_in? %>
+
+        <span class="element-divider"></span>
+    <div class="element">
+      <a class="dropdown-toggle" href="#"><%= "Загрузка данных от банка" %></a>
+      <ul class="dropdown-menu" data-role="dropdown">
+        <li><%= link_to (I18n.t 'menu.house'), houses_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to (I18n.t 'menu.appartment'), apartments_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to (I18n.t 'menu.earth'), earths_path %></li>
+      </ul>
+    </div>
+
+    <span class="element-divider"></span>
+
+    <div class="element">
+      <a class="dropdown-toggle" href="#"><%= "Загрузка аналогов" %> </a>
+      <ul class="dropdown-menu" data-role="dropdown">
+        <li><%= link_to (I18n.t 'menu.earth'), anearts_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to (I18n.t 'menu.appartment'), anaprtments_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Домовладение", anhouseholds_path %></li>
+      </ul>
+    </div>
+
+        <span class="element-divider"></span>
+        <div class="element">
+          <a class="dropdown-toggle" href="#"> <%= current_user.email %></a>
+          <ul class="dropdown-menu" data-role="dropdown">
+            <%= render 'layouts/header/header_account_button' %>
+          </ul>
+        </div>
+
+        <span class="element-divider"></span>
+      <% if current_user && current_user.try(:admin?) %>
+            <div class="element">
+              <a class="dropdown-toggle" href="#"> <%= "Настройки системы" %></a>
+              <ul class="dropdown-menu" data-role="dropdown">
+>>>>>>> FETCH_HEAD
                 <% if current_user && current_user.try(:admin?) %>
                     <li><%= link_to 'Пользователи системы', users_path %></li>
                     <li class="divider"></li>
                 <% else %>
                 <% end %>
-                <li><%= link_to "Настройка параметров и коэффициентов", tests_path %></li>
+                <li><%= link_to "Настройка валют", currencies_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Настройка категорий ремонта", repairs_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Настройка типов дома", tiphouses_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Настройка количества квартир", kolrooms_path %></li>
               </ul>
-            </li>
-            <% end %>
+            </div>
+
+            <span class="element-divider"></span>
+      <% end %>
       <% else %>
-            <li><%= link_to 'Вход', signin_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-    </div>
-  </div>
+
+      <% end %>
+
+  </nav>
+</nav>
 </header>

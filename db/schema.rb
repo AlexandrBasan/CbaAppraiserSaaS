@@ -11,14 +11,168 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902074013) do
+ActiveRecord::Schema.define(version: 20140922150108) do
 
-  create_table "tests", force: true do |t|
-    t.string   "col_1_s"
-    t.integer  "col_2_i"
+  create_table "anaprtments", force: true do |t|
+    t.integer  "district_number"
+    t.integer  "numberpp"
+    t.string   "location"
+    t.string   "source"
+    t.decimal  "area"
+    t.integer  "number_rooms"
+    t.decimal  "cost_analogue_usd"
+    t.integer  "floor"
+    t.integer  "storeys"
+    t.integer  "building_type"
+    t.string   "category_repair"
+    t.decimal  "cost_one"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "col_3_ru"
+  end
+
+  create_table "anearts", force: true do |t|
+    t.integer  "district_number"
+    t.string   "analogs_address"
+    t.decimal  "area"
+    t.string   "purpose"
+    t.decimal  "value_proposition_usd"
+    t.string   "information_source"
+    t.decimal  "value_proposition_usdone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "anhouseholds", force: true do |t|
+    t.integer  "number_district"
+    t.string   "danalog"
+    t.decimal  "darea_building"
+    t.decimal  "darea_land"
+    t.decimal  "dvalue_proposition_usd"
+    t.decimal  "dvalue_proposition_usd_no_land"
+    t.decimal  "dvalue_proposition_usd_kvm"
+    t.string   "dcategory_repair"
+    t.string   "dsource_information"
+    t.string   "zanalog"
+    t.decimal  "zarea"
+    t.string   "zpurpose"
+    t.decimal  "zvalue_proposition_usd"
+    t.string   "zsource_information"
+    t.decimal  "zvalue_proposition_usd_kvm"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "apartments", force: true do |t|
+    t.string   "code_provision"
+    t.string   "new_code"
+    t.string   "account_number"
+    t.string   "alt_account_number"
+    t.string   "tip"
+    t.string   "region"
+    t.string   "district"
+    t.string   "type_settlement"
+    t.string   "city"
+    t.string   "street_type"
+    t.string   "street_name"
+    t.string   "number_house"
+    t.string   "number_house2"
+    t.string   "room_apartment"
+    t.decimal  "area"
+    t.decimal  "floor_area"
+    t.integer  "number_rooms"
+    t.integer  "storey"
+    t.integer  "floors"
+    t.integer  "series_home"
+    t.integer  "district_number"
+    t.decimal  "uah_market_value"
+    t.decimal  "usd_market_value"
+    t.decimal  "euro_market_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "currencies", force: true do |t|
+    t.decimal  "value"
+    t.string   "symbol"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "earths", force: true do |t|
+    t.string   "code_provision"
+    t.string   "tip"
+    t.string   "region"
+    t.string   "district"
+    t.string   "city"
+    t.string   "street_type"
+    t.string   "street_name"
+    t.string   "street_name2"
+    t.string   "number_home"
+    t.string   "number_housing"
+    t.string   "room_apartment"
+    t.decimal  "total_area"
+    t.decimal  "floor_area"
+    t.decimal  "area_land"
+    t.integer  "district_number"
+    t.string   "category_repair"
+    t.decimal  "uah_market_value"
+    t.decimal  "usd_market_value"
+    t.decimal  "euro_market_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "houses", force: true do |t|
+    t.string   "code_provision"
+    t.string   "tip"
+    t.string   "region"
+    t.string   "district"
+    t.string   "city"
+    t.string   "street_type"
+    t.string   "street_name"
+    t.string   "street_name2"
+    t.string   "number_home"
+    t.string   "number_housing"
+    t.string   "room_apartment"
+    t.decimal  "total_area"
+    t.decimal  "floor_area"
+    t.decimal  "area_land"
+    t.integer  "district_number"
+    t.string   "category_repair"
+    t.decimal  "uah_market_value"
+    t.decimal  "usd_market_value"
+    t.decimal  "euro_market_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "kolrooms", force: true do |t|
+    t.integer  "num_analog"
+    t.integer  "o1"
+    t.integer  "o2"
+    t.integer  "o3"
+    t.integer  "o4"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "repairs", force: true do |t|
+    t.integer  "high"
+    t.integer  "eurorepair"
+    t.integer  "advanced"
+    t.integer  "simple"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tiphouses", force: true do |t|
+    t.integer  "num_analog"
+    t.integer  "o1"
+    t.integer  "o2"
+    t.integer  "o3"
+    t.integer  "o4"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -28,7 +182,7 @@ ActiveRecord::Schema.define(version: 20140902074013) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin"
+    t.boolean  "admin",           default: false
     t.boolean  "verification"
   end
 

@@ -1,11 +1,12 @@
 class Apartment < ActiveRecord::Base
   #before_save :total
-  validates :uah_market_value, presence: true
+ #validates :uah_market_value, presence: true
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       # column headers for table - language
-      column_header = [ "code_provision","new_code","account_number","alt_account_number","tip","region",                       "district", "type_settlement", "city", "street_type", "street_name",
+      column_header = [ "code_provision","new_code","account_number","alt_account_number","tip","region",
+                        "district", "type_settlement", "city", "street_type", "street_name",
                         "room_apartment","area","floor_area","number_rooms","storey","floors","series_home",
                         "district_number", "uah_market_value","usd_market_value","euro_market_value"]
       csv << column_names
@@ -20,13 +21,13 @@ class Apartment < ActiveRecord::Base
   def self.import(file)
     @array_error = Array.new([])
     allowed_attributes = [ "code_provision","new_code","account_number","alt_account_number","tip","region",
-    "district","type_settlement","city","street_type","street_name","room_apartment",
+    "district","type_settlement","city","street_type","street_name","number_house","number_house2","room_apartment",
         "area","floor_area","number_rooms","storey","floors","series_home","district_number",
         "uah_market_value","usd_market_value","euro_market_value"]
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
     header = [ "code_provision","new_code","account_number","alt_account_number","tip","region",
-               "district","type_settlement","city","street_type", "number_house", "number_house2", "street_name","room_apartment",
+               "district","type_settlement","city","street_type", "street_name", "number_house", "number_house2","room_apartment",
                "area","floor_area","number_rooms","storey","floors","series_home","district_number",
                "uah_market_value","usd_market_value","euro_market_value"]
     (2..spreadsheet.last_row).each do |i|

@@ -1,5 +1,5 @@
 <% @apartments.each do |apartment| %>
-
+    <% @full_all = 0.0 %>
     <h2>Інформація про об'єкт оцінки </h2>
     <table class="table table-striped table-hover hovered striped bordered">
       <thead>
@@ -89,6 +89,7 @@
       <% @anaprtments.where(district_number: apartment.district_number).each do |anaprtment| %>
           <tr>
 
+
             <td><%= anaprtment.location %></td>
             <td><%= @cost_anal = number_with_precision(anaprtment.cost_one, precision: 2) %></td>
             <td><%= @torg %>%</td>
@@ -158,12 +159,21 @@
               <% end %>
             </td>
             <td>
-              <%= (100 + @torg + @tip_buld + @flo + @kolr) %>
+              <%= @full = number_with_precision(@cost_anal*((100 + @torg + @tip_buld + @flo + @kolr)/100), precision: 2) %>
+              <% @full_all = @full_all.to_f.to_d + @full.to_s.to_d %>
+
             </td>
           </tr>
 
       <% end %>
       </tbody>
     </table>
+    Середнє арифметичне значення 1 кв.м./дол.США  <%= number_with_precision(@full_all.to_f.to_d/@anaprtments.where(district_number:
+                                                          apartment.district_number).count, precision: 2) %> <br/>
+    Ринкова вартість, дол.США  <%= @valueusd = number_with_precision(apartment.area*
+         (@full_all.to_f.to_d/@anaprtments.where(district_number: apartment.district_number).count), precision: 2) %><br/>
+    Ринкова вартість, грн <%= @valueuah = number_with_precision(@valueusd.to_f.to_d * Currency.first.value, precision: 2) %><br/>
+    Ринкова вартість, евро <%= number_with_precision(@valueuah.to_f.to_d / Currency.last.value, precision: 2) %>
+
 <% end %>
 <div class="divider"></div>

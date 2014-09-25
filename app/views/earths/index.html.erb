@@ -106,11 +106,11 @@
         <td><%= earth.area_land %></td>
         <td><%= earth.district_number %></td>
         <td><%= earth.category_repair %></td>
-        <td><%= earth.uah_market_value %></td>
-        <td><%= earth.usd_market_value %></td>
-        <td><%= earth.euro_market_value %></td>
-        <td><%= link_to 'Edit', edit_earth_path(earth) %>
-        <br/><%= link_to 'Destroy', earth, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= press( earth.uah_market_value)%></td>
+        <td><%= press(earth.usd_market_value) %></td>
+        <td><%= press(earth.euro_market_value) %></td>
+        <td><%= link_to 'Edit', edit_earth_path(earth), class: "button normal bg-orange" %>
+        <br/><%= link_to 'Destroy', earth, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
       </tr>
     <% end %>
   </tbody>

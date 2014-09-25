@@ -22,6 +22,9 @@ class Aneart < ActiveRecord::Base
                           "value_proposition_usdone"]
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
+    header = ["district_number","analogs_address","area","purpose",
+              "value_proposition_usd","information_source",
+              "value_proposition_usdone"]
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       product = find_by_id(row["district_number"]) || new

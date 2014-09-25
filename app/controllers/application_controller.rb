@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
       super
     end
 
+    def press(value)
+      number_with_precision(value, precision: 2)
+    end
+
     private
 
     def content_tag_string(name, content, options, *)

@@ -107,8 +107,8 @@
         <td><%= anhousehold.zsource_information %></td>
         <td><%= anhousehold.zvalue_proposition_usd_kvm %></td>
         <th><%= anhousehold.mediana %></th>
-        <td><%= link_to 'Edit', edit_anhousehold_path(anhousehold) %><br/>
-        <%= link_to 'Destroy', anhousehold, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_anhousehold_path(anhousehold), class: "button normal bg-orange" %><br/>
+        <%= link_to 'Destroy', anhousehold, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
       </tr>
     <% end %>
   </tbody>

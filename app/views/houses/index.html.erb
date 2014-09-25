@@ -44,7 +44,6 @@
         <div class="progress-bar large" data-role="progress-bar" data-color="bg-green">20%</div>
       </div>
       <div class="span6">
-        <%= link_to "Destroy all", data: { confirm: 'Are you sure?' }, class: "button large bg-red" , :onclick => Destroyall.destroy_all(House) %>
         <% if @houses.empty?%>
         <% else %>
             <%= link_to "Очистить базу", houses_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red" %>

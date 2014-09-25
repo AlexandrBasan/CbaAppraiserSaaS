@@ -1,5 +1,5 @@
 class House < ActiveRecord::Base
-  #before_save :total
+  before_save :total
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       # column headers for table - language

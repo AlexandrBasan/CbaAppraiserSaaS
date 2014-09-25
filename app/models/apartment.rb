@@ -1,5 +1,6 @@
 class Apartment < ActiveRecord::Base
-  before_save :total
+  #before_save :total
+  validates :uah_market_value, presence: true
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
@@ -19,14 +20,19 @@ class Apartment < ActiveRecord::Base
   def self.import(file)
     @array_error = Array.new([])
     allowed_attributes = [ "code_provision","new_code","account_number","alt_account_number","tip","region",
-                           "district","type_settlement","city","street_type","street_name","room_apartment",
-                           "area","floor_area","number_rooms","storey","floors","series_home","district_number",
-                           "uah_market_value","usd_market_value","euro_market_value"]
+    "district","type_settlement","city","street_type","street_name","room_apartment",
+        "area","floor_area","number_rooms","storey","floors","series_home","district_number",
+        "uah_market_value","usd_market_value","euro_market_value"]
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
+    header = [ "code_provision","new_code","account_number","alt_account_number","tip","region",
+               "district","type_settlement","city","street_type", "number_house", "number_house2", "street_name","room_apartment",
+               "area","floor_area","number_rooms","storey","floors","series_home","district_number",
+               "uah_market_value","usd_market_value","euro_market_value"]
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       product = find_by_id(row["code_provision"]) || new
+      #product.attributes = row.to_hash
       product.attributes = row.to_hash.select { |k,v| allowed_attributes.include? k }
       #product.save!
       if product.valid?

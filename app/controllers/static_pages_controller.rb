@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
   def home
     @earths = Earth.paginate(page: params[:page])
     @houses = House.paginate(page: params[:page])
-    @apartments = Apartment.paginate(page: params[:page])
+    @apartments = Apartment
     @anearts = Aneart.paginate(page: params[:page])
     @anaprtments = Anaprtment.paginate(page: params[:page])
     @anhouseholds = Anhousehold.paginate(page: params[:page])
@@ -15,7 +15,10 @@ class StaticPagesController < ApplicationController
     @kolrooms = Kolroom
     @repairs = Repair
   end
-
+def calc_apartment
+  @apartments = Apartment.all
+  @anaprtments = Anaprtment.all
+end
 
   def current_user_check_nil
     if current_user.nil?

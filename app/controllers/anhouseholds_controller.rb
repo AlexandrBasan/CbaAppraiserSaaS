@@ -1,7 +1,8 @@
 class AnhouseholdsController < ApplicationController
   before_action :set_anhousehold, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all]
+
 
   # GET /anhouseholds
   # GET /anhouseholds.json
@@ -54,7 +55,6 @@ class AnhouseholdsController < ApplicationController
   # POST /anhouseholds.json
   def create
     @anhousehold = Anhousehold.new(anhousehold_params)
-
     respond_to do |format|
       if @anhousehold.save
         format.html { redirect_to @anhousehold, notice: 'Anhousehold was successfully created.' }
@@ -90,6 +90,9 @@ class AnhouseholdsController < ApplicationController
     end
   end
 
+  def destroy_all
+    Anhousehold.delete_all
+  end
 
   def current_user_check_nil
     if current_user.nil?
@@ -107,6 +110,8 @@ class AnhouseholdsController < ApplicationController
     end
   end
   private
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_anhousehold
       @anhousehold = Anhousehold.find(params[:id])
@@ -114,6 +119,10 @@ class AnhouseholdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def anhousehold_params
-      params.require(:anhousehold).permit(:number_district, :danalog, :darea_building, :darea_land, :dvalue_proposition_usd, :dvalue_proposition_usd_no_land, :dvalue_proposition_usd_kvm, :dcategory_repair, :dsource_information, :zanalog, :zarea, :zpurpose, :zvalue_proposition_usd, :zsource_information, :zvalue_proposition_usd_kvm)
+      params.require(:anhousehold).permit(:number_district, :danalog, :darea_building, :darea_land,
+                                          :dvalue_proposition_usd, :dvalue_proposition_usd_no_land,
+                                          :dvalue_proposition_usd_kvm, :dcategory_repair, :dsource_information,
+                                          :zanalog, :zarea, :zpurpose, :zvalue_proposition_usd, :zsource_information,
+                                          :zvalue_proposition_usd_kvm, :mediana )
     end
 end

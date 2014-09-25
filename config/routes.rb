@@ -24,7 +24,7 @@ CbaAppraiserSoft::Application.routes.draw do
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
-
+match '/calc_apartment', to: 'static_pages#calc_apartment', via: 'get'
 
   resources :apartments do
     collection { post :import }
@@ -44,7 +44,11 @@ CbaAppraiserSoft::Application.routes.draw do
   resources :anhouseholds do
     collection { post :import }
   end
-  resources :apartments
+  resource :apartments do
+    collection do
+      get 'download_pdf'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

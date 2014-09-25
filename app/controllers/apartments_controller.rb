@@ -1,7 +1,7 @@
 class ApartmentsController < ApplicationController
   before_action :set_apartment, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all, :download_pdf]
 
 
   # GET /apartments
@@ -19,6 +19,7 @@ class ApartmentsController < ApplicationController
   # GET /apartments/1
   # GET /apartments/1.json
   def show
+
   end
 
   def import
@@ -69,6 +70,7 @@ class ApartmentsController < ApplicationController
   # PATCH/PUT /apartments/1
   # PATCH/PUT /apartments/1.json
   def update
+    @apartment = Apartment.find(params[:id])
     respond_to do |format|
       if @apartment.update(apartment_params)
         format.html { redirect_to @apartment, notice: 'Apartment was successfully updated.' }
@@ -89,8 +91,14 @@ class ApartmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-
+  def download_pdf
+    @apartments= Apartment.all
+    output = ApartmentsPdf.new(@apartments)
+    send_data output, :type => 'application/pdf', :filename => "apartment_calc.pdf"
+  end
+  def destroy_all
+    Apartment.destroy_all
+  end
 
   def current_user_check_nil
     if current_user.nil?

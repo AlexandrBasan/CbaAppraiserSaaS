@@ -1,4 +1,5 @@
 class Anhousehold < ActiveRecord::Base
+  before_save :total
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
@@ -54,5 +55,11 @@ class Anhousehold < ActiveRecord::Base
       when '.xlsx' then Roo::Excelx.new(file.path, nil, :ignore)
       else raise "Unknown file type: #{file.original_filename}"
     end
+  end
+
+  def total
+    self.dvalue_proposition_usd_no_land = dvalue_proposition_usd - darea_land * mediana
+    self.dvalue_proposition_usd_kvm = dvalue_proposition_usd_no_land / darea_building
+
   end
 end

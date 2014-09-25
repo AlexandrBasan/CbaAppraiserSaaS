@@ -20,15 +20,15 @@ end
   def show
   end
   def import
-    Anapartment.import(params[:file])
-    if Anapartment.check_import_errors == true
+    Anaprtment.import(params[:file])
+    if Anaprtment.check_import_errors == true
       respond_to do |format|
         format.html { flash[:success] = 'Импорт успешно завершен.'
-        redirect_to anapartments_path }
+        redirect_to anaprtments_path }
       end
     else
       @error_import = " district_number: "
-      Anapartment.check_import_errors.each_with_index do |product, index|
+      Anaprtment.check_import_errors.each_with_index do |product, index|
         @error_import += "#{product} "
       end
       respond_to do |format|

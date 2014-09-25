@@ -16,6 +16,7 @@ class CreateAnhouseholds < ActiveRecord::Migration
       t.decimal :zvalue_proposition_usd
       t.string :zsource_information
       t.decimal :zvalue_proposition_usd_kvm
+      t.integer :mediana
 
       t.timestamps
     end

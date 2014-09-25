@@ -55,7 +55,7 @@ gem 'iconv'
 # pdf
 gem 'prawn'
 gem 'destroyall', :git => 'https://github.com/Proalab/gem_destroy_all.git'
-
+gem 'pdfkit', '~> 0.6.2'
 
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'

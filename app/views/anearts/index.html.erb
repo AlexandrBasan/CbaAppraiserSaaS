@@ -1,9 +1,9 @@
 <div class="span12">
-  <h1>Аналоги земли</h1>
+  <h3 align="center">Аналоги земли</h3>
   <div class="row">
     <div class="span6">
       <div class="panel" data-role="panel">
-        <div class="panel-header bg-lime">
+        <div class="panel-header fg-lime">
           <%= (I18n.t 'button.import') %> *.XLS
         </div>
         <div class="panel-content">
@@ -95,8 +95,8 @@
         <td><%= aneart.value_proposition_usd %></td>
         <td><%= aneart.information_source %></td>
         <td><%= aneart.value_proposition_usdone %></td>
-        <td><%= link_to 'Edit', edit_aneart_path(aneart) %></td>
-        <td><%= link_to 'Destroy', aneart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_aneart_path(aneart), class: "button normal bg-orange" %></td>
+        <td><%= link_to 'Destroy', aneart, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
       </tr>
     <% end %>
   </tbody>

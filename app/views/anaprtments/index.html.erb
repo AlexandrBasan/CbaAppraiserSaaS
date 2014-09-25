@@ -1,6 +1,6 @@
 
 <div class="span12">
-  <h1>Аналоги квартир</h1>
+  <h3 align="center">Аналоги квартир</h3>
   <div class="row">
     <div class="span6">
       <div class="panel" data-role="panel">
@@ -95,8 +95,8 @@
         <td><%= anaprtment.building_type %></td>
         <td><%= anaprtment.category_repair %></td>
         <td><%= anaprtment.cost_one %></td>
-        <td><%= link_to 'Edit', edit_anaprtment_path(anaprtment) %></td>
-        <td><%= link_to 'Destroy', anaprtment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_anaprtment_path(anaprtment), class: "button normal bg-orange" %></td>
+        <td><%= link_to 'Destroy', anaprtment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
       </tr>
     <% end %>
   </tbody>

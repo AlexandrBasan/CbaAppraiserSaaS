@@ -1,6 +1,6 @@
 
 <div class="span12">
-  <h1>Дом</h1>
+  <h3 align="center">Дом</h3>
   <div class="row">
     <div class="span6">
       <div class="panel" data-role="panel">
@@ -106,11 +106,11 @@
         <td><%= house.area_land %></td>
         <td><%= house.district_number %></td>
         <td><%= house.category_repair %></td>
-        <td><%= house.uah_market_value %></td>
-        <td><%= house.usd_market_value %></td>
-        <td><%= house.euro_market_value %></td>
-        <td><%= link_to 'Edit', edit_house_path(house) %></td>
-        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= press(house.uah_market_value) %></td>
+        <td><%= press(house.usd_market_value) %></td>
+        <td><%= press(house.euro_market_value) %></td>
+        <td><%= link_to 'Edit', edit_house_path(house), class: "button normal bg-orange" %></td>
+        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -28,6 +28,11 @@ class Earth < ActiveRecord::Base
                            "usd_market_value","euro_market_value"]
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
+    header = [ "code_provision","tip","region","district","city","street_type",
+               "street_name","street_name2","number_home","number_housing",
+               "room_apartment","total_area","floor_area","area_land",
+               "district_number","category_repair","uah_market_value",
+               "usd_market_value","euro_market_value"]
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       product = find_by_id(row["code_provision"]) || new

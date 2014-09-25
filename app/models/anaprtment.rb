@@ -23,6 +23,9 @@ class Anaprtment < ActiveRecord::Base
                            "category_repair","cost_one"]
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
+    header = [ "district_number","numberpp","location","source","area",
+                                    "number_rooms","cost_analogue_usd","floor","storeys","building_type",
+                                    "category_repair","cost_one"]
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       product = find_by_id(row["id"]) || new

@@ -87,6 +87,10 @@ end
     end
   end
 
+  def destroy_all
+    Anaprtment.destroy_all
+  end
+
   def current_user_check_nil
     if current_user.nil?
       redirect_to root_path

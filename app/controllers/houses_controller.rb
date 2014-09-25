@@ -88,6 +88,9 @@ class HousesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def destroy_all
+    House.destroy_all
+  end
 
 
   def current_user_check_nil

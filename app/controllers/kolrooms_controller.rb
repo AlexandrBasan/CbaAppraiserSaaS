@@ -62,6 +62,10 @@ class KolroomsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def destroy_all
+    Kolroom.destroy_all
+  end
+
 
 
   def current_user_check_nil

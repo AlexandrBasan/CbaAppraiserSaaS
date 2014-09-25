@@ -89,6 +89,9 @@ end
       format.json { head :no_content }
     end
   end
+  def destroy_all
+    Aneart.destroy_all
+  end
 
 
   def current_user_check_nil

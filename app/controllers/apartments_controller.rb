@@ -91,6 +91,7 @@ class ApartmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
   def download_pdf
     @apartments= Apartment.all
     output = ApartmentsPdf.new(@apartments)

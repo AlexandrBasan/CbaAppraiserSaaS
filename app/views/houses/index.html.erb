@@ -46,7 +46,7 @@
       <div class="span6">
         <% if @houses.empty?%>
         <% else %>
-
+            <%= link_to "Очистить базу", destroy_all_houses_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red" %>
         <% end %>
       </div>
     </div>

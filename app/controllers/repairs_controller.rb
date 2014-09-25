@@ -62,6 +62,9 @@ class RepairsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def destroy_all
+    Repair.destroy_all
+  end
 
   def current_user_check_nil
     if current_user.nil?

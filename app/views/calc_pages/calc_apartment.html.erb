@@ -92,7 +92,31 @@
 
             <td><%= anaprtment.location %></td>
             <td><%= number_with_precision(anaprtment.cost_analogue_usd, precision: 2) %></td>
-            <td></td>
+            <td><%= @torg %>%</td>
+            <td><% @tiphouses.where(num_analog: anaprtment.building_type).each do |tiphouse| %>
+
+              <% if apartment.series_home == 1 %>
+                  <%= @tip_buld = tiphouse.o1 %>%
+                <% elsif apartment.series_home == 2 %>
+                  <%= @tip_buld = tiphouse.o2 %>%
+                  <% elsif apartment.series_home == 3 %>
+                      <%= @tip_buld = tiphouse.o3 %>%
+                  <% else apartment.series_home == 4 %>
+                      <%= @tip_buld = tiphouse.o4 %>%
+                  <% end %>
+
+           <% end %>
+            </td>
+            <td><% if anaprtment.category_repair == 'Високоякісний' %>
+                  <%= @repair = @repairs.first.high %>
+                  <% elsif anaprtment.category_repair == 'Євроремонт' %>
+                      <%= @repair = @repairs.first.eurorepair %>
+              <% elsif anaprtment.category_repair == 'Покращений' %>
+                  <%= @repair = @repairs.first.advanced %>
+              <% else anaprtment.category_repair == 'Простий' %>
+                  <%= @repair = @repairs.first.simple %>
+                  <% end %>
+                   </td>
           </tr>
       <% end %>
       </tbody>

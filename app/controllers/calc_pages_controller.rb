@@ -5,5 +5,6 @@ class CalcPagesController < ApplicationController
     @torg = -3
     @tiphouses = Tiphouse.all
     @repairs = Repair.all
+    @kolroom = Kolroom.all
   end
 end

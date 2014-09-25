@@ -88,7 +88,7 @@
       <th>Рыночная стоимость, грн</th>
       <th>Рыночная стоимость, дол.США</th>
       <th>Рыночная стоимость, евро</th>
-      <th></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
   <tbody>
@@ -119,8 +119,8 @@
         <td><%= press(apartment.uah_market_value) %></td>
         <td><%= press(apartment.usd_market_value) %></td>
         <td><%= press(apartment.euro_market_value) %></td>
-        <td><%= link_to 'Edit', edit_apartment_path(apartment), class: "button normal bg-orange" %>
-        <br/><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
+        <td><%= link_to 'Edit', edit_apartment_path(apartment), class: "button normal bg-orange" %></td>
+        <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
       </tr>
     <% end %>
   </tbody>

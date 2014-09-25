@@ -97,52 +97,52 @@
             <td><%= @torg %>%</td>
             <td><% @tiphouses.where(num_analog: anaprtment.building_type).each do |tiphouse| %>
 
-              <% if apartment.series_home == 1 %>
-                  <%= @tip_buld = tiphouse.o1 %>%
-                <% elsif apartment.series_home == 2 %>
-                  <%= @tip_buld = tiphouse.o2 %>%
+                  <% if apartment.series_home == 1 %>
+                      <%= @tip_buld = tiphouse.o1 %>%
+                  <% elsif apartment.series_home == 2 %>
+                      <%= @tip_buld = tiphouse.o2 %>%
                   <% elsif apartment.series_home == 3 %>
                       <%= @tip_buld = tiphouse.o3 %>%
                   <% else apartment.series_home == 4 %>
                       <%= @tip_buld = tiphouse.o4 %>%
                   <% end %>
 
-           <% end %>
+              <% end %>
             </td>
             <td><% if anaprtment.category_repair == 'Високоякісний' %>
                   <%= @repair = @repairs.first.high %>
-                  <% elsif anaprtment.category_repair == 'Євроремонт' %>
-                      <%= @repair = @repairs.first.eurorepair %>
+              <% elsif anaprtment.category_repair == 'Євроремонт' %>
+                  <%= @repair = @repairs.first.eurorepair %>
               <% elsif anaprtment.category_repair == 'Покращений' %>
                   <%= @repair = @repairs.first.advanced %>
               <% else anaprtment.category_repair == 'Простий' %>
                   <%= @repair = @repairs.first.simple %>
-                  <% end %>
-                   </td>
+              <% end %>
+            </td>
             <td>
 
 
-<% @flo = 0 %>
-                  <% if apartment.storey == 1 || apartment.storey == apartment.floors %>
-                      <% if anaprtment.floor != 1 || anaprtment.floor != anaprtment.storeys %>
-                          <% @flo = @flo - 5 %>
-                      <% else %>
+              <% @flo = 0 %>
+              <% if apartment.storey == 1 || apartment.storey == apartment.floors %>
+                  <% if anaprtment.floor != 1 || anaprtment.floor != anaprtment.storeys %>
+                      <% @flo = @flo - 5 %>
+                  <% else %>
                       <% @flo = @flo - 0 %>
-                      <% end %>
-                    <% else %>
-                  <% @flo = @flo - 0 %>
                   <% end %>
-                  <% if anaprtment.floor == 1 || anaprtment.floor == anaprtment.storeys %>
-                      <% if apartment.storey != 1 || apartment.storey != apartment.floors %>
+              <% else %>
+                  <% @flo = @flo - 0 %>
+              <% end %>
+              <% if anaprtment.floor == 1 || anaprtment.floor == anaprtment.storeys %>
+                  <% if apartment.storey != 1 || apartment.storey != apartment.floors %>
 
-                          <% @flo = @flo + 5 %>
+                      <% @flo = @flo + 5 %>
                   <% else %>
                       <% @flo = @flo - 0 %>
-                      <% end %>
-                  <% else %>
-                  <% @flo = @flo - 0 %>
                   <% end %>
-<%= @flo %>%
+              <% else %>
+                  <% @flo = @flo - 0 %>
+              <% end %>
+              <%= @flo %>%
 
 
             </td>
@@ -171,9 +171,9 @@
       </tbody>
     </table>
     Середнє арифметичне значення 1 кв.м./дол.США  <%= number_with_precision(@full_all.to_f.to_d/@anaprtments.where(district_number:
-                                                          apartment.district_number).count, precision: 2) %> <br/>
+                                                                                                                           apartment.district_number).count, precision: 2) %> <br/>
     Ринкова вартість, дол.США  <%= @valueusd = number_with_precision(apartment.area*
-         (@full_all.to_f.to_d/@anaprtments.where(district_number: apartment.district_number).count), precision: 2) %><br/>
+                                                                             (@full_all.to_f.to_d/@anaprtments.where(district_number: apartment.district_number).count), precision: 2) %><br/>
     Ринкова вартість, грн <%= @valueuah = number_with_precision(@valueusd.to_f.to_d * Currency.first.value, precision: 2) %><br/>
     Ринкова вартість, евро <%= number_with_precision(@valueuah.to_f.to_d / Currency.last.value, precision: 2) %>
 

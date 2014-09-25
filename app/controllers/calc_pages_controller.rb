@@ -7,4 +7,20 @@ class CalcPagesController < ApplicationController
     @repairs = Repair.all
     @kolroom = Kolroom.all
   end
+  def calc_earths
+    @apartments = Apartment.all
+    @anaprtments = Anaprtment.all
+    @torg = -3
+    @tiphouses = Tiphouse.all
+    @repairs = Repair.all
+    @kolroom = Kolroom.all
+  end
+  def calc_houses
+    @apartments = Apartment.all
+    @anaprtments = Anaprtment.all
+    @torg = -3
+    @tiphouses = Tiphouse.all
+    @repairs = Repair.all
+    @kolroom = Kolroom.all
+  end
 end

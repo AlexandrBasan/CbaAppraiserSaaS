@@ -39,9 +39,7 @@
     <div class="panel-content">
       <div class="row">
       <div class="span6">
-        <h5 align="center"><%= link_to "Обработать данные", houses_path, class: "button large bg-green" %></h5>
-        <h5 align="center"><%= "Статус обработки..." %></h5>
-        <div class="progress-bar large" data-role="progress-bar" data-color="bg-green">20%</div>
+        <h5 align="center"><%= link_to "Обработать данные", calc_houses_path, class: "button large bg-green" %></h5>
       </div>
       <div class="span6">
         <% if @houses.empty?%>

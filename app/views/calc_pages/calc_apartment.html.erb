@@ -81,8 +81,7 @@
         <th>Вартість ремонтно - оздоблювальних робіт</th>
         <th>Знаходження об'єкту порівняння в межах будинку поверх</th>
         <th>Коригування на відмінність в кількості кімнат</th>
-        <th>Коригування на місцерозташування</th>
-        <th>Скоригована вартість пропозиції</th>
+        <th>Скоригована вартість пропозиції, 1 кв.м. дол. США</th>
       </tr>
       </thead>
       <tbody>
@@ -91,7 +90,7 @@
           <tr>
 
             <td><%= anaprtment.location %></td>
-            <td><%= number_with_precision(anaprtment.cost_analogue_usd, precision: 2) %></td>
+            <td><%= @cost_anal = number_with_precision(anaprtment.cost_one, precision: 2) %></td>
             <td><%= @torg %>%</td>
             <td><% @tiphouses.where(num_analog: anaprtment.building_type).each do |tiphouse| %>
 
@@ -144,19 +143,22 @@
 
 
             </td>
-            <td><% @kolroom.where(num_analog: anaprtment.number_rooms).each do |tiphouse| %>
+            <td><% @kolroom.where(num_analog: anaprtment.number_rooms).each do |kolroom| %>
 
-                  <% if apartment.series_home == 1 %>
-                      <%= @tip_buld = tiphouse.o1 %>%
-                  <% elsif apartment.series_home == 2 %>
-                      <%= @tip_buld = tiphouse.o2 %>%
-                  <% elsif apartment.series_home == 3 %>
-                      <%= @tip_buld = tiphouse.o3 %>%
-                  <% else apartment.series_home == 4 %>
-                      <%= @tip_buld = tiphouse.o4 %>%
+                  <% if apartment.number_rooms == 1 %>
+                      <%= @kolr = kolroom.o1 %>%
+                  <% elsif apartment.number_rooms == 2 %>
+                      <%= @kolr = kolroom.o2 %>%
+                  <% elsif apartment.number_rooms == 3 %>
+                      <%= @kolr = kolroom.o3 %>%
+                  <% else apartment.number_rooms == 4 %>
+                      <%= @kolr = kolroom.o4 %>%
                   <% end %>
 
               <% end %>
+            </td>
+            <td>
+              <%= (100 + @torg + @tip_buld + @flo + @kolr) %>
             </td>
           </tr>
 

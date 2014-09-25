@@ -1,0 +1,2 @@
+module CalcPagesHelper
+end

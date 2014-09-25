@@ -24,7 +24,7 @@ CbaAppraiserSoft::Application.routes.draw do
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
-match '/calc_apartment', to: 'static_pages#calc_apartment', via: 'get'
+match '/calc_apartment', to: 'calc_pages#calc_apartment', via: 'get'
 
   resources :apartments do
     collection { post :import }

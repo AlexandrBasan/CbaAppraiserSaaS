@@ -15,10 +15,6 @@ class StaticPagesController < ApplicationController
     @kolrooms = Kolroom
     @repairs = Repair
   end
-def calc_apartment
-  @apartments = Apartment.all
-  @anaprtments = Anaprtment.all
-end
 
   def current_user_check_nil
     if current_user.nil?

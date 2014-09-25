@@ -99,6 +99,7 @@ class ApartmentsController < ApplicationController
   end
   def destroy_all
     Apartment.destroy_all
+    redirect_to apartments_path
   end
 
   def current_user_check_nil

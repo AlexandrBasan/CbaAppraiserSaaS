@@ -1,7 +1,7 @@
 class AnaprtmentsController < ApplicationController
   before_action :set_anaprtment, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all]
 
   # GET /anaprtments
   # GET /anaprtments.json
@@ -89,6 +89,7 @@ end
 
   def destroy_all
     Anaprtment.destroy_all
+    redirect_to anaprtments_path
   end
 
   def current_user_check_nil

@@ -92,6 +92,7 @@ class AnhouseholdsController < ApplicationController
 
   def destroy_all
     Anhousehold.delete_all
+    redirect_to anhouseholds_path
   end
 
   def current_user_check_nil

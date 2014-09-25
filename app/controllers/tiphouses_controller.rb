@@ -1,7 +1,7 @@
 class TiphousesController < ApplicationController
   before_action :set_tiphouse, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all]
 
   # GET /tiphouses
   # GET /tiphouses.json
@@ -64,6 +64,7 @@ class TiphousesController < ApplicationController
   end
   def destroy_all
     Tiphouse.destroy_all
+    redirect_to tiphouses_path
   end
 
 

@@ -64,13 +64,13 @@ match '/calc_apartment', to: 'static_pages#calc_apartment', via: 'get'
 
 
   scope '/destroy_all' do
-    resources :anhouseholds, only: [:index], to: 'anhouseholds#destroy_all', via: 'delete'
-    resources :apartments, only: [:index], to: 'apartments#destroy_all', via: 'delete'
-    resources :anearts, only: [:index], to: 'anearts#destroy_all', via: 'delete'
-    resources :anaprtments, only: [:index], to: 'anaprtments#destroy_all', via: 'delete'
-    resources :houses, only: [:index], to: 'houses#destroy_all', via: 'delete'
-    resources :earths, only: [:index], to: 'earths#destroy_all', via: 'delete'
-    resources :apartments, only: [:index], to: 'apartments#destroy_all', via: 'delete'
+    resources :anhouseholds, only: [:index], to: 'anhouseholds#destroy_all', via: 'delete', as: 'anhouseholds_destroy_all'
+    resources :apartments, only: [:index], to: 'apartments#destroy_all', via: 'delete', as: 'apartments_destroy_all'
+    resources :anearts, only: [:index], to: 'anearts#destroy_all', via: 'delete', as: 'anearts_destroy_all'
+    resources :anaprtments, only: [:index], to: 'anaprtments#destroy_all', via: 'delete', as: 'anaprtments_destroy_all'
+    resources :houses, only: [:index], to: 'houses#destroy_all', via: 'delete', as: 'houses_destroy_all'
+    resources :earths, only: [:index], to: 'earths#destroy_all', via: 'delete', as: 'earths_destroy_all'
+    resources :apartments, only: [:index], to: 'apartments#destroy_all', via: 'delete', as: 'apartments_destroy_all'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

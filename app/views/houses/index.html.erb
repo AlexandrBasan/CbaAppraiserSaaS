@@ -37,22 +37,20 @@
       <%= 'Обработка загруженных данных' %>
     </div>
     <div class="panel-content">
-
+      <div class="row">
       <div class="span6">
         <h5 align="center"><%= link_to "Обработать данные", houses_path, class: "button large bg-green" %></h5>
         <h5 align="center"><%= "Статус обработки..." %></h5>
         <div class="progress-bar large" data-role="progress-bar" data-color="bg-green">20%</div>
       </div>
       <div class="span6">
-        <% if @houses.empty? %>
+        <% if @houses.empty?%>
         <% else %>
-            <%= form_for(Destroyall.destroy_all(House), :html => {:method => 'delete'}) do |f| %>
-                <%= f.submit "Очистка базы", class: "button large bg-red", data: { confirm: 'Are you sure?' } %>
-            <% end %>
+
         <% end %>
       </div>
-
     </div>
+      </div>
   </div>
 </div>
 <div class="panel" data-role="panel">
@@ -107,7 +105,7 @@
         <td><%= house.floor_area %></td>
         <td><%= house.area_land %></td>
         <td><%= house.district_number %></td>
-        <td><%= house.kategorіya_repair %></td>
+        <td><%= house.category_repair %></td>
         <td><%= house.uah_market_value %></td>
         <td><%= house.usd_market_value %></td>
         <td><%= house.euro_market_value %></td>

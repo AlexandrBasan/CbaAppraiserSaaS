@@ -118,22 +118,33 @@
                   <% end %>
                    </td>
             <td>
-              <% if apartment.storey == 1 || apartment.storey == apartment.floors %>
-                  <% if anaprtment.floor != 1 || anaprtment.floor != anaprtment.storeys %>
-                  <%= @flo = -5 %>%
-                  <% end %>
 
-              <% end %>
-              <% if anaprtment.floor == 1 || anaprtment.floor == anaprtment.storeys %>
-                  <% if apartment.storey != 1 || apartment.storey != apartment.floors %>
-                      <%= @flo = 5 %>%
+
+<% @flo = 0 %>
+                  <% if apartment.storey == 1 || apartment.storey == apartment.floors %>
+                      <% if anaprtment.floor != 1 || anaprtment.floor != anaprtment.storeys %>
+                          <% @flo = @flo - 5 %>
+                      <% else %>
+                      <% @flo = @flo - 0 %>
+                      <% end %>
+                    <% else %>
+                  <% @flo = @flo - 0 %>
                   <% end %>
-              <% end %>
-              <% if @flo.nil? %>
-                  <%= @flo = 0 %>%
-              <% end %>
+                  <% if anaprtment.floor == 1 || anaprtment.floor == anaprtment.storeys %>
+                      <% if apartment.storey != 1 || apartment.storey != apartment.floors %>
+
+                          <% @flo = @flo + 5 %>
+                  <% else %>
+                      <% @flo = @flo - 0 %>
+                      <% end %>
+                  <% else %>
+                  <% @flo = @flo - 0 %>
+                  <% end %>
+<%= @flo %>%
+
+
             </td>
-            <td><% @kolroom.where(num_analog: anaprtment.building_type).each do |tiphouse| %>
+            <td><% @kolroom.where(num_analog: anaprtment.number_rooms).each do |tiphouse| %>
 
                   <% if apartment.series_home == 1 %>
                       <%= @tip_buld = tiphouse.o1 %>%

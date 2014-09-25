@@ -1,7 +1,7 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all]
 
   # GET /houses
   # GET /houses.json
@@ -87,6 +87,10 @@ class HousesController < ApplicationController
       format.html { redirect_to houses_url }
       format.json { head :no_content }
     end
+  end
+  def destroy_all
+    House.destroy_all
+    redirect_to houses_path
   end
 
 

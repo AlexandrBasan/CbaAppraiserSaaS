@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/Proalab/gem_destroy_all.git
+  revision: 528dd3e42329f6c3b2ea64f41a10f2d62d859a12
+  specs:
+    destroyall (0.0.9)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,7 +45,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    destroyall (0.0.2)
     erubis (2.7.0)
     execjs (2.2.1)
     faker (1.1.2)
@@ -146,7 +151,7 @@ DEPENDENCIES
   autoprefixer-rails
   bcrypt-ruby (= 3.1.2)
   coffee-rails (~> 4.0.0)
-  destroyall
+  destroyall!
   faker (= 1.1.2)
   iconv
   jbuilder (~> 1.2)

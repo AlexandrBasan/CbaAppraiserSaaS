@@ -27,27 +27,50 @@ CbaAppraiserSoft::Application.routes.draw do
 match '/calc_apartment', to: 'calc_pages#calc_apartment', via: 'get'
 
   resources :apartments do
-    collection { post :import }
+    collection do
+      post :import
+    end
   end
   resources :earths do
-    collection { post :import }
+    collection do
+      post :import
+    end
   end
   resources :houses do
-    collection { post :import }
+    collection do
+      post :import
+    end
   end
   resources :anaprtments do
-    collection { post :import }
+    collection do
+      post :import
+    end
   end
   resources :anearts do
-    collection { post :import }
+    collection do
+      post :import
+    end
   end
   resources :anhouseholds do
-    collection { post :import }
+    collection do
+      post :import
+    end
   end
   resource :apartments do
     collection do
-      get 'download_pdf'
+      post :import
     end
+  end
+
+
+  scope '/destroy_all' do
+    resources :anhouseholds, only: [:index], to: 'anhouseholds#destroy_all', via: 'delete', as: 'anhouseholds_destroy_all'
+    resources :apartments, only: [:index], to: 'apartments#destroy_all', via: 'delete', as: 'apartments_destroy_all'
+    resources :anearts, only: [:index], to: 'anearts#destroy_all', via: 'delete', as: 'anearts_destroy_all'
+    resources :anaprtments, only: [:index], to: 'anaprtments#destroy_all', via: 'delete', as: 'anaprtments_destroy_all'
+    resources :houses, only: [:index], to: 'houses#destroy_all', via: 'delete', as: 'houses_destroy_all'
+    resources :earths, only: [:index], to: 'earths#destroy_all', via: 'delete', as: 'earths_destroy_all'
+    resources :apartments, only: [:index], to: 'apartments#destroy_all', via: 'delete', as: 'apartments_destroy_all'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

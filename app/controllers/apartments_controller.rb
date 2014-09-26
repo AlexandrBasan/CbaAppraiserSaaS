@@ -22,6 +22,16 @@ class ApartmentsController < ApplicationController
 
   end
 
+  def processing
+     Apartment.each do |apart|
+       Anaprtment.where(district_number: apart.district_number).each do |anaprt|
+         @capart = Capartment.new
+         @capart.apartment_id = apart.id
+         @capart.anaprtment_id = anaprt.id
+       end
+     end
+  end
+
   def import
     Apartment.import(params[:file])
     if Apartment.check_import_errors == true

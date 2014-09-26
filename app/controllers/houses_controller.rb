@@ -20,6 +20,16 @@ class HousesController < ApplicationController
   def show
   end
 
+  def processing
+    House.each do |house|
+      Anhousehold.where(number_district: apart.district_number).each do |anhous|
+        @chouse = Chouse.new
+        @chouse.house_id = house.id
+        @chouse.anhousehold_id = anhous.id
+      end
+    end
+  end
+
   def import
     House.import(params[:file])
     if House.check_import_errors == true

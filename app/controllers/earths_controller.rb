@@ -17,6 +17,16 @@ class EarthsController < ApplicationController
     end
   end
 
+  def processing
+    Earth.each do |earth|
+      Aneart.where(district_number: earth.district_number).each do |aneart|
+        @cearth = Cearth.new
+        @cearth.earth_id = earth.id
+        @cearth.aneart_id = aneart.id
+      end
+    end
+  end
+
   def import
     Earth.import(params[:file])
     if Earth.check_import_errors == true

@@ -1,0 +1,2 @@
+module CearthsHelper
+end

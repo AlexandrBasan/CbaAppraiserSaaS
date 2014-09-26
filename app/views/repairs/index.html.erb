@@ -10,6 +10,7 @@
       <th>Евроремонт</th>
       <th>Улучшеный</th>
       <th>Обычный</th>
+      <th>Без оздоблення</th>
       <th></th>
     </tr>
   </thead>
@@ -21,9 +22,10 @@
         <td><%= repair.eurorepair %></td>
         <td><%= repair.advanced %></td>
         <td><%= repair.simple %></td>
+        <td><%= repair.nodecoration %></td>
         <td>
-        <%= link_to 'Edit', edit_repair_path(repair) %><br/>
-        <%= link_to 'Destroy', repair, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to 'Edit', edit_repair_path(repair) %>
+        </td>
       </tr>
     <% end %>
   </tbody>

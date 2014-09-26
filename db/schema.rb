@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922150108) do
+ActiveRecord::Schema.define(version: 20140926205022) do
 
   create_table "anaprtments", force: true do |t|
     t.integer  "district_number"
@@ -92,6 +92,62 @@ ActiveRecord::Schema.define(version: 20140922150108) do
     t.datetime "updated_at"
   end
 
+  create_table "auctions", force: true do |t|
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "capartments", force: true do |t|
+    t.integer  "auction"
+    t.integer  "tip_house"
+    t.integer  "value_repair"
+    t.integer  "storey"
+    t.integer  "rooms"
+    t.decimal  "adj_cost_value"
+    t.decimal  "median"
+    t.decimal  "money_usd"
+    t.decimal  "money_euro"
+    t.decimal  "money_uah"
+    t.string   "apartment_id"
+    t.string   "anaprtment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cearths", force: true do |t|
+    t.integer  "auction"
+    t.integer  "location"
+    t.integer  "infrastructure"
+    t.integer  "diff_area"
+    t.decimal  "adj_cost_value"
+    t.decimal  "median"
+    t.decimal  "money_usd"
+    t.decimal  "money_euro"
+    t.decimal  "money_uah"
+    t.integer  "earth_id"
+    t.integer  "aneart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "chouses", force: true do |t|
+    t.integer  "auction"
+    t.integer  "location"
+    t.integer  "infrastructure"
+    t.integer  "diff_area"
+    t.integer  "category_repair"
+    t.decimal  "adj_cost_value"
+    t.decimal  "median"
+    t.decimal  "money_usd"
+    t.decimal  "money_euro"
+    t.decimal  "money_uah"
+    t.integer  "house_id"
+    t.integer  "anhousehold_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "currencies", force: true do |t|
     t.decimal  "value"
     t.string   "symbol"
@@ -162,6 +218,7 @@ ActiveRecord::Schema.define(version: 20140922150108) do
     t.integer  "eurorepair"
     t.integer  "advanced"
     t.integer  "simple"
+    t.integer  "nodecoration"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,45 @@
+<h1>Listing cearths</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Auction</th>
+      <th>Location</th>
+      <th>Infrastructure</th>
+      <th>Diff area</th>
+      <th>Adj cost value</th>
+      <th>Median</th>
+      <th>Money usd</th>
+      <th>Money euro</th>
+      <th>Money uah</th>
+      <th>Earth</th>
+      <th>Aneart</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cearths.each do |cearth| %>
+      <tr>
+        <td><%= cearth.auction %></td>
+        <td><%= cearth.location %></td>
+        <td><%= cearth.infrastructure %></td>
+        <td><%= cearth.diff_area %></td>
+        <td><%= cearth.adj_cost_value %></td>
+        <td><%= cearth.median %></td>
+        <td><%= cearth.money_usd %></td>
+        <td><%= cearth.money_euro %></td>
+        <td><%= cearth.money_uah %></td>
+        <td><%= cearth.earth_id %></td>
+        <td><%= cearth.aneart_id %></td>
+        <td><%= link_to 'Show', cearth %></td>
+        <td><%= link_to 'Edit', edit_cearth_path(cearth) %></td>
+        <td><%= link_to 'Destroy', cearth, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cearth', new_cearth_path %>

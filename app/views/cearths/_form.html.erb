@@ -1,0 +1,61 @@
+<%= form_for(@cearth) do |f| %>
+  <% if @cearth.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cearth.errors.count, "error") %> prohibited this cearth from being saved:</h2>
+
+      <ul>
+      <% @cearth.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :auction %><br>
+    <%= f.number_field :auction %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.number_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :infrastructure %><br>
+    <%= f.number_field :infrastructure %>
+  </div>
+  <div class="field">
+    <%= f.label :diff_area %><br>
+    <%= f.number_field :diff_area %>
+  </div>
+  <div class="field">
+    <%= f.label :adj_cost_value %><br>
+    <%= f.text_field :adj_cost_value %>
+  </div>
+  <div class="field">
+    <%= f.label :median %><br>
+    <%= f.text_field :median %>
+  </div>
+  <div class="field">
+    <%= f.label :money_usd %><br>
+    <%= f.text_field :money_usd %>
+  </div>
+  <div class="field">
+    <%= f.label :money_euro %><br>
+    <%= f.text_field :money_euro %>
+  </div>
+  <div class="field">
+    <%= f.label :money_uah %><br>
+    <%= f.text_field :money_uah %>
+  </div>
+  <div class="field">
+    <%= f.label :earth_id %><br>
+    <%= f.number_field :earth_id %>
+  </div>
+  <div class="field">
+    <%= f.label :aneart_id %><br>
+    <%= f.number_field :aneart_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

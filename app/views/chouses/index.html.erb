@@ -1,0 +1,47 @@
+<h1>Listing chouses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Auction</th>
+      <th>Location</th>
+      <th>Infrastructure</th>
+      <th>Diff area</th>
+      <th>Category repair</th>
+      <th>Adj cost value</th>
+      <th>Median</th>
+      <th>Money usd</th>
+      <th>Money euro</th>
+      <th>Money uah</th>
+      <th>House</th>
+      <th>Anhousehold</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chouses.each do |chouse| %>
+      <tr>
+        <td><%= chouse.auction %></td>
+        <td><%= chouse.location %></td>
+        <td><%= chouse.infrastructure %></td>
+        <td><%= chouse.diff_area %></td>
+        <td><%= chouse.category_repair %></td>
+        <td><%= chouse.adj_cost_value %></td>
+        <td><%= chouse.median %></td>
+        <td><%= chouse.money_usd %></td>
+        <td><%= chouse.money_euro %></td>
+        <td><%= chouse.money_uah %></td>
+        <td><%= chouse.house_id %></td>
+        <td><%= chouse.anhousehold_id %></td>
+        <td><%= link_to 'Show', chouse %></td>
+        <td><%= link_to 'Edit', edit_chouse_path(chouse) %></td>
+        <td><%= link_to 'Destroy', chouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Chouse', new_chouse_path %>

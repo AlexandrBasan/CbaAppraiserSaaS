@@ -1,4 +1,12 @@
 CbaAppraiserSoft::Application.routes.draw do
+  resources :auctions
+
+  resources :capartments
+
+  resources :chouses
+
+  resources :cearths
+
   resources :anhouseholds
 
   resources :kolrooms

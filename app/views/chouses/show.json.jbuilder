@@ -1,0 +1,1 @@
+json.extract! @chouse, :id, :auction, :location, :infrastructure, :diff_area, :category_repair, :adj_cost_value, :median, :money_usd, :money_euro, :money_uah, :house_id, :anhousehold_id, :created_at, :updated_at

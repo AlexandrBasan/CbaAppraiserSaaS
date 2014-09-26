@@ -5,6 +5,7 @@ class CreateRepairs < ActiveRecord::Migration
       t.integer :eurorepair
       t.integer :advanced
       t.integer :simple
+      t.integer :nodecoration
 
       t.timestamps
     end

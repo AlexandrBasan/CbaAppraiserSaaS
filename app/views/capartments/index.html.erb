@@ -1,0 +1,47 @@
+<h1>Listing capartments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Auction</th>
+      <th>Tip house</th>
+      <th>Value repair</th>
+      <th>Storey</th>
+      <th>Rooms</th>
+      <th>Adj cost value</th>
+      <th>Median</th>
+      <th>Money usd</th>
+      <th>Money euro</th>
+      <th>Money uah</th>
+      <th>Apartment</th>
+      <th>Anaprtment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @capartments.each do |capartment| %>
+      <tr>
+        <td><%= capartment.auction %></td>
+        <td><%= capartment.tip_house %></td>
+        <td><%= capartment.value_repair %></td>
+        <td><%= capartment.storey %></td>
+        <td><%= capartment.rooms %></td>
+        <td><%= capartment.adj_cost_value %></td>
+        <td><%= capartment.median %></td>
+        <td><%= capartment.money_usd %></td>
+        <td><%= capartment.money_euro %></td>
+        <td><%= capartment.money_uah %></td>
+        <td><%= capartment.apartment_id %></td>
+        <td><%= capartment.anaprtment_id %></td>
+        <td><%= link_to 'Show', capartment %></td>
+        <td><%= link_to 'Edit', edit_capartment_path(capartment) %></td>
+        <td><%= link_to 'Destroy', capartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Capartment', new_capartment_path %>

@@ -1,26 +1,18 @@
 class CalcPagesController < ApplicationController
   def calc_apartment
-    @apartments = Apartment.all
+    @apartments = Apartment.paginate(page: params[:page])
     @anaprtments = Anaprtment.all
-    @torg = -3
-    @tiphouses = Tiphouse.all
-    @repairs = Repair.all
-    @kolroom = Kolroom.all
+    @capartments = Capartment.all
   end
   def calc_earths
-    @apartments = Apartment.all
-    @anaprtments = Anaprtment.all
-    @torg = -3
-    @tiphouses = Tiphouse.all
-    @repairs = Repair.all
-    @kolroom = Kolroom.all
+    @earths = Earth.all
+    @anearths = Aneart.all
+    @cearths = Cearth.all
+
   end
   def calc_houses
-    @apartments = Apartment.all
-    @anaprtments = Anaprtment.all
-    @torg = -3
-    @tiphouses = Tiphouse.all
-    @repairs = Repair.all
-    @kolroom = Kolroom.all
+    @houses = House.all
+    @anhouses = Anhousehold.all
+    @chouse = Chouse.all
   end
 end

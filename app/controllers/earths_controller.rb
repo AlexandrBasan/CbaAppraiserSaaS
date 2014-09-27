@@ -1,7 +1,7 @@
 class EarthsController < ApplicationController
   before_action :set_earth, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all, :processing]
 
   # GET /earths
   # GET /earths.json
@@ -17,16 +17,19 @@ class EarthsController < ApplicationController
     end
   end
 
+
   def processing
-    Earth.each do |earth|
-      Aneart.where(district_number: earth.district_number).each do |aneart|
-        @cearth = Cearth.new
-        @cearth.earth_id = earth.id
-        @cearth.aneart_id = aneart.id
+    @ea = Earth.all
+    @ea.each do |earth|
+      Aneart.where(district_number: earth.district_number).each do |anea|
+        @earth = Cearth.new
+        @earth.earth_id = earth.id
+        @earth.aneart_id = anea.id
+        @earth.save
       end
     end
+    redirect_to (earth_path) and return
   end
-
   def import
     Earth.import(params[:file])
     if Earth.check_import_errors == true

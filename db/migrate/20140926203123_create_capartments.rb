@@ -11,8 +11,8 @@ class CreateCapartments < ActiveRecord::Migration
       t.decimal :money_usd
       t.decimal :money_euro
       t.decimal :money_uah
-      t.string :apartment_id
-      t.string :anaprtment_id
+      t.integer :apartment_id
+      t.integer :anaprtment_id
 
       t.timestamps
     end

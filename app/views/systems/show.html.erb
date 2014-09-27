@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Torg apartment:</strong>
+  <%= @system.torg_apartment %>
+</p>
+
+<p>
+  <strong>Torg earth:</strong>
+  <%= @system.torg_earth %>
+</p>
+
+<p>
+  <strong>Torg house:</strong>
+  <%= @system.torg_house %>
+</p>
+
+<p>
+  <strong>Floor apartment:</strong>
+  <%= @system.floor_apartment %>
+</p>
+
+<%= link_to 'Edit', edit_system_path(@system) %> |
+<%= link_to 'Back', systems_path %>

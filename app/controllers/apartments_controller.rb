@@ -1,13 +1,13 @@
 class ApartmentsController < ApplicationController
   before_action :set_apartment, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all, :download_pdf]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all, :download_pdf, :processing]
 
 
   # GET /apartments
   # GET /apartments.json
   def index
-     @apartments= Apartment.paginate(page: params[:page])
+     @apartments = Apartment.paginate(page: params[:page])
     respond_to do |format|
       format.html
       # export to csv and xls
@@ -23,13 +23,17 @@ class ApartmentsController < ApplicationController
   end
 
   def processing
-     Apartment.each do |apart|
-       Anaprtment.where(district_number: apart.district_number).each do |anaprt|
-         @capart = Capartment.new
-         @capart.apartment_id = apart.id
-         @capart.anaprtment_id = anaprt.id
+    @ap = Apartment.all
+     @ap.each do |apart|
+       Anaprtment.where(district_number: apart.district_number).each do |anap|
+       @apa = Capartment.new
+       @apa.apartment_id = apart.id
+       @apa.anaprtment_id = anap.id
+
+       @apa.save
        end
-     end
+       end
+    redirect_to (apartments_path) and return
   end
 
   def import
@@ -109,6 +113,7 @@ class ApartmentsController < ApplicationController
   end
   def destroy_all
     Apartment.destroy_all
+    Capartment.destroy_all
     redirect_to apartments_path
   end
 

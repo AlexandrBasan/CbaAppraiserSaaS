@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926205022) do
+ActiveRecord::Schema.define(version: 20140927134009) do
 
   create_table "anaprtments", force: true do |t|
     t.integer  "district_number"
@@ -109,8 +109,8 @@ ActiveRecord::Schema.define(version: 20140926205022) do
     t.decimal  "money_usd"
     t.decimal  "money_euro"
     t.decimal  "money_uah"
-    t.string   "apartment_id"
-    t.string   "anaprtment_id"
+    t.integer  "apartment_id"
+    t.integer  "anaprtment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -219,6 +219,15 @@ ActiveRecord::Schema.define(version: 20140926205022) do
     t.integer  "advanced"
     t.integer  "simple"
     t.integer  "nodecoration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "systems", force: true do |t|
+    t.string   "torg_apartment"
+    t.string   "torg_earth"
+    t.string   "torg_house"
+    t.string   "floor_apartment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

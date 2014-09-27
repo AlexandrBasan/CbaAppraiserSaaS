@@ -1,7 +1,7 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all, :processing]
 
   # GET /houses
   # GET /houses.json
@@ -20,14 +20,18 @@ class HousesController < ApplicationController
   def show
   end
 
+
   def processing
-    House.each do |house|
-      Anhousehold.where(number_district: apart.district_number).each do |anhous|
+    @ho = House.all
+    @ho.each do |house|
+      Anhousehold.where(number_district: apart.district_number).each do |anho|
         @chouse = Chouse.new
         @chouse.house_id = house.id
-        @chouse.anhousehold_id = anhous.id
+        @chouse.anhousehold_id = anho.id
+        @chouse.save
       end
     end
+    redirect_to (house_path) and return
   end
 
   def import

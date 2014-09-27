@@ -1,10 +1,11 @@
 class CapartmentsController < ApplicationController
   before_action :set_capartment, only: [:show, :edit, :update, :destroy]
 
+
   # GET /capartments
   # GET /capartments.json
   def index
-    @capartments = Capartment.all
+    @capartments = Capartment.paginate(page: params[:page])
   end
 
   # GET /capartments/1
@@ -25,7 +26,7 @@ class CapartmentsController < ApplicationController
   # POST /capartments.json
   def create
     @capartment = Capartment.new(capartment_params)
-
+    @capartment.money_uah = capartment.anaprtment.cost_one
     respond_to do |format|
       if @capartment.save
         format.html { redirect_to @capartment, notice: 'Capartment was successfully created.' }

@@ -1,5 +1,5 @@
 class Anaprtment < ActiveRecord::Base
-
+  has_many :capartments
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

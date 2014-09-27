@@ -1,4 +1,6 @@
 CbaAppraiserSoft::Application.routes.draw do
+  resources :systems
+
   resources :auctions
 
   resources :capartments
@@ -72,6 +74,14 @@ CbaAppraiserSoft::Application.routes.draw do
       post :import
     end
   end
+
+  resource :apartments do
+    collection do
+      post :download_pdf
+    end
+  end
+
+   match '/processing', to: 'apartments#processing', via: 'get'
 
 
   scope '/destroy_all' do

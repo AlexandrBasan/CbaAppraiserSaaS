@@ -71,7 +71,7 @@ class EarthsController < ApplicationController
 
     respond_to do |format|
       if @earth.save
-        format.html { redirect_to @earth, notice: 'Earth was successfully created.' }
+        format.html { redirect_to earths_path, notice: 'Earth was successfully created.' }
         format.json { render action: 'show', status: :created, location: @earth }
       else
         format.html { render action: 'new' }
@@ -85,7 +85,7 @@ class EarthsController < ApplicationController
   def update
     respond_to do |format|
       if @earth.update(earth_params)
-        format.html { redirect_to @earth, notice: 'Earth was successfully updated.' }
+        format.html { redirect_to earths_path, notice: 'Earth was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

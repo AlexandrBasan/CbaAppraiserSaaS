@@ -54,7 +54,7 @@ end
 
     respond_to do |format|
       if @anaprtment.save
-        format.html { redirect_to @anaprtment, notice: 'Anaprtment was successfully created.' }
+        format.html { redirect_to anaprtments_path, notice: 'Anaprtment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @anaprtment }
       else
         format.html { render action: 'new' }
@@ -68,7 +68,7 @@ end
   def update
     respond_to do |format|
       if @anaprtment.update(anaprtment_params)
-        format.html { redirect_to @anaprtment, notice: 'Anaprtment was successfully updated.' }
+        format.html { redirect_to anaprtments_path, notice: 'Anaprtment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

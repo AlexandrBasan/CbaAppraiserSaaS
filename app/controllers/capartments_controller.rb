@@ -29,7 +29,7 @@ class CapartmentsController < ApplicationController
     @capartment.money_uah = capartment.anaprtment.cost_one
     respond_to do |format|
       if @capartment.save
-        format.html { redirect_to @capartment, notice: 'Capartment was successfully created.' }
+        format.html { redirect_to calc_apartments_path, notice: 'Capartment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @capartment }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class CapartmentsController < ApplicationController
   def update
     respond_to do |format|
       if @capartment.update(capartment_params)
-        format.html { redirect_to @capartment, notice: 'Capartment was successfully updated.' }
+        format.html { redirect_to calc_apartments_path, notice: 'Capartment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

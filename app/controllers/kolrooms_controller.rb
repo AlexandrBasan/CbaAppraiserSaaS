@@ -30,7 +30,7 @@ class KolroomsController < ApplicationController
 
     respond_to do |format|
       if @kolroom.save
-        format.html { redirect_to @kolroom, notice: 'Kolroom was successfully created.' }
+        format.html { redirect_to kolrooms_path, notice: 'Kolroom was successfully created.' }
         format.json { render action: 'show', status: :created, location: @kolroom }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class KolroomsController < ApplicationController
   def update
     respond_to do |format|
       if @kolroom.update(kolroom_params)
-        format.html { redirect_to @kolroom, notice: 'Kolroom was successfully updated.' }
+        format.html { redirect_to kolrooms_path, notice: 'Kolroom was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

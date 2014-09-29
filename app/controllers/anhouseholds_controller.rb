@@ -57,7 +57,7 @@ class AnhouseholdsController < ApplicationController
     @anhousehold = Anhousehold.new(anhousehold_params)
     respond_to do |format|
       if @anhousehold.save
-        format.html { redirect_to @anhousehold, notice: 'Anhousehold was successfully created.' }
+        format.html { redirect_to anhouseholds_path, notice: 'Anhousehold was successfully created.' }
         format.json { render action: 'show', status: :created, location: @anhousehold }
       else
         format.html { render action: 'new' }
@@ -71,7 +71,7 @@ class AnhouseholdsController < ApplicationController
   def update
     respond_to do |format|
       if @anhousehold.update(anhousehold_params)
-        format.html { redirect_to @anhousehold, notice: 'Anhousehold was successfully updated.' }
+        format.html { redirect_to anhouseholds_path, notice: 'Anhousehold was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

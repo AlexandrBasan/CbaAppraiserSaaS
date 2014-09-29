@@ -6,7 +6,7 @@ after_save :bef_total
 
 
   def calc
-    self.auction = Auction.first.value
+    self.auction = System.first.torg_apartment
     if self.apartment.series_home == 1
                        if self.anaprtment.building_type == 1
                          self.tip_house = Tiphouse.find(1).o1
@@ -129,10 +129,6 @@ after_save :bef_total
     end
 
  self.adj_cost_value = self.anaprtment.cost_one.to_s.to_d*((100 + self.auction + self.tip_house + self.storey + self.rooms).to_s.to_d/100)
-
-
-
-      Apartment.find(self.apartment_id).update(uah_market_value: self.money_uah )
 
 
   end

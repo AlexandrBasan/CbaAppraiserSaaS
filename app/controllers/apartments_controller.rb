@@ -73,7 +73,7 @@ class ApartmentsController < ApplicationController
 
     respond_to do |format|
       if @apartment.save
-        format.html { redirect_to @apartment, notice: 'Apartment was successfully created.' }
+        format.html { redirect_to apartments_path, notice: 'Apartment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @apartment }
       else
         format.html { render action: 'new' }
@@ -88,7 +88,7 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.find(params[:id])
     respond_to do |format|
       if @apartment.update(apartment_params)
-        format.html { redirect_to @apartment, notice: 'Apartment was successfully updated.' }
+        format.html { redirect_to apartments_path, notice: 'Apartment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

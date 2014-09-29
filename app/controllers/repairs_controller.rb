@@ -30,7 +30,7 @@ class RepairsController < ApplicationController
 
     respond_to do |format|
       if @repair.save
-        format.html { redirect_to @repair, notice: 'Repair was successfully created.' }
+        format.html { redirect_to repairs_path, notice: 'Repair was successfully created.' }
         format.json { render action: 'show', status: :created, location: @repair }
       else
         format.html { render action: 'new' }

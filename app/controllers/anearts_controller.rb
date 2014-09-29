@@ -71,7 +71,7 @@ end
   def update
     respond_to do |format|
       if @aneart.update(aneart_params)
-        format.html { redirect_to @aneart, notice: 'Aneart was successfully updated.' }
+        format.html { redirect_to anearts_path, notice: 'Aneart was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

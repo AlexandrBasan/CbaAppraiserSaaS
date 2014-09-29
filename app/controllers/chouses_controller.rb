@@ -28,7 +28,7 @@ class ChousesController < ApplicationController
 
     respond_to do |format|
       if @chouse.save
-        format.html { redirect_to @chouse, notice: 'Chouse was successfully created.' }
+        format.html { redirect_to calc_houses_path, notice: 'Chouse was successfully created.' }
         format.json { render action: 'show', status: :created, location: @chouse }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class ChousesController < ApplicationController
   def update
     respond_to do |format|
       if @chouse.update(chouse_params)
-        format.html { redirect_to @chouse, notice: 'Chouse was successfully updated.' }
+        format.html { redirect_to calc_houses_path, notice: 'Chouse was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

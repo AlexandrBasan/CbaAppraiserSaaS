@@ -28,7 +28,7 @@ class CearthsController < ApplicationController
 
     respond_to do |format|
       if @cearth.save
-        format.html { redirect_to @cearth, notice: 'Cearth was successfully created.' }
+        format.html { redirect_to calc_earths_path, notice: 'Cearth was successfully created.' }
         format.json { render action: 'show', status: :created, location: @cearth }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class CearthsController < ApplicationController
   def update
     respond_to do |format|
       if @cearth.update(cearth_params)
-        format.html { redirect_to @cearth, notice: 'Cearth was successfully updated.' }
+        format.html { redirect_to calc_earths_path, notice: 'Cearth was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

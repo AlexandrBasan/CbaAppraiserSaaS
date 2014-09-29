@@ -5,7 +5,7 @@ class CalcPagesController < ApplicationController
     @capartments = Capartment.all
   end
   def calc_apartments_print
-    @apartments = Apartment.paginate(page: params[:page])
+    @apartments = Apartment.all
     @anaprtments = Anaprtment.all
     @capartments = Capartment.all
   end

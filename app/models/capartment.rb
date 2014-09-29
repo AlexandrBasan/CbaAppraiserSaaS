@@ -62,6 +62,8 @@ after_save :bef_total
     self.value_repair = Repair.first.simple
              elsif self.anaprtment.category_repair == 'Без оздоблення'
                self.value_repair = Repair.first.nodecoration
+             else
+               self.value_repair = 0
      end
 
     if self.apartment.storey == 1 || self.apartment.storey == self.apartment.floors
@@ -128,8 +130,8 @@ after_save :bef_total
       end
     end
 
- self.adj_cost_value = self.anaprtment.cost_one.to_s.to_d*((100 + self.auction + self.tip_house + self.storey
- + self.rooms).to_s.to_d/100)
+ self.adj_cost_value = self.anaprtment.cost_one.to_s.to_d*((100 + self.auction.to_s.to_i +
+     self.tip_house.to_s.to_i + self.storey.to_s.to_i + self.rooms.to_s.to_i).to_s.to_d/100) + self.value_repair.to_s.to_d
 
 
   end

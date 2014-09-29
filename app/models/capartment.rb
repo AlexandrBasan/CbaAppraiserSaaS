@@ -65,7 +65,7 @@ after_save :bef_total
      end
 
     if self.apartment.storey == 1 || self.apartment.storey == self.apartment.floors
-                 if self.anaprtment.floor != 1 || self.anaprtment.floor != selfanaprtment.storeys
+                 if self.anaprtment.floor != 1 || self.anaprtment.floor != self.anaprtment.storeys
                    self.storey = -System.first.floor_apartment.to_s.to_i
                  else
                    self.storey = 0.to_s.to_i
@@ -128,7 +128,8 @@ after_save :bef_total
       end
     end
 
- self.adj_cost_value = self.anaprtment.cost_one.to_s.to_d*((100 + self.auction + self.tip_house + self.storey + self.rooms).to_s.to_d/100)
+ self.adj_cost_value = self.anaprtment.cost_one.to_s.to_d*((100 + self.auction + self.tip_house + self.storey
+ + self.rooms).to_s.to_d/100)
 
 
   end

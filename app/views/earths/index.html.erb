@@ -39,7 +39,13 @@
     <div class="panel-content">
       <div class="row">
         <div class="span6">
-          <h5 align="center"><%= link_to "Обработать данные", calc_earths_path, class: "button large bg-green" %></h5>
+          <h5 align="center">
+            <% if @capartments.empty? %>
+                <%= link_to "Обработать данные", processing_earth_path, class: "button large bg-green" %>
+            <% else %>
+                <%= link_to "Расчеты", calc_earths_path, class: "button large bg-green" %>
+            <% end %>
+          </h5>
         </div>
         <div class="span6">
           <% if @earths.empty?%>

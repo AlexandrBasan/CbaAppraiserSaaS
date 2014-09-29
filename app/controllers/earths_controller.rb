@@ -18,7 +18,7 @@ class EarthsController < ApplicationController
   end
 
 
-  def processing
+  def processing_earth
     @ea = Earth.all
     @ea.each do |earth|
       Aneart.where(district_number: earth.district_number).each do |anea|

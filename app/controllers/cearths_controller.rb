@@ -70,6 +70,6 @@ class CearthsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def cearth_params
       params.require(:cearth).permit(:auction, :location, :infrastructure, :diff_area, :adj_cost_value,
-                                     s:earth_id, :aneart_id)
+                                     :earth_id, :aneart_id)
     end
 end

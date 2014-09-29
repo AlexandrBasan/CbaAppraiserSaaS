@@ -2,7 +2,7 @@ class Capartment < ActiveRecord::Base
   belongs_to :apartment
   belongs_to :anaprtment
   before_save :calc
-
+after_save :bef_total
 
 
   def calc
@@ -66,21 +66,21 @@ class Capartment < ActiveRecord::Base
 
     if self.apartment.storey == 1 || self.apartment.storey == self.apartment.floors
                  if self.anaprtment.floor != 1 || self.anaprtment.floor != selfanaprtment.storeys
-                   self.storey = -System.first.floor_apartment
+                   self.storey = -System.first.floor_apartment.to_s.to_i
                  else
-                   self.storey = 0
+                   self.storey = 0.to_s.to_i
                  end
     else
-      self.storey = 0
+      self.storey = 0.to_s.to_i
  end
   if self.anaprtment.floor == 1 || self.anaprtment.floor == self.anaprtment.storeys
                 if self.apartment.storey != 1 || self.apartment.storey != self.apartment.floors
-                  self.storey = +System.first.floor_apartment
+                  self.storey = +System.first.floor_apartment.to_s.to_i
                 else
-                  self.storey = 0
+                  self.storey = 0.to_s.to_i
                 end
   else
-    self.storey =0
+    self.storey =0.to_s.to_i
   end
 
     if self.apartment.number_rooms == 1
@@ -129,11 +129,28 @@ class Capartment < ActiveRecord::Base
     end
 
  self.adj_cost_value = self.anaprtment.cost_one.to_s.to_d*((100 + self.auction + self.tip_house + self.storey + self.rooms).to_s.to_d/100)
-    @med = Capartment.where(apartment_id: self.apartment_id).each
-    self.median= @med.sum(:adj_cost_value)
+
+
 
       Apartment.find(self.apartment_id).update(uah_market_value: self.money_uah )
 
 
   end
   end
+def bef_total
+  @sum= Capartment.where(apartment_id: self.apartment_id)
+  @median = @sum.sum(:adj_cost_value)/@sum.count
+  Apartment.find(self.apartment_id).update(median: @median)
+
+  @usd= self.apartment.area.to_s.to_d*self.apartment.median.to_s.to_d
+  Apartment.find(self.apartment_id).update(usd_market_value: @usd)
+
+  @uah= self.apartment.usd_market_value.to_s.to_d*Currency.first.value.to_s.to_d
+  Apartment.find(self.apartment_id).update(uah_market_value: @uah)
+
+  @euro= self.apartment.uah_market_value.to_s.to_d/Currency.last.value.to_s.to_d
+  Apartment.find(self.apartment_id).update(euro_market_value: @euro)
+
+
+
+end

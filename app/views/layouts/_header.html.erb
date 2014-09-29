@@ -43,6 +43,20 @@
 
         <span class="element-divider"></span>
       <% if current_user && current_user.try(:admin?) %>
+
+
+            <div class="element">
+              <a class="dropdown-toggle" href="#"> <%= "Расчеты" %></a>
+              <ul class="dropdown-menu" data-role="dropdown">
+                <li><%= link_to "Расчеты квартир", calc_apartment_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Расчеты земли", calc_earths_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Расчеты домов", calc_houses_path %></li>
+
+              </ul>
+            </div>
+            <span class="element-divider"></span>
             <div class="element">
               <a class="dropdown-toggle" href="#"> <%= "Настройки системы" %></a>
               <ul class="dropdown-menu" data-role="dropdown">
@@ -62,9 +76,9 @@
                 <li><%= link_to "Настройка общих данних", systems_path %></li>
               </ul>
             </div>
-
             <span class="element-divider"></span>
-      <% end %>
+
+  <% end %>
       <% else %>
 
       <% end %>

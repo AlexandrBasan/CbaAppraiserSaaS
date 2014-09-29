@@ -7,6 +7,7 @@ class ApartmentsController < ApplicationController
   # GET /apartments
   # GET /apartments.json
   def index
+    @capartments = Capartment.all
      @apartments = Apartment.paginate(page: params[:page])
     respond_to do |format|
       format.html

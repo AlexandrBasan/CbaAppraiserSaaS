@@ -1,5 +1,5 @@
 class Apartment < ActiveRecord::Base
-  #before_save :total
+
  #validates :uah_market_value, presence: true
   has_many :capartments
 
@@ -64,9 +64,5 @@ class Apartment < ActiveRecord::Base
     end
   end
 
-  def total
-    self.usd_market_value = uah_market_value / Currency.first.value
-    self.euro_market_value = uah_market_value / Currency.last.value
-  end
 
 end

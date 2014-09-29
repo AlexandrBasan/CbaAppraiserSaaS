@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927134009) do
+ActiveRecord::Schema.define(version: 20140929100239) do
 
   create_table "anaprtments", force: true do |t|
     t.integer  "district_number"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20140927134009) do
     t.decimal  "euro_market_value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "median"
   end
 
   create_table "auctions", force: true do |t|
@@ -177,6 +178,7 @@ ActiveRecord::Schema.define(version: 20140927134009) do
     t.decimal  "euro_market_value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "median"
   end
 
   create_table "houses", force: true do |t|
@@ -201,6 +203,7 @@ ActiveRecord::Schema.define(version: 20140927134009) do
     t.decimal  "euro_market_value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "median"
   end
 
   create_table "kolrooms", force: true do |t|

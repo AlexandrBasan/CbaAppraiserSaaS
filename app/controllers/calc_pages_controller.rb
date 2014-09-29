@@ -4,6 +4,11 @@ class CalcPagesController < ApplicationController
     @anaprtments = Anaprtment.all
     @capartments = Capartment.all
   end
+  def calc_apartments_print
+    @apartments = Apartment.paginate(page: params[:page])
+    @anaprtments = Anaprtment.all
+    @capartments = Capartment.all
+  end
   def calc_earths
     @earths = Earth.all
     @anearths = Aneart.all

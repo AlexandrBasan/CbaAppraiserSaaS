@@ -6,10 +6,6 @@ class CreateCearths < ActiveRecord::Migration
       t.integer :infrastructure
       t.integer :diff_area
       t.decimal :adj_cost_value
-      t.decimal :median
-      t.decimal :money_usd
-      t.decimal :money_euro
-      t.decimal :money_uah
       t.integer :earth_id
       t.integer :aneart_id
 

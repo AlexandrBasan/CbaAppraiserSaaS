@@ -7,10 +7,6 @@ class CreateCapartments < ActiveRecord::Migration
       t.integer :storey
       t.integer :rooms
       t.decimal :adj_cost_value
-      t.decimal :median
-      t.decimal :money_usd
-      t.decimal :money_euro
-      t.decimal :money_uah
       t.integer :apartment_id
       t.integer :anaprtment_id
 

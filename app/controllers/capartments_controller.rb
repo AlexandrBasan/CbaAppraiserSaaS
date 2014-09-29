@@ -70,6 +70,7 @@ class CapartmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def capartment_params
-      params.require(:capartment).permit(:auction, :tip_house, :value_repair, :storey, :rooms, :adj_cost_value, :median, :money_usd, :money_euro, :money_uah, :apartment_id, :anaprtment_id)
+      params.require(:capartment).permit(:auction, :tip_house, :value_repair, :storey, :rooms,
+                                         :adj_cost_value, :apartment_id, :anaprtment_id)
     end
 end

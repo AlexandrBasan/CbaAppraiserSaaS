@@ -69,6 +69,7 @@ class ChousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chouse_params
-      params.require(:chouse).permit(:auction, :location, :infrastructure, :diff_area, :category_repair, :adj_cost_value, :median, :money_usd, :money_euro, :money_uah, :house_id, :anhousehold_id)
+      params.require(:chouse).permit(:auction, :location, :infrastructure, :diff_area, :category_repair,
+                                     :adj_cost_value, :house_id, :anhousehold_id)
     end
 end

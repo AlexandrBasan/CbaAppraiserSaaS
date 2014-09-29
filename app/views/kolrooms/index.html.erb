@@ -21,20 +21,15 @@
     <% @kolrooms.each do |kolroom| %>
       <tr>
         <td><%= kolroom.num_analog %></td>
-        <td><%= kolroom.o1 %></td>
-        <td><%= kolroom.o2 %></td>
-        <td><%= kolroom.o3 %></td>
-        <td><%= kolroom.o4 %></td>
-        <td><%= link_to 'Edit', edit_kolroom_path(kolroom) %><br/>
-          <%= link_to 'Destroy', kolroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= kolroom.o1 %>%</td>
+        <td><%= kolroom.o2 %>%</td>
+        <td><%= kolroom.o3 %>%</td>
+        <td><%= kolroom.o4 %>%</td>
+        <td><%= link_to 'Изменить', edit_kolroom_path(kolroom), class: "button normal bg-orange" %><br/>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Добавить', new_kolroom_path, :class => "button info" %>
 
 </div>
 </div>

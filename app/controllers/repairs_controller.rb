@@ -44,7 +44,7 @@ class RepairsController < ApplicationController
   def update
     respond_to do |format|
       if @repair.update(repair_params)
-        format.html { redirect_to @repair, notice: 'Repair was successfully updated.' }
+        format.html { redirect_to repairs_path, notice: 'Repair was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

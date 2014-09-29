@@ -6,6 +6,7 @@
     <table class="table table-striped table-hover hovered striped bordered">
   <thead>
     <tr>
+      <th>Для каких данных</th>
       <th>Высококачественный</th>
       <th>Евроремонт</th>
       <th>Улучшеный</th>
@@ -16,18 +17,29 @@
   </thead>
 
   <tbody>
-    <% @repairs.each do |repair| %>
+
       <tr>
-        <td><%= repair.high %></td>
-        <td><%= repair.eurorepair %></td>
-        <td><%= repair.advanced %></td>
-        <td><%= repair.simple %></td>
-        <td><%= repair.nodecoration %></td>
+        <td>Для квартир</td>
+        <td><%= @repairs.first.high %> usd</td>
+        <td><%= @repairs.first.eurorepair %> usd</td>
+        <td><%= @repairs.first.advanced %> usd</td>
+        <td><%= @repairs.first.simple %> usd</td>
+        <td><%= @repairs.first.nodecoration %> usd</td>
         <td>
-        <%= link_to 'Edit', edit_repair_path(repair) %>
+        <%= link_to 'Изменить', edit_repair_path(1), class: "button normal bg-orange" %>
         </td>
       </tr>
-    <% end %>
+      <tr>
+        <td>Для домов</td>
+        <td><%= @repairs.last.high %> usd</td>
+        <td><%= @repairs.last.eurorepair %> usd</td>
+        <td><%= @repairs.last.advanced %> usd</td>
+        <td><%= @repairs.last.simple %> usd</td>
+        <td><%= @repairs.last.nodecoration %> usd</td>
+        <td>
+          <%= link_to 'Изменить', edit_repair_path(2), class: "button normal bg-orange" %>
+        </td>
+      </tr>
   </tbody>
 </table>
   </div>

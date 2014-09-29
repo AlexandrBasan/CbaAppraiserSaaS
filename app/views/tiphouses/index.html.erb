@@ -22,17 +22,15 @@
     <% @tiphouses.each do |tiphouse| %>
       <tr>
         <td><%= tiphouse.num_analog %></td>
-        <td><%= tiphouse.o1 %></td>
-        <td><%= tiphouse.o2 %></td>
-        <td><%= tiphouse.o3 %></td>
-        <td><%= tiphouse.o4 %></td>
-        <td><%= link_to 'Edit', edit_tiphouse_path(tiphouse) %><br/>
-         <%= link_to 'Destroy', tiphouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= tiphouse.o1 %>%</td>
+        <td><%= tiphouse.o2 %>%</td>
+        <td><%= tiphouse.o3 %>%</td>
+        <td><%= tiphouse.o4 %>%</td>
+        <td><%= link_to 'Изменить', edit_tiphouse_path(tiphouse), class: "button normal bg-orange" %><br/>
       </tr>
     <% end %>
   </tbody>
 </table>
-    <%= link_to 'Новый тип дома', new_tiphouse_path, :class => "button info" %>
 
 </div>
 </div>

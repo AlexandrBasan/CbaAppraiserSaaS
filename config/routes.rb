@@ -1,8 +1,6 @@
 CbaAppraiserSoft::Application.routes.draw do
   resources :systems
 
-  resources :auctions
-
   resources :capartments
 
   resources :chouses

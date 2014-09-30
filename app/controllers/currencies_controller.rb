@@ -1,7 +1,7 @@
 class CurrenciesController < ApplicationController
   before_action :set_currency, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :index]
 
   # GET /currencies
   # GET /currencies.json

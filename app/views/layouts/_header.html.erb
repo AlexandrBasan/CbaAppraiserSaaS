@@ -7,7 +7,7 @@
       <% end %>
     </div>
     <% if signed_in? %>
-
+        <% if current_user && current_user.try(:verification?) %>
         <span class="element-divider"></span>
     <div class="element">
       <a class="dropdown-toggle" href="#"><%= "Загрузка данных от банка" %></a>
@@ -32,6 +32,7 @@
         <li><%= link_to "Домовладение", anhouseholds_path %></li>
       </ul>
     </div>
+        <% end %>
 
 
 

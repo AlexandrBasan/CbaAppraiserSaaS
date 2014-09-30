@@ -1,7 +1,7 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all, :processing]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all, :processing, :index]
 
   # GET /houses
   # GET /houses.json

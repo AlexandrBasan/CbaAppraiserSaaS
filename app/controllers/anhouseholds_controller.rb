@@ -1,7 +1,7 @@
 class AnhouseholdsController < ApplicationController
   before_action :set_anhousehold, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
-  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all]
+  before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all, :index]
 
 
   # GET /anhouseholds

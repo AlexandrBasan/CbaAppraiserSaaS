@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = I18n.t 'flash.welcome_to_saas'
+      flash[:success] = "Добро пожаловать в систему оценки для банков CBA APPRAISER"
       redirect_to root_path
     else
       render 'new'
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = I18n.t 'flash.profile_updated'
+      flash[:success] = "Профиль обновлен"
       redirect_to root_path
     else
       render 'edit'

@@ -1,4 +1,5 @@
 <% if signed_in? %>
+    <% if current_user && current_user.try(:verification?) %>
       <div class="10 offset1">
         <div class="span4">
             <h2>Данные банка</h2>
@@ -125,6 +126,20 @@
 
           <% end %>
       </div>
+    <% else %>
+        <div class="center jumbotron">
+          <h1>CBA APPRAISER</h1>
+          <h2>
+            <%= 'Вы не верифицированы, обратитесь в CBA за верификацией' %>
+          </h2>
+          <div style="border-top: 1px solid lightgray; padding-top: 30px;"></div>
+
+          <h5 align="center" style="padding-top: 10px;">
+            <%= link_to 'Перейти на сайте www.cba.com.ua', 'http://www.cba.com.ua', :target => "_blank", class: "button large bg-yellow" %>
+          </h5>
+
+        </div>
+    <% end %>
 <% else %>
     <div class="center jumbotron">
       <h1>CBA APPRAISER</h1>

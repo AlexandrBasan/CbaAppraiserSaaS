@@ -1,0 +1,37 @@
+<table class="table table-striped table-hover hovered striped bordered">
+  <thead>
+  <tr>
+    <th>№ района</th>
+    <th>№ п/п</th>
+    <th>Місце розташування</th>
+    <th>Джерело інформації</th>
+    <th>Площа, кв, м</th>
+    <th>Кількість кімнат</th>
+    <th>Вартість аналога, (дол. США)</th>
+    <th>Поверх</th>
+    <th>Поверховість</th>
+    <th>Тип будинку</th>
+    <th>Категорія ремонту</th>
+    <th>Вартість 1 м, кв, (дол. США)</th>
+  </tr>
+  </thead>
+  <% @a_anaprtments= Anaprtment.all %>
+  <tbody>
+  <% @anaprtments.each do |anaprtment| %>
+      <tr>
+        <td><%= anaprtment.district_number %></td>
+        <td><%= anaprtment.numberpp %></td>
+        <td><%= anaprtment.location %></td>
+        <td><%= anaprtment.source %></td>
+        <td><%= anaprtment.area %></td>
+        <td><%= anaprtment.number_rooms %></td>
+        <td><%= press(anaprtment.cost_analogue_usd) %></td>
+        <td><%= anaprtment.floor %></td>
+        <td><%= anaprtment.storeys %></td>
+        <td><%= anaprtment.building_type %></td>
+        <td><%= anaprtment.category_repair %></td>
+        <td><%= press(anaprtment.cost_one) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,49 +1,51 @@
-    <table class="table table-striped table-hover hovered striped bordered">
-  <thead>
-    <tr>
-      <th colspan="9">Домоволодіння</th>
-      <th colspan="8">Земельна ділянка</th>
-    </tr>
-    <tr>
-      <th>№ района</th>
-      <th>Аналоги, адреса</th>
-      <th>Площа будівля, приміщення, кв.м.</th>
-      <th>Площа землі, кв.м.</th>
-      <th>Вартість пропозиції/дол. США</th>
-      <th>Вартість пропозиції без землі/дол. США</th>
-      <th>Вартість пропозиції, м.кв./дол. США</th>
-      <th>Категорія ремонту</th>
-      <th>Джерело інформації</th>
-      <th>Аналоги, адреса</th>
-      <th>Площа, кв.м.</th>
-      <th>Призначення</th>
-      <th>Вартість пропозиції/дол. США</th>
-      <th>Джерело інформації</th>
-      <th>Вартість пропозиції, дол. США/м2</th>
-      <th>Медіана</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @a_anhouseholds = Anhousehold.all %>
-    <% @a_anhouseholds.each do |anhousehold| %>
-      <tr>
-        <td><%= anhousehold.number_district %></td>
-        <td><%= anhousehold.danalog %></td>
-        <td><%= anhousehold.darea_building %></td>
-        <td><%= anhousehold.darea_land %></td>
-        <td><%= anhousehold.dvalue_proposition_usd %></td>
-        <td><%= anhousehold.dvalue_proposition_usd_no_land %></td>
-        <td><%= anhousehold.dvalue_proposition_usd_kvm %></td>
-        <td><%= anhousehold.dcategory_repair %></td>
-        <td><%= anhousehold.dsource_information %></td>
-        <td><%= anhousehold.zanalog %></td>
-        <td><%= anhousehold.zarea %></td>
-        <td><%= anhousehold.zpurpose %></td>
-        <td><%= press(anhousehold.zvalue_proposition_usd) %></td>
-        <td><%= anhousehold.zsource_information %></td>
-        <td><%= press(anhousehold.zvalue_proposition_usd_kvm) %></td>
-        <th><%= anhousehold.mediana %></th>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">№ района</Data></Cell>
+        <Cell><Data ss:Type="String">Аналоги, адреса</Data></Cell>
+        <Cell><Data ss:Type="String">Площа будівля, приміщення, кв.м.</Data></Cell>
+        <Cell><Data ss:Type="String">Площа землі, кв.м.</Data></Cell>
+        <Cell><Data ss:Type="String">Вартість пропозиції/дол. США</Data></Cell>
+        <Cell><Data ss:Type="String">Вартість пропозиції без землі/дол. США</Data></Cell>
+        <Cell><Data ss:Type="String">Вартість пропозиції, м.кв./дол. США</Data></Cell>
+        <Cell><Data ss:Type="String">Категорія ремонту</Data></Cell>
+        <Cell><Data ss:Type="String">Джерело інформації</Data></Cell>
+        <Cell><Data ss:Type="String">Аналоги, адреса</Data></Cell>
+        <Cell><Data ss:Type="String">Площа, кв.м.</Data></Cell>
+        <Cell><Data ss:Type="String">Призначення</Data></Cell>
+        <Cell><Data ss:Type="String">Вартість пропозиції/дол. США</Data></Cell>
+        <Cell><Data ss:Type="String">Джерело інформації</Data></Cell>
+        <Cell><Data ss:Type="String">Вартість пропозиції, дол. США/м2</Data></Cell>
+        <Cell><Data ss:Type="String">Медіана</Data></Cell>
+
+      </Row>
+      <% @a_anhouseholds = Anhousehold.all %>
+      <% @a_anhouseholds.each do |anhousehold| %>
+          <Row>
+            <Cell><Data ss:Type="String"><%= anhousehold.number_district %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anhousehold.danalog %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anhousehold.darea_building %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anhousehold.darea_land %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anhousehold.dvalue_proposition_usd %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anhousehold.dvalue_proposition_usd_no_land %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anhousehold.dvalue_proposition_usd_kvm %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anhousehold.dcategory_repair %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anhousehold.dsource_information %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anhousehold.zanalog %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anhousehold.zarea %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anhousehold.zpurpose %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press(anhousehold.zvalue_proposition_usd) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anhousehold.zsource_information %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press(anhousehold.zvalue_proposition_usd_kvm) %></Data></Cell>
+            <th><%= anhousehold.mediana %></th>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

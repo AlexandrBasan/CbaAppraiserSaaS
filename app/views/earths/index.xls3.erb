@@ -1,30 +1,30 @@
 <table class="table table-striped table-hover hovered striped bordered">
   <thead>
-    <tr>
-      <th>Kод oбеспечення</th>
-      <th>Тип обеспечения</th>
-      <th>Область</th>
-      <th>Район</th>
-      <th>Город</th>
-      <th>Тип улицы</th>
-      <th>Название улицы</th>
-      <th>Название улицы</th>
-      <th>Номер дома</th>
-      <th>Номер корпуса</th>
-      <th>Номер квартиры</th>
-      <th>Общая площадь, кв.м</th>
-      <th>Жилая площадь, кв.м</th>
-      <th>Площадь земельного участка, Га</th>
-      <th>№ района</th>
-      <th>Категория ремонту</th>
-      <th>Рыночная стоимость, грн</th>
-      <th>Рыночная стоимость, дол.США</th>
-      <th>Рыночная стоимость, евро</th>
-    </tr>
+  <tr>
+    <th>Kод oбеспечення</th>
+    <th>Тип обеспечения</th>
+    <th>Область</th>
+    <th>Район</th>
+    <th>Город</th>
+    <th>Тип улицы</th>
+    <th>Название улицы</th>
+    <th>Название улицы</th>
+    <th>Номер дома</th>
+    <th>Номер корпуса</th>
+    <th>Номер квартиры</th>
+    <th>Общая площадь, кв.м</th>
+    <th>Жилая площадь, кв.м</th>
+    <th>Площадь земельного участка, Га</th>
+    <th>№ района</th>
+    <th>Категория ремонту</th>
+    <th>Рыночная стоимость, грн</th>
+    <th>Рыночная стоимость, дол.США</th>
+    <th>Рыночная стоимость, евро</th>
+  </tr>
   </thead>
-<% @a_earths= Earth.all %>
+  <% @a_earths= Earth.all %>
   <tbody>
-    <% @a_earths.each do |earth| %>
+  <% @a_earths.each do |earth| %>
       <tr>
         <td><%= earth.code_provision %></td>
         <td><%= earth.tip %></td>
@@ -46,6 +46,6 @@
         <td><%= press(earth.usd_market_value) %></td>
         <td><%= press(earth.euro_market_value) %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>

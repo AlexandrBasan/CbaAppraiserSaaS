@@ -1,18 +1,18 @@
 <table class="table table-striped table-hover hovered striped bordered">
   <thead>
-    <tr>
-      <th>№ района</th>
-      <th>Аналоги, адреса</th>
-      <th>Площа, кв.м.</th>
-      <th>Призначення</th>
-      <th>Вартість пропозиції/дол. США</th>
-      <th>Джерело інформації</th>
-      <th>Вартість пропозиції, дол. США/м2</th>
-    </tr>
+  <tr>
+    <th>№ района</th>
+    <th>Аналоги, адреса</th>
+    <th>Площа, кв.м.</th>
+    <th>Призначення</th>
+    <th>Вартість пропозиції/дол. США</th>
+    <th>Джерело інформації</th>
+    <th>Вартість пропозиції, дол. США/м2</th>
+  </tr>
   </thead>
-<% @a_anearts= Aneart.all %>
+  <% @a_anearts= Aneart.all %>
   <tbody>
-    <% @a_anearts.each do |aneart| %>
+  <% @a_anearts.each do |aneart| %>
       <tr>
         <td><%= aneart.district_number %></td>
         <td><%= aneart.analogs_address %></td>
@@ -22,6 +22,6 @@
         <td><%= aneart.information_source %></td>
         <td><%= press(aneart.value_proposition_usdone) %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>

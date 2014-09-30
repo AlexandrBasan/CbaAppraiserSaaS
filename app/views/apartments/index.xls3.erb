@@ -34,30 +34,30 @@
       <% @a_apartments = Apartment.all %>
       <% @a_apartments.each do |apartment| %>
           <Row>
-            <Cell><Data ss:Type="String"><td><%= apartment.code_provision %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.new_code %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.account_number %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.alt_account_number %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.tip %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.region %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.district %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.type_settlement %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.city %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.street_type %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.street_name %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.number_house %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.number_house2 %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.room_apartment %></td></Data></Cell>
-            <Cell><Data ss:Type="String"><td><%= apartment.area %></td></Data></Cell>
-            <Cell><Data ss:Type="Number"><td><%= apartment.floor_area %></td></Data></Cell>
-            <Cell><Data ss:Type="Number"><td><%= apartment.number_rooms %></td></Data></Cell>
-            <Cell><Data ss:Type="Number"><td><%= apartment.storey %></td></Data></Cell>
-            <Cell><Data ss:Type="Number"><td><%= apartment.floors %></td></Data></Cell>
-            <Cell><Data ss:Type="Number"><td><%= apartment.series_home %></td></Data></Cell>
-            <Cell><Data ss:Type="Number"><td><%= apartment.district_number %></td></Data></Cell>
-            <Cell><Data ss:Type="Number"><td><%= press(apartment.uah_market_value) %></td></Data></Cell>
-            <Cell><Data ss:Type="Number"><td><%= press(apartment.usd_market_value) %></td></Data></Cell>
-            <Cell><Data ss:Type="Number"><td><%= press(apartment.euro_market_value) %></td></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.code_provision %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.new_code %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.account_number %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.alt_account_number %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.tip %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.region %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.district %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.type_settlement %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.city %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.street_type %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.street_name %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.number_house %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.number_house2 %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.room_apartment %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= apartment.area %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= apartment.floor_area %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= apartment.number_rooms %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= apartment.storey %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= apartment.floors %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= apartment.series_home %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= apartment.district_number %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= press(apartment.uah_market_value) %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= press(apartment.usd_market_value) %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= press(apartment.euro_market_value) %></Data></Cell>
           </Row>
       <% end %>
     </Table>

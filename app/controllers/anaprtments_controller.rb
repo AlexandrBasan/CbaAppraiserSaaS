@@ -7,11 +7,12 @@ class AnaprtmentsController < ApplicationController
   # GET /anaprtments.json
   def index
     @anaprtments= Anaprtment.paginate(page: params[:page])
+    @a_anaprtments= Anaprtment.all
     respond_to do |format|
       format.html
       # export to csv and xls
-      format.csv { send_data @anaprtments.to_csv }
-      format.xls { send_data @anaprtments.to_csv(col_sep: "\t") }
+      format.csv { send_data @a_anaprtments.to_csv }
+      format.xls { send_data @a_anaprtments.to_csv(col_sep: "\t") }
       # format.xls # { send_data @tests.to_csv(col_sep: "\t") }
   end
 end

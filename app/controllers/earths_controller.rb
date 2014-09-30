@@ -9,11 +9,12 @@ class EarthsController < ApplicationController
   def index
     @cearths= Cearth.all
     @earths= Earth.paginate(page: params[:page])
+    @a_earths= Earth.all
     respond_to do |format|
       format.html
       # export to csv and xls
-      format.csv { send_data @earths.to_csv }
-      format.xls { send_data @earths.to_csv(col_sep: "\t") }
+      format.csv { send_data @a_earths.to_csv }
+      format.xls { send_data @a_earths.to_csv(col_sep: "\t") }
       # format.xls # { send_data @tests.to_csv(col_sep: "\t") }
     end
   end

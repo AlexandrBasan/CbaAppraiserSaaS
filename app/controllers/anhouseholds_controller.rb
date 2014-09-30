@@ -8,11 +8,12 @@ class AnhouseholdsController < ApplicationController
   # GET /anhouseholds.json
   def index
     @anhouseholds = Anhousehold.paginate(page: params[:page])
+    @a_anhouseholds = Anhousehold.all
     respond_to do |format|
       format.html
       # export to csv and xls
-      format.csv { send_data @apartments.to_csv }
-      format.xls { send_data @apartments.to_csv(col_sep: "\t") }
+      format.csv { send_data @a_anhouseholds.to_csv }
+      format.xls { send_data @a_anhouseholds.to_csv(col_sep: "\t") }
     end
   end
 

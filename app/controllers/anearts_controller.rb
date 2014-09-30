@@ -7,11 +7,12 @@ class AneartsController < ApplicationController
   def index
     @aneart= Aneart.new
     @anearts= Aneart.paginate(page: params[:page])
+    @a_anearts= Aneart.all
     respond_to do |format|
       format.html
       # export to csv and xls
-      format.csv { send_data @anearts.to_csv }
-      format.xls { send_data @anearts.to_csv(col_sep: "\t") }
+      format.csv { send_data @a_anearts.to_csv }
+      format.xls { send_data @a_anearts.to_csv(col_sep: "\t") }
       # format.xls # { send_data @tests.to_csv(col_sep: "\t") }
   end
 end

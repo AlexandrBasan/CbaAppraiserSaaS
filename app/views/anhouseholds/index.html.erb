@@ -23,7 +23,8 @@
         <div class="panel-content">
 
           <button class="image-button primary">
-            <%= link_to (I18n.t 'button.download') , anhouseholds_path(format: "xls")%>
+            <%= link_to (I18n.t 'button.download' + ' *CSV') , anhouseholds_path(format: "csv")%>
+            <%= link_to (I18n.t 'button.download' + ' *XLS') , anhouseholds_path(format: "xls")%>
             <i class="icon-download-2"></i>
           </button>
         </div>

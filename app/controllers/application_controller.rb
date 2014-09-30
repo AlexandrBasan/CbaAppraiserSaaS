@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+
+  rescue_from Timeout::Error, :with => :timeout_error
   protect_from_forgery with: :exception
   include SessionsHelper
 
@@ -9,6 +11,11 @@ class ApplicationController < ActionController::Base
   # Most input types need the form-control class on them.  This is the easiest way to get that into every form input
   module BootstrapTag
     FORM_CONTROL_CLASS = 'form-control'
+s
+    def timeout_error
+      flash[:warning] = (t 'flash.session_expired')
+      redirect_to root_path
+    end
 
     def tag(name, options, *)
       options = add_bootstrap_class_to_options options, true if name.to_s == 'input'

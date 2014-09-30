@@ -2,15 +2,7 @@ class ApartmentsController < ApplicationController
   before_action :set_apartment, only: [:show, :edit, :update, :destroy]
   before_action :current_user_check_nil
   before_action :check_verification, only: [:create, :edit, :update, :destroy, :new, :import, :destroy_all, :download_pdf, :processing]
-  rescue_from Timeout::Error, :with => :timeout_error
 
-  # GET /apartments
-  # GET /apartments.json
-
-  def timeout_error
-    flash[:warning] = (t 'flash.session_expired')
-    redirect_to root_path
-  end
 
   def index
     @capartments = Capartment.all

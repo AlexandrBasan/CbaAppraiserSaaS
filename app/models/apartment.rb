@@ -10,7 +10,7 @@ class Apartment < ActiveRecord::Base
       all.each do |product|
         csv << product.attributes.values_at(*column_names)
       end
-    end).encode('UTF-8')
+    end).encode('Windows-1251')
   end
 
   def self.import(file)

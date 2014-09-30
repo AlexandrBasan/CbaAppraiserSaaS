@@ -4,13 +4,13 @@ class Apartment < ActiveRecord::Base
   has_many :capartments
 
   def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
+    (CSV.generate(options) do |csv|
       # column headers for table - language
       csv << column_names
       all.each do |product|
         csv << product.attributes.values_at(*column_names)
       end
-    end
+    end).encode('UTF-8')
   end
 
   def self.import(file)

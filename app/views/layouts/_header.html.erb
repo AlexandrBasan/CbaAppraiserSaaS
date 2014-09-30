@@ -76,6 +76,7 @@
       <% else %>
 
       <% end %>
+    <% if signed_in? %>
     <span class="element-divider"></span>
     <div class="element">
       <a class="dropdown-toggle" href="#"> <%= current_user.email %></a>
@@ -83,6 +84,7 @@
         <%= render 'layouts/header/header_account_button' %>
       </ul>
     </div>
+    <% end %>
   </nav>
 </nav>
 </header>

@@ -3,8 +3,8 @@
   <div class="row">
     <div class="span4">
       <div class="panel" data-role="panel">
-        <div class="panel-header fg-lime">
-          <%= (I18n.t 'button.import') %> *.XLS
+        <div class="panel-header bg-lime fg-white">
+          <%= (I18n.t 'button.import') %> *XLS
         </div>
         <div class="panel-content">
           <%= form_tag import_anearts_path, multipart: true do %>
@@ -16,8 +16,8 @@
     </div>
     <div class="span4">
       <div class="panel" data-role="panel">
-        <div class="panel-header bg-lightOrange">
-          <%= (I18n.t 'button.download') %> *.XLS
+        <div class="panel-header bg-lightOrange fg-white">
+          <%= (I18n.t 'button.download') %> (*.XLS for Microsoft office)
         </div>
         <div class="panel-content">
 
@@ -34,19 +34,19 @@
     </div>
     <div class="span4">
       <div class="panel" data-role="panel">
-        <div class="panel-header bg-yellow">
+        <div class="panel-header bg-yellow fg-white">
           <%= 'Обработка загруженных данных' %>
         </div>
         <div class="panel-content">
           <div class="row">
             <div class="span6">
-              <h5 align="center"><%= link_to "Обработать данные", calc_earths_path, class: "button large bg-green" %></h5>
+              <h5 align="center"><%= link_to "Обработать данные", calc_earths_path, class: "button large bg-green fg-white" %></h5>
             </div>
             <div class="span6">
               <h5 align="center">
               <% if @anearts.empty?%>
               <% else %>
-                  <%= link_to "Очистить базу", anearts_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red" %>
+                  <%= link_to "Очистить базу", anearts_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red fg-white" %>
               <% end %>
                   </h5>
             </div>
@@ -57,7 +57,7 @@
   </div>
 
 <div class="panel" data-role="panel">
-  <div class="panel-header bg-cyan">
+  <div class="panel-header bg-cyan fg-white">
     Список аналогов земли
   </div>
   <div id="dialog2" class="window">
@@ -99,8 +99,8 @@
         <td><%= press(aneart.value_proposition_usd) %></td>
         <td><%= aneart.information_source %></td>
         <td><%= press(aneart.value_proposition_usdone) %></td>
-        <td><%= link_to 'Edit', edit_aneart_path(aneart), class: "button normal bg-orange" %></td>
-        <td><%= link_to 'Destroy', aneart, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
+        <td><%= link_to 'Edit', edit_aneart_path(aneart), class: "button normal bg-orange fg-white" %></td>
+        <td><%= link_to 'Destroy', aneart, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red fg-white" %></td>
       </tr>
     <% end %>
   </tbody>

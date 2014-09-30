@@ -4,7 +4,7 @@
   <div class="row">
     <div class="span4">
       <div class="panel" data-role="panel">
-        <div class="panel-header bg-lime">
+        <div class="panel-header bg-lime fg-white">
           <%= (I18n.t 'button.import') %> *.XLS
         </div>
         <div class="panel-content">
@@ -17,8 +17,8 @@
     </div>
     <div class="span4">
       <div class="panel" data-role="panel">
-        <div class="panel-header bg-lightOrange">
-          <%= (I18n.t 'button.download') %> *.XLS
+        <div class="panel-header bg-lightOrange fg-white">
+          <%= (I18n.t 'button.download') %> (*.XLS for Microsoft office)
         </div>
         <div class="panel-content">
 
@@ -35,7 +35,7 @@
     </div>
     <div class="span4">
       <div class="panel" data-role="panel">
-        <div class="panel-header bg-yellow">
+        <div class="panel-header bg-yellow fg-white">
           <%= 'Обработка загруженных данных' %>
         </div>
         <div class="panel-content">
@@ -57,7 +57,7 @@
     </div>
   </div>
 <div class="panel" data-role="panel">
-  <div class="panel-header bg-cyan">
+  <div class="panel-header bg-cyan fg-white">
     Список домов
   </div>
   <div class="panel-content">
@@ -112,8 +112,8 @@
         <td><%= press(house.uah_market_value) %></td>
         <td><%= press(house.usd_market_value) %></td>
         <td><%= press(house.euro_market_value) %></td>
-        <td><%= link_to 'Edit', edit_house_path(house), class: "button normal bg-orange" %></td>
-        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
+        <td><%= link_to 'Edit', edit_house_path(house), class: "button normal bg-orange fg-white" %></td>
+        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red fg-white" %></td>
       </tr>
     <% end %>
   </tbody>

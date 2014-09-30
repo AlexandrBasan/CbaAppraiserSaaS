@@ -3,7 +3,7 @@
   <div class="row">
     <div class="span4">
     <div class="panel" data-role="panel">
-      <div class="panel-header bg-lime">
+      <div class="panel-header bg-lime fg-white">
         <%= (I18n.t 'button.import') %> *.XLS
       </div>
       <div class="panel-content">
@@ -16,8 +16,8 @@
       </div>
     <div class="span4">
       <div class="panel" data-role="panel">
-        <div class="panel-header bg-lightOrange">
-          <%= (I18n.t 'button.download') %> *.XLS
+        <div class="panel-header bg-lightOrange fg-white">
+          <%= (I18n.t 'button.download') %> (*.XLS for Microsoft office)
         </div>
         <div class="panel-content">
           <button class="image-button primary">
@@ -33,7 +33,7 @@
     </div>
     <div class="span4">
       <div class="panel" data-role="panel">
-        <div class="panel-header bg-yellow">
+        <div class="panel-header bg-yellow fg-white">
           <%= 'Обработка загруженных данных' %>
         </div>
         <div class="panel-content">
@@ -41,9 +41,9 @@
             <div class="span6">
               <h5 align="center">
                 <% if @capartments.empty? %>
-                    <%= link_to "Обработать данные", processing_path, class: "button large bg-green" %>
+                    <%= link_to "Обработать данные", processing_path, class: "button large bg-green fg-white" %>
                 <% else %>
-                    <%= link_to "Расчеты", calc_apartment_path, class: "button large bg-green" %>
+                    <%= link_to "Расчеты", calc_apartment_path, class: "button large bg-green fg-white" %>
                 <% end %>
               </h5>
             </div>
@@ -51,7 +51,7 @@
               <h5 align="center">
               <% if @apartments.empty?%>
               <% else %>
-                  <%= link_to "Очистить базу", apartments_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red" %>
+                  <%= link_to "Очистить базу", apartments_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red fg-white" %>
               <% end %>
               </h5>
             </div>
@@ -61,7 +61,7 @@
     </div>
   </div>
 <div class="panel" data-role="panel">
-  <div class="panel-header bg-cyan">
+  <div class="panel-header bg-cyan fg-white">
 Список квартир
   </div>
   <div class="panel-content">
@@ -127,8 +127,8 @@
         <td><%= press(apartment.uah_market_value) %></td>
         <td><%= press(apartment.usd_market_value) %></td>
         <td><%= press(apartment.euro_market_value) %></td>
-        <td><%= link_to 'Edit', edit_apartment_path(apartment), class: "button normal bg-orange" %></td>
-        <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
+        <td><%= link_to 'Edit', edit_apartment_path(apartment), class: "button normal bg-orange fg-white" %></td>
+        <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red fg-white" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -24,7 +24,7 @@
         <%= f.select :verification, options_for_select([["Нет", false], ["Да", true]], selected: :option, :selected => @user.verification) %>
         <% end %>
 
-        <p align="center"><%= f.submit (t 'button.ok'), class: "btn btn-sm btn-primary" %></p>
+        <p align="center"><%= f.submit (t 'button.ok'), class: "image-button info" %></p>
     <% end %>
   </div>
 </div>

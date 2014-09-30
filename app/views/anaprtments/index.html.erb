@@ -4,7 +4,7 @@
   <div class="row">
     <div class="span4">
       <div class="panel" data-role="panel">
-        <div class="panel-header bg-lime">
+        <div class="panel-header bg-lime fg-white">
           <%= (I18n.t 'button.import') %> *.XLS
         </div>
         <div class="panel-content">
@@ -17,8 +17,8 @@
     </div>
     <div class="span4">
       <div class="panel" data-role="panel">
-        <div class="panel-header bg-lightOrange">
-          <%= (I18n.t 'button.download') %> *.XLS
+        <div class="panel-header bg-lightOrange fg-white">
+          <%= (I18n.t 'button.download') %> (*.XLS for Microsoft office)
         </div>
         <div class="panel-content">
 
@@ -41,13 +41,13 @@
         <div class="panel-content">
           <div class="row">
             <div class="span6">
-              <h5 align="center"><%= link_to "Обработать данные", calc_apartment_path, class: "button large bg-green" %></h5>
+              <h5 align="center"><%= link_to "Обработать данные", calc_apartment_path, class: "button large bg-green fg-white" %></h5>
             </div>
             <div class="span6">
               <h5 align="center">
               <% if @anaprtments.empty?%>
               <% else %>
-                  <%= link_to "Очистить базу", anaprtments_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red" %>
+                  <%= link_to "Очистить базу", anaprtments_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red fg-white" %>
               <% end %>
               </h5>
             </div>
@@ -57,7 +57,7 @@
     </div>
   </div>
 <div class="panel" data-role="panel">
-  <div class="panel-header bg-cyan">
+  <div class="panel-header bg-cyan fg-white">
     Список аналогов квартир
   </div>
   <div class="panel-content">
@@ -98,8 +98,8 @@
         <td><%= anaprtment.building_type %></td>
         <td><%= anaprtment.category_repair %></td>
         <td><%= press(anaprtment.cost_one) %></td>
-        <td><%= link_to 'Edit', edit_anaprtment_path(anaprtment), class: "button normal bg-orange" %></td>
-        <td><%= link_to 'Destroy', anaprtment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
+        <td><%= link_to 'Edit', edit_anaprtment_path(anaprtment), class: "button normal bg-orange fg-white" %></td>
+        <td><%= link_to 'Destroy', anaprtment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red fg-white" %></td>
       </tr>
     <% end %>
   </tbody>

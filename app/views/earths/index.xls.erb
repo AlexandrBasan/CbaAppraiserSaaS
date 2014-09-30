@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Kод oбеспечення</Data></Cell>
+        <Cell><Data ss:Type="String">Тип обеспечения</Data></Cell>
+        <Cell><Data ss:Type="String">Область</Data></Cell>
+        <Cell><Data ss:Type="String">Район</Data></Cell>
+        <Cell><Data ss:Type="String">Город</Data></Cell>
+        <Cell><Data ss:Type="String">Тип улицы</Data></Cell>
+        <Cell><Data ss:Type="String">Название улицы</Data></Cell>
+        <Cell><Data ss:Type="String">Название улицы</Data></Cell>
+        <Cell><Data ss:Type="String">Номер дома</Data></Cell>
+        <Cell><Data ss:Type="String">Номер корпуса</Data></Cell>
+        <Cell><Data ss:Type="String">Номер квартиры</Data></Cell>
+        <Cell><Data ss:Type="String">Общая площадь, кв.м</Data></Cell>
+        <Cell><Data ss:Type="String">Жилая площадь, кв.м</Data></Cell>
+        <Cell><Data ss:Type="String">Площадь земельного участка, Га</Data></Cell>
+        <Cell><Data ss:Type="String">№ района</Data></Cell>
+        <Cell><Data ss:Type="String">Категория ремонту</Data></Cell>
+        <Cell><Data ss:Type="String">Рыночная стоимость, грн</Data></Cell>
+        <Cell><Data ss:Type="String">Рыночная стоимость, дол.США</Data></Cell>
+        <Cell><Data ss:Type="String">Рыночная стоимость, евро</Data></Cell>
+      </Row>
+      <% @a_earths= Earth.all %>
+      <% @a_earths.each do |earth| %>
+          <Row>
+            <Cell><Data ss:Type="String"><%= earth.code_provision %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.tip %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.region %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.district %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.city %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.street_type %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.street_name %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.street_name2 %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.number_home %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.number_housing%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.room_apartment %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.total_area %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.floor_area %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.area_land %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.district_number %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= earth.category_repair %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press( earth.uah_market_value)%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press(earth.usd_market_value) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press(earth.euro_market_value) %></Data></Cell>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

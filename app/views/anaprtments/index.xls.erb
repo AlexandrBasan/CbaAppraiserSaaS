@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">№ района</Data></Cell>
+        <Cell><Data ss:Type="String">№ п/п</Data></Cell>
+        <Cell><Data ss:Type="String">Місце розташування</Data></Cell>
+        <Cell><Data ss:Type="String">Джерело інформації</Data></Cell>
+        <Cell><Data ss:Type="String">Площа, кв, м</Data></Cell>
+        <Cell><Data ss:Type="String">Кількість кімнат</Data></Cell>
+        <Cell><Data ss:Type="String">Вартість аналога, (дол. США)</Data></Cell>
+        <Cell><Data ss:Type="String">Поверх</Data></Cell>
+        <Cell><Data ss:Type="String">Поверховість</Data></Cell>
+        <Cell><Data ss:Type="String">Тип будинку</Data></Cell>
+        <Cell><Data ss:Type="String">Категорія ремонту</Data></Cell>
+        <Cell><Data ss:Type="String">Вартість 1 м, кв, (дол. США)</Data></Cell>
+
+      </Row>
+      <% @a_anaprtments= Anaprtment.all %>
+      <% @anaprtments.each do |anaprtment| %>
+          <Row>
+            <Cell><Data ss:Type="String"><%= anaprtment.district_number %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anaprtment.numberpp %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anaprtment.location %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anaprtment.source %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anaprtment.area %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anaprtment.number_rooms %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press(anaprtment.cost_analogue_usd) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anaprtment.floor %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anaprtment.storeys %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anaprtment.building_type %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= anaprtment.category_repair %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press(anaprtment.cost_one) %></Data></Cell>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

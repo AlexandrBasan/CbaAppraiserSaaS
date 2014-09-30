@@ -13,7 +13,7 @@ class ApartmentsController < ApplicationController
       # export to csv and xls
       format.csv { send_data @a_apartments.to_csv }
       #format.xls { send_data @a_apartments.to_csv(col_sep: "\t") }
-      format.xls
+      format.xls @a_apartments
     end
   end
 

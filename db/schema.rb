@@ -222,14 +222,6 @@ ActiveRecord::Schema.define(version: 20140930171137) do
     t.integer  "infrastructura_house"
   end
 
-  create_table "tests", force: true do |t|
-    t.string   "col_1_s"
-    t.integer  "col_2_i"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "col_3_ru"
-  end
-
   create_table "tiphouses", force: true do |t|
     t.integer  "num_analog"
     t.integer  "o1"

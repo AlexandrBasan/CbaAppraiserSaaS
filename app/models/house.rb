@@ -1,5 +1,5 @@
 class House < ActiveRecord::Base
-  before_save :total
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       # column headers for table - language
@@ -61,8 +61,5 @@ class House < ActiveRecord::Base
       else raise "Unknown file type: #{file.original_filename}"
     end
   end
-  def total
-    self.usd_market_value = uah_market_value / Currency.first.value
-    self.euro_market_value = uah_market_value / Currency.last.value
-  end
+
 end

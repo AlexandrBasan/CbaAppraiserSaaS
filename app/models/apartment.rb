@@ -6,12 +6,6 @@ class Apartment < ActiveRecord::Base
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       # column headers for table - language
-      column_header = [ "code_provision","new_code","account_number","alt_account_number","tip","region",
-                        "district", "type_settlement", "city", "street_type", "street_name",
-                        "room_apartment","area","floor_area","number_rooms","storey","floors","series_home",
-                        "district_number", "uah_market_value","usd_market_value","euro_market_value"]
-      csv << column_names
-      # column headers for table - language
       csv << column_header
       all.each do |product|
         csv << product.attributes.values_at(*column_names)

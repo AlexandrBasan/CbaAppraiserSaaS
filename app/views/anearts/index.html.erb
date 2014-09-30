@@ -22,8 +22,11 @@
         <div class="panel-content">
 
           <button class="image-button primary">
-            <%= link_to (I18n.t 'button.download' + ' *CSV') , anearts_path(format: "csv")%>
-            <%= link_to (I18n.t 'button.download' + ' *XLS') , anearts_path(format: "xls")%>
+            <%= link_to (I18n.t 'button.download') + ' *CSV', anearts_path(format: "csv")%>
+            <i class="icon-download-2"></i>
+          </button>
+          <button class="image-button primary">
+            <%= link_to (I18n.t 'button.download') + ' *XLS', anearts_path(format: "xls")%>
             <i class="icon-download-2"></i>
           </button>
         </div>

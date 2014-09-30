@@ -43,9 +43,15 @@
             <div class="span6">
               <h5 align="center">
                 <% if @capartments.empty? %>
-                    <%= link_to "Обработать данные", processing_path, class: "button default bg-green fg-white" %>
+                    <button class="button default bg-green fg-white">
+                    <%= link_to "Обработать данные", processing_path %>
+                    <i class="icon-calculate"></i>
+                    </button>
                 <% else %>
-                    <%= link_to "Расчеты", calc_apartment_path, class: "button default bg-green fg-white" %>
+                    <button class="button default bg-green fg-white">
+                    <%= link_to "Расчеты", calc_apartment_path %>
+                    <i class="icon-calculate"></i>
+                    </button>
                 <% end %>
               </h5>
             </div>
@@ -53,7 +59,10 @@
               <h5 align="center">
               <% if @apartments.empty?%>
               <% else %>
-                  <%= link_to "Очистить базу", apartments_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button default bg-red fg-white" %>
+                    <button class="button default bg-red fg-white">
+                  <%= link_to "Очистить базу", apartments_destroy_all_index_path, data: { confirm: 'Are you sure?' } %>
+                      <i class="icon-remove"></i>
+                    </button>
               <% end %>
               </h5>
             </div>

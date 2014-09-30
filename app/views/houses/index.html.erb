@@ -53,7 +53,10 @@
               <h5 align="center">
               <% if @houses.empty?%>
               <% else %>
-                  <%= link_to "Очистить базу", houses_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button default bg-red fg-white" %>
+                    <button class="button default bg-red fg-white">
+                  <%= link_to "Очистить базу", houses_destroy_all_index_path, data: { confirm: 'Are you sure?' } %>
+                    <i class="icon-remove"></i>
+                    </button>
               <% end %>
               </h5>
             </div>

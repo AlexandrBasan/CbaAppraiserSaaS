@@ -43,16 +43,25 @@
           <div class="row">
             <div class="span6">
               <% if @chouse.empty? %>
-                  <%= link_to "Обработать данные", processing_house_path, class: "button default bg-green fg-white" %>
+                  <button class="button default bg-green fg-white">
+                  <%= link_to "Обработать данные", processing_house_path %>
+                    <i class="icon-stats"></i>
+                  </button>
               <% else %>
-                  <%= link_to "Расчеты", calc_houses_path, class: "button default bg-green fg-white" %>
+                  <button class="button default bg-green fg-white">
+                  <%= link_to "Расчеты", calc_houses_path %>
+                    <i class="icon-calculate"></i>
+                  </button>
               <% end %>
             </div>
             <div class="span6">
               <h5 align="center">
               <% if @anhouseholds.empty?%>
               <% else %>
-                  <%= link_to "Очистить базу", anhouseholds_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button default bg-red fg-white" %>
+                    <button class="button default bg-red fg-white">
+                  <%= link_to "Очистить базу", anhouseholds_destroy_all_index_path, data: { confirm: 'Are you sure?' }%>
+                    <i class="icon-remove"></i>
+                    </button>
               <% end %>
               </h5>
             </div>

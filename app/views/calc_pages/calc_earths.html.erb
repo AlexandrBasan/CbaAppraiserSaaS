@@ -33,10 +33,35 @@
               <td><%= earth.region %></td>
               <td><%= earth.city %></td>
               <td><%= earth.street_name %></td>
-              <td><%= apartment.total_area %></td>
-              <td><%= apartment.district_number %></td>
+              <td><%= earth.area_land.to_s.to_d*10000 %></td>
+              <td><%= earth.district_number %></td>
               <td><%= link_to 'Изменить', edit_earth_path(earth), class: "button normal bg-orange" %></td>
             </tr>
+            </tbody>
+          </table>
+          <h2>Інформація про об'єкти порівняння(аналоги)</h2>
+          <table class="table table-striped table-hover hovered striped bordered">
+            <thead>
+            <tr>
+              <th>Аналоги, адреса</th>
+              <th>Площа землі, кв.м.</th>
+              <th>Вартість пропозиції(дол.США)</th>
+              <th>Вартість 1 м.кв.(дол. США)</th>
+              <th>Джерело інформації</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <% @anearths.where(district_number: earth.district_number).each do |anearth| %>
+                <tr>
+
+                  <td><%= anearth.analogs_address %></td>
+                  <td><%= anearth.area %></td>
+                  <td><%= anearth.value_proposition_usd %></td>
+                  <td><%= anearth.value_proposition_usdone %></td>
+                  <td><%= anearth.information_source %></td>
+                </tr>
+            <% end %>
             </tbody>
           </table>
           <h2>Розрахунок вартості обекта оцінки</h2>
@@ -50,35 +75,33 @@
               <th>Аналоги, адреса</th>
               <th>Вартість пропозиції, кв.м.</th>
               <th>Торг</th>
-              <th>Тип будинку</th>
-              <th>Вартість ремонтно - оздоблювальних робіт</th>
-              <th>Знаходження об'єкту порівняння в межах будинку поверх</th>
-              <th>Коригування на відмінність в кількості кімнат</th>
+              <th>Місцезнаходження</th>
+              <th>Наявність інфраструктури</th>
+              <th>На відмінність площ</th>
               <th>Скоригована вартість пропозиції, 1 кв.м. дол. США</th>
               <th>Действие</th>
             </tr>
             </thead>
             <tbody>
-            <% @cearth.where(earth_id: earth.id).each do |cearth| %>
+            <% @cearths.where(earth_id: earth.id).each do |cearth| %>
                 <tr>
                   <td><%= cearth.aneart.analogs_address %></td>
                   <td><%= number_with_precision(cearth.aneart.value_proposition_usdone, precision: 2)  %></td>
-                  <td><%= cearth.auction %>%</td>
-                  <td><%= cearth.location %>%</td>
+                  <td><%= cearth.auction %></td>
+                  <td><%= cearth.location %></td>
                   <td><%= cearth.infrastructure %></td>
-                  <td><%= cearth.diff_area %>%</td>
-                  <td><%= cearth.rooms %>%</td>
-                  <td><%= number_with_precision(capartment.adj_cost_value, precision: 2)  %></td>
-                  <td><%= link_to 'Edit', edit_capartment_path(capartment), class: "button normal bg-orange fg-white" %></td>
+                  <td><%= cearth.diff_area %></td>
+                  <td><%= number_with_precision(cearth.adj_cost_value, precision: 2)  %></td>
+                  <td><%= link_to 'Редагування', edit_cearth_path(cearth), class: "button normal bg-orange fg-white" %></td>
                 </tr>
 
             <% end %>
             </tbody>
           </table>
-          Середнє арифметичне значення 1 кв. <%= number_with_precision(apartment.median, precision: 2)  %><br/>
-          Ринкова вартість, дол.США <%= number_with_precision(apartment.usd_market_value, precision: 2)  %><br/>
-          Ринкова вартість, грн <%= number_with_precision(apartment.uah_market_value, precision: 2)  %><br/>
-          Ринкова вартість, евро <%= number_with_precision(apartment.euro_market_value, precision: 2)  %>
+          Середнє арифметичне значення 1 кв. <%= number_with_precision(earth.median, precision: 2)  %><br/>
+          Ринкова вартість, дол.США <%= number_with_precision(earth.usd_market_value, precision: 2)  %><br/>
+          Ринкова вартість, грн <%= number_with_precision(earth.uah_market_value, precision: 2)  %><br/>
+          Ринкова вартість, евро <%= number_with_precision(earth.euro_market_value, precision: 2)  %>
           <div align="center">
             *********************************************************
           </div>

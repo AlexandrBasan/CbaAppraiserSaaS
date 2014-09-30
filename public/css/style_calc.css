@@ -1,10 +1,12 @@
 header {
     display: none!important;
 }
-td {
-    height: 70px;
+
+.print {
+   height: 1550px;
 
 }
-.print {
-    padding-bottom: 400px;
+td {
+    height: 100px;
+    max-height: 100px;
 }

@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140929213151) do
     t.decimal  "zvalue_proposition_usd"
     t.string   "zsource_information"
     t.decimal  "zvalue_proposition_usd_kvm"
+    t.integer  "mediana"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -202,6 +203,7 @@ ActiveRecord::Schema.define(version: 20140929213151) do
     t.integer  "eurorepair"
     t.integer  "advanced"
     t.integer  "simple"
+    t.integer  "nodecoration"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -242,7 +244,7 @@ ActiveRecord::Schema.define(version: 20140929213151) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin"
+    t.boolean  "admin",           default: false
     t.boolean  "verification"
   end
 

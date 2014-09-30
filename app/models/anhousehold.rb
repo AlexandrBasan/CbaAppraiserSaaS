@@ -2,7 +2,7 @@ class Anhousehold < ActiveRecord::Base
   before_save :total
 
   def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
+    (CSV.generate(options) do |csv|
       # column headers for table - language
       column_header = [ "number_district","danalog","darea_building","darea_land","dvalue_proposition_usd",
                         "dvalue_proposition_usd_no_land","dvalue_proposition_usd_kvm","dcategory_repair",
@@ -14,7 +14,7 @@ class Anhousehold < ActiveRecord::Base
       all.each do |product|
         csv << product.attributes.values_at(*column_names)
       end
-    end
+    end).encode('Windows-1251')
   end
 
   def self.import(file)

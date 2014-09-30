@@ -2,7 +2,7 @@ class Earth < ActiveRecord::Base
 has_many :cearths
 
   def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
+    (CSV.generate(options) do |csv|
       # column headers for table - language
       column_header = [ "code_provision","tip","region","district",
                         "city","street_type","street_name","street_name2",
@@ -16,7 +16,7 @@ has_many :cearths
       all.each do |product|
         csv << product.attributes.values_at(*column_names)
       end
-    end
+    end).encode('Windows-1251')
   end
 
   def self.import(file)

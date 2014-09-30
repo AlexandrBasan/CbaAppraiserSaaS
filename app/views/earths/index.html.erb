@@ -45,15 +45,16 @@
               <h5 align="center">
                 <% if @cearths.empty? %>
                     <button class="button default bg-green fg-white">
-                    <%= link_to "Обработать данные", processing_earth_path %>
+                      <%= link_to "Обработать данные", processing_earth_path %>
                       <i class="icon-stats"></i>
                     </button>
                 <% else %>
                     <button class="button default bg-green fg-white">
-                    <%= link_to "Расчеты", calc_earths_path %>
-                    <i class="icon-calculate"></i>
+                      <%= link_to "Расчеты", calc_earths_path %>
+                      <i class="icon-calculate"></i>
                     </button>
                 <% end %>
+
               </h5>
             </div>
             <div class="span6">
@@ -72,6 +73,7 @@
       </div>
     </div>
   </div>
+  <%= link_to "Обработать данные", processing_earth_path %>
 <div class="panel" data-role="panel">
   <div class="panel-header bg-cyan fg-white">
     Список земель

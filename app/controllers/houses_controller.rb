@@ -106,7 +106,7 @@ class HousesController < ApplicationController
     end
   end
   def destroy_all
-    Chouse.destroy_alls
+    Chouse.destroy_all
     House.destroy_all
     redirect_to houses_path
   end

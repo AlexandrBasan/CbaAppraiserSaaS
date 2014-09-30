@@ -1,5 +1,6 @@
-  <h3 align="center">Расчеты квартиры</h3>
+<% provide(:css, 'css/style_calc.css' ) %>
       <% @apartments.each do |apartment| %>
+      <div class="print">
           <h2>Інформація про об'єкт оцінки </h2>
           <table class="table table-striped table-hover hovered striped bordered">
             <thead>
@@ -109,9 +110,5 @@
           <div align="center">
             *********************************************************
           </div>
-
+      </div>
       <% end %>
-  <br/>
-  <br/>
-  <br/>
-  <br/>

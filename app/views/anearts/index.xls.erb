@@ -1,27 +1,34 @@
-<table class="table table-striped table-hover hovered striped bordered">
-  <thead>
-    <tr>
-      <th>№ района</th>
-      <th>Аналоги, адреса</th>
-      <th>Площа, кв.м.</th>
-      <th>Призначення</th>
-      <th>Вартість пропозиції/дол. США</th>
-      <th>Джерело інформації</th>
-      <th>Вартість пропозиції, дол. США/м2</th>
-    </tr>
-  </thead>
-<% @a_anearts= Aneart.all %>
-  <tbody>
-    <% @a_anearts.each do |aneart| %>
-      <tr>
-        <td><%= aneart.district_number %></td>
-        <td><%= aneart.analogs_address %></td>
-        <td><%= aneart.area %></td>
-        <td><%= aneart.purpose %></td>
-        <td><%= press(aneart.value_proposition_usd) %></td>
-        <td><%= aneart.information_source %></td>
-        <td><%= press(aneart.value_proposition_usdone) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">№ района</Data></Cell>
+        <Cell><Data ss:Type="String">Аналоги, адреса</Data></Cell>
+        <Cell><Data ss:Type="String">Площа, кв.м.</Data></Cell>
+        <Cell><Data ss:Type="String">Призначення</Data></Cell>
+        <Cell><Data ss:Type="String">Вартість пропозиції/дол. США</Data></Cell>
+        <Cell><Data ss:Type="String">Джерело інформації</Data></Cell>
+        <Cell><Data ss:Type="String">Вартість пропозиції, дол. США/м2</Data></Cell>
+
+      </Row>
+      <% @a_anearts= Aneart.all %>
+      <% @a_anearts.each do |aneart| %>
+          <Row>
+            <Cell><Data ss:Type="String"><%= aneart.district_number %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= aneart.analogs_address %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= aneart.area %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= aneart.purpose %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press(aneart.value_proposition_usd) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= aneart.information_source %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press(aneart.value_proposition_usdone) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press(anaprtment.cost_one) %></Data></Cell>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

@@ -21,7 +21,7 @@
           <%= (I18n.t 'button.download') %> (*.XLS for Microsoft office)
         </div>
         <div class="panel-content">
-
+          <h5 align="center">
           <button class="image-button primary">
             <%= link_to (I18n.t 'button.download') + ' *CSV' , anhouseholds_path(format: "csv")%>
             <i class="icon-download-2"></i>
@@ -30,6 +30,7 @@
             <%= link_to (I18n.t 'button.download') + ' *XLS' , anhouseholds_path(format: "xls")%>
             <i class="icon-download-2"></i>
           </button>
+          </h5>
         </div>
       </div>
     </div>
@@ -64,7 +65,7 @@
     <div align="center">
       <%= will_paginate %>
     </div>
-
+    <div class="overflow">
     <table class="table table-striped table-hover hovered striped bordered">
   <thead>
     <tr>
@@ -116,6 +117,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 <div align="center">
   <%= will_paginate %>
 </div>

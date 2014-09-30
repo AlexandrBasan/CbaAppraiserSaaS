@@ -1,51 +1,57 @@
-<table class="table table-striped table-hover hovered striped bordered">
-      <thead>
-      <tr>
-        <th>Kод oбеспечення</th>
-        <th>Тип обеспечения</th>
-        <th>Область</th>
-        <th>Район</th>
-        <th>Город</th>
-        <th>Тип улицы</th>
-        <th>Название улицы</th>
-        <th>Название улицы</th>
-        <th>Номер дома</th>
-        <th>Номер корпуса</th>
-        <th>Номер квартиры</th>
-        <th>Общая площадь, кв.м</th>
-        <th>Жилая площадь, кв.м</th>
-        <th>Площадь земельного участка, Га</th>
-        <th>№ района</th>
-        <th>Категория ремонту</th>
-        <th>Рыночная стоимость, грн</th>
-        <th>Рыночная стоимость, дол.США</th>
-        <th>Рыночная стоимость, евро</th>
-      </tr>
-      </thead>
-<% @a_houses= House.all %>
-      <tbody>
-    <% @a_houses.each do |house| %>
-      <tr>
-        <td><%= house.code_provision %></td>
-        <td><%= house.tip %></td>
-        <td><%= house.region %></td>
-        <td><%= house.district %></td>
-        <td><%= house.city %></td>
-        <td><%= house.street_type %></td>
-        <td><%= house.street_name %></td>
-        <td><%= house.street_name2 %></td>
-        <td><%= house.number_home %></td>
-        <td><%= house.number_housing %></td>
-        <td><%= house.room_apartment %></td>
-        <td><%= house.total_area %></td>
-        <td><%= house.floor_area %></td>
-        <td><%= house.area_land %></td>
-        <td><%= house.district_number %></td>
-        <td><%= house.category_repair %></td>
-        <td><%= press(house.uah_market_value) %></td>
-        <td><%= press(house.usd_market_value) %></td>
-        <td><%= press(house.euro_market_value) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Kод oбеспечення</Data></Cell>
+        <Cell><Data ss:Type="String">Тип обеспечения</Data></Cell>
+        <Cell><Data ss:Type="String">Область</Data></Cell>
+        <Cell><Data ss:Type="String">Район</Data></Cell>
+        <Cell><Data ss:Type="String">Город</Data></Cell>
+        <Cell><Data ss:Type="String">Тип улицы</Data></Cell>
+        <Cell><Data ss:Type="String">Название улицы</Data></Cell>
+        <Cell><Data ss:Type="String">Название улицы</Data></Cell>
+        <Cell><Data ss:Type="String">Номер дома</Data></Cell>
+        <Cell><Data ss:Type="String">Номер корпуса</Data></Cell>
+        <Cell><Data ss:Type="String">Номер квартиры</Data></Cell>
+        <Cell><Data ss:Type="String">Общая площадь, кв.м</Data></Cell>
+        <Cell><Data ss:Type="String">Жилая площадь, кв.м</Data></Cell>
+        <Cell><Data ss:Type="String">Площадь земельного участка, Га</Data></Cell>
+        <Cell><Data ss:Type="String">№ района</Data></Cell>
+        <Cell><Data ss:Type="String">Категория ремонту</Data></Cell>
+        <Cell><Data ss:Type="String">Рыночная стоимость, грн</Data></Cell>
+        <Cell><Data ss:Type="String">Рыночная стоимость, дол.США</Data></Cell>
+        <Cell><Data ss:Type="String">Рыночная стоимость, евро</Data></Cell>
+        <Cell><Data ss:Type="String">Рыночная стоимость, евро</Data></Cell>
+      </Row>
+      <% @a_houses= House.all %>
+      <% @a_houses.each do |house| %>
+          <Row>
+            <Cell><Data ss:Type="String"><%= house.code_provision %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.tip %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.region %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.district %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.city %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.street_type %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.street_name %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.street_name2 %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.number_home %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.number_housing %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.room_apartment %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.total_area %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.floor_area %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.area_land %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.district_number %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= house.category_repair %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press(house.uah_market_value) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press(house.usd_market_value) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= press(house.euro_market_value) %></Data></Cell>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

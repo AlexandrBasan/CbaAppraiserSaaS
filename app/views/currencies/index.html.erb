@@ -3,7 +3,7 @@
   <br/>значить в значении надо писать текущий курс ( например 12.80 ) без грн.</h2>
 </div>
 <div class="panel" data-role="panel">
-  <div class="panel-header bg-cyan">
+  <div class="panel-header bg-cyan fg-white">
     Список валют
   </div>
   <div class="panel-content">
@@ -24,7 +24,7 @@
         <td>1 <%= currency.symbol %></td>
         <td> = </td>
         <td><%= currency.value %>  грн.</td>
-        <td><%= link_to 'Edit', edit_currency_path(currency), :class=> "button bg-cyan" %><br/>
+        <td><%= link_to 'Edit', edit_currency_path(currency), :class=> "button bg-cyan fg-white" %><br/>
       </tr>
     <% end %>
   </tbody>

@@ -1,19 +1,20 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-12">
+  <aside class="span6 offset3">
     <section>
-      <div class="panel panel-default">
-        <div class="panel-heading"><h3 class="panel-title"><%= @user.email %></h3></div>
-        <div class="panel-body">
-
-          <ul class="listylenone">
-            <li><b><%= t :name %>:</b> <%= @user.name %></li>
-            <li><b><%= t :email %>:</b> <%= @user.email %></li>
-            <!--User created date-->
-            <li><b><%= t :created_at %>:</b> <%= @user.created_at %></li>
-          </ul>
-        </div>
+<p></p>
+      <div class="panel-header bg-lightGreen fg-white">
+        <%= @user.email %>
       </div>
+      <div class="panel-content">
+        <ul class="listylenone">
+          <li><b><%= t :name %>:</b> <%= @user.name %></li>
+          <li><b><%= t :email %>:</b> <%= @user.email %></li>
+          <li><b><%= t :verification %>:</b> <%= @user.verification %></li>
+          <!--User created date-->
+          <li><b><%= t :created_at %>:</b> <%= @user.created_at %></li>
+        </ul>
+        </div>
 
       <!--Edit User-->
 

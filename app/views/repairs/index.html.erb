@@ -1,5 +1,5 @@
 <div class="panel" data-role="panel">
-  <div class="panel-header bg-cyan">
+  <div class="panel-header bg-cyan fg-white">
     Тип ремонта
   </div>
   <div class="panel-content">
@@ -26,7 +26,7 @@
         <td><%= @repairs.first.simple %> usd</td>
         <td><%= @repairs.first.nodecoration %> usd</td>
         <td>
-        <%= link_to 'Изменить', edit_repair_path(1), class: "button normal bg-orange" %>
+        <%= link_to 'Изменить', edit_repair_path(1), class: "button normal bg-orange fg-white" %>
         </td>
       </tr>
       <tr>
@@ -37,7 +37,7 @@
         <td><%= @repairs.last.simple %> usd</td>
         <td><%= @repairs.last.nodecoration %> usd</td>
         <td>
-          <%= link_to 'Изменить', edit_repair_path(2), class: "button normal bg-orange" %>
+          <%= link_to 'Изменить', edit_repair_path(2), class: "button normal bg-orange fg-white" %>
         </td>
       </tr>
   </tbody>

@@ -2,11 +2,13 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
 
+=begin
   rescue_from Timeout::Error, :with => :timeout_error
   def timeout_error
     flash[:warning] = (t 'flash.session_expired')
     redirect_to root_path
   end
+=end
 
   protect_from_forgery with: :exception
   include SessionsHelper

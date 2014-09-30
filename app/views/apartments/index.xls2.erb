@@ -30,8 +30,8 @@
   </tr>
   </thead>
   <tbody>
-
-  <% @apartments.each do |apartment| %>
+  <% @a_apartments = Apartment.all %>
+  <% @a_apartments.each do |apartment| %>
       <tr>
         <td><%= apartment.code_provision %></td>
         <td><%= apartment.new_code %></td>

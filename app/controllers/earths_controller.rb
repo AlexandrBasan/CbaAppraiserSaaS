@@ -7,6 +7,7 @@ class EarthsController < ApplicationController
   # GET /earths.json
   # GET /apartments.json
   def index
+    @cearths= Cearth.all
     @earths= Earth.paginate(page: params[:page])
     respond_to do |format|
       format.html
@@ -28,7 +29,7 @@ class EarthsController < ApplicationController
         @earth.save
       end
     end
-    redirect_to (earth_path) and return
+    redirect_to (earths_path) and return
   end
   def import
     Earth.import(params[:file])
@@ -132,6 +133,6 @@ class EarthsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def earth_params
-      params.require(:earth).permit(:code_provision, :tip, :region, :district, :city, :street_type, :street_name, :street_name2, :namber_home, :number, :housing, :room_apartment, :total_area, :floor_area, :area_land, :district_number, :kategorіya_repair, :uah_market_value, :usd_market_value, :euro_market_value)
+      params.require(:earth).permit(:code_provision, :tip, :region, :district, :city, :street_type, :street_name, :street_name2, :number_home, :number_housing, :room_apartment, :total_area, :floor_area, :area_land, :district_number, :category_repair, :uah_market_value, :usd_market_value, :euro_market_value)
     end
 end

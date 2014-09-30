@@ -12,21 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :torg_apartment %><br>
+    <%= f.label 'Торг для квартир' %><br>
     <%= f.text_field :torg_apartment %>
   </div>
   <div class="field">
-    <%= f.label :torg_earth %><br>
+    <%= f.label 'Торг для земли' %><br>
     <%= f.text_field :torg_earth %>
   </div>
   <div class="field">
-    <%= f.label :torg_house %><br>
+    <%= f.label 'Торг для дома' %><br>
     <%= f.text_field :torg_house %>
   </div>
   <div class="field">
-    <%= f.label :floor_apartment %><br>
+    <%= f.label 'Этажность для квартир' %><br>
     <%= f.text_field :floor_apartment %>
   </div>
+    <div class="field">
+      <%= f.label 'Местоположение для земли' %><br>
+      <%= f.text_field :location %>
+    </div>
+    <div class="field">
+      <%= f.label 'Инфраструктура для земли' %><br>
+      <%= f.text_field :infrastructure %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

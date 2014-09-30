@@ -10,6 +10,8 @@
       <th>Торг для земли</th>
       <th>торг для дома</th>
       <th>Значение этажности для квартир</th>
+      <th>Местоположение для земли</th>
+      <th>Инфраструктура для земли</th>
       <th>Действие</th>
     </tr>
   </thead>
@@ -21,6 +23,8 @@
         <td><%= system.torg_earth %>%</td>
         <td><%= system.torg_house %>%</td>
         <td><%= system.floor_apartment %>%</td>
+        <td><%= system.location %>%</td>
+        <td><%= system.infrastructure %>%</td>
         <td><%= link_to 'Изменить', edit_system_path(system), class: "button normal bg-orange" %></td>
       </tr>
     <% end %>

@@ -1,4 +1,5 @@
 class Aneart < ActiveRecord::Base
+has_many :cearths
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
@@ -27,13 +28,13 @@ class Aneart < ActiveRecord::Base
               "value_proposition_usdone"]
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      product = find_by_id(row["district_number"]) || new
+      product = find_by_id(row["id"]) || new
       product.attributes = row.to_hash.select { |k,v| allowed_attributes.include? k }
       #product.save!
       if product.valid?
         product.save!
       else
-        @array_error.push(row["district_number"])
+        @array_error.push(row["id"])
       end
     end
   end

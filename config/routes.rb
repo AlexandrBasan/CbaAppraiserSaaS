@@ -80,7 +80,7 @@ CbaAppraiserSoft::Application.routes.draw do
   end
 
    match '/processing', to: 'apartments#processing', via: 'get'
-   match '/processing_earth', to: 'apartments#processing_earth', via: 'get'
+   match '/processing_earth', to: 'earths#processing_earth', via: 'get'
 
   scope '/destroy_all' do
     resources :anhouseholds, only: [:index], to: 'anhouseholds#destroy_all', via: 'delete', as: 'anhouseholds_destroy_all'

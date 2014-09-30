@@ -14,8 +14,9 @@ class EarthsController < ApplicationController
       format.html
       # export to csv and xls
       format.csv { send_data @a_earths.to_csv }
-      format.xls { send_data @a_earths.to_csv(col_sep: "\t") }
+      #format.xls { send_data @a_earths.to_csv(col_sep: "\t") }
       # format.xls # { send_data @tests.to_csv(col_sep: "\t") }
+      format.xls
     end
   end
 

@@ -1,0 +1,49 @@
+    <table class="table table-striped table-hover hovered striped bordered">
+  <thead>
+    <tr>
+      <th colspan="9">Домоволодіння</th>
+      <th colspan="8">Земельна ділянка</th>
+    </tr>
+    <tr>
+      <th>№ района</th>
+      <th>Аналоги, адреса</th>
+      <th>Площа будівля, приміщення, кв.м.</th>
+      <th>Площа землі, кв.м.</th>
+      <th>Вартість пропозиції/дол. США</th>
+      <th>Вартість пропозиції без землі/дол. США</th>
+      <th>Вартість пропозиції, м.кв./дол. США</th>
+      <th>Категорія ремонту</th>
+      <th>Джерело інформації</th>
+      <th>Аналоги, адреса</th>
+      <th>Площа, кв.м.</th>
+      <th>Призначення</th>
+      <th>Вартість пропозиції/дол. США</th>
+      <th>Джерело інформації</th>
+      <th>Вартість пропозиції, дол. США/м2</th>
+      <th>Медіана</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @a_anhouseholds = Anhousehold.all %>
+    <% @a_anhouseholds.each do |anhousehold| %>
+      <tr>
+        <td><%= anhousehold.number_district %></td>
+        <td><%= anhousehold.danalog %></td>
+        <td><%= anhousehold.darea_building %></td>
+        <td><%= anhousehold.darea_land %></td>
+        <td><%= anhousehold.dvalue_proposition_usd %></td>
+        <td><%= anhousehold.dvalue_proposition_usd_no_land %></td>
+        <td><%= anhousehold.dvalue_proposition_usd_kvm %></td>
+        <td><%= anhousehold.dcategory_repair %></td>
+        <td><%= anhousehold.dsource_information %></td>
+        <td><%= anhousehold.zanalog %></td>
+        <td><%= anhousehold.zarea %></td>
+        <td><%= anhousehold.zpurpose %></td>
+        <td><%= press(anhousehold.zvalue_proposition_usd) %></td>
+        <td><%= anhousehold.zsource_information %></td>
+        <td><%= press(anhousehold.zvalue_proposition_usd_kvm) %></td>
+        <th><%= anhousehold.mediana %></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

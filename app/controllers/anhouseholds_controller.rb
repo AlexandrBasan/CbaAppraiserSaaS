@@ -13,7 +13,8 @@ class AnhouseholdsController < ApplicationController
       format.html
       # export to csv and xls
       format.csv { send_data @a_anhouseholds.to_csv }
-      format.xls { send_data @a_anhouseholds.to_csv(col_sep: "\t") }
+      #format.xls { send_data @a_anhouseholds.to_csv(col_sep: "\t") }
+      format.xls
     end
   end
 

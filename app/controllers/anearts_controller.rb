@@ -12,8 +12,9 @@ class AneartsController < ApplicationController
       format.html
       # export to csv and xls
       format.csv { send_data @a_anearts.to_csv }
-      format.xls { send_data @a_anearts.to_csv(col_sep: "\t") }
+      #format.xls { send_data @a_anearts.to_csv(col_sep: "\t") }
       # format.xls # { send_data @tests.to_csv(col_sep: "\t") }
+      format.xls
   end
 end
   # GET /anearts/1

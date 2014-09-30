@@ -93,6 +93,12 @@ ActiveRecord::Schema.define(version: 20140930171137) do
     t.decimal  "median"
   end
 
+  create_table "auctions", force: true do |t|
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "capartments", force: true do |t|
     t.integer  "auction"
     t.integer  "tip_house"

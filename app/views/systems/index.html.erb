@@ -12,6 +12,8 @@
       <th>Значение этажности для квартир</th>
       <th>Местоположение для земли</th>
       <th>Инфраструктура для земли</th>
+      <th>Местоположение для домов</th>
+      <th>Инфраструктура для домов</th>
       <th>Действие</th>
     </tr>
   </thead>
@@ -25,6 +27,8 @@
         <td><%= system.floor_apartment %>%</td>
         <td><%= system.location %>%</td>
         <td><%= system.infrastructure %>%</td>
+        <td><%= system.location_house %>%</td>
+        <td><%= system.infrastructura_house %>%</td>
         <td><%= link_to 'Изменить', edit_system_path(system), class: "button normal bg-orange fg-white" %></td>
       </tr>
     <% end %>

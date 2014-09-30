@@ -107,6 +107,7 @@ class EarthsController < ApplicationController
     end
   end
   def destroy_all
+    Cearth.destroy_all
     Earth.destroy_all
     redirect_to earths_path
   end

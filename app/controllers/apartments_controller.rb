@@ -11,7 +11,7 @@ class ApartmentsController < ApplicationController
       format.html
       # export to csv and xls
       format.csv { send_data @apartments.to_csv }
-      format.xls
+      format.xls { send_data @apartments.to_csv(col_sep: "\t") }
     end
   end
 

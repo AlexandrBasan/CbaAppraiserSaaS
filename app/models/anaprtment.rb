@@ -7,7 +7,6 @@ class Anaprtment < ActiveRecord::Base
       column_header = [ "district_number","numberpp","location","source","area",
                         "number_rooms","cost_analogue_usd","floor","storeys","building_type",
                         "category_repair","cost_one"]
-      csv << column_names
       # column headers for table - language
       csv << column_header
       all.each do |product|

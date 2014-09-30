@@ -1,0 +1,573 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+/* mixins, variables, etc. */
+/* universal */
+/* line 19, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+html {
+  overflow-y: scroll;
+}
+
+/* line 23, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+body {
+  padding-top: 60px;
+}
+
+/* line 27, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+section {
+  overflow: auto;
+}
+
+/* line 31, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 35, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.center {
+  text-align: center;
+}
+/* line 37, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* typography */
+/* line 44, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+/* line 48, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* line 55, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #999999;
+}
+
+/* line 64, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+h6 {
+  font-weight: normal;
+}
+
+/* line 68, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* header */
+/* Teleport Text Logo
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+} */
+/* SaaS Theme */
+/* line 92, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.navbar .brand {
+  display: block;
+  /* height: 125px;
+  width: 246px; */
+  /* margin-left: -70px; */
+  height: 51px;
+  width: 300px;
+  padding: 0;
+  /*background: url('teleport_logo_saas_system_eng.png') no-repeat left center; */
+  float: left;
+  position: absolute;
+}
+
+/* line 105, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+  width: 940px;
+}
+
+/*Menu styling - FOOTER*/
+/* line 110, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.container {
+  /* width: 910px; */
+  width: 890px;
+}
+
+/* line 115, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.navbar .nav.pull-right {
+  float: right;
+  margin-right: 0;
+  margin-top: 5px;
+}
+
+/* line 121, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.data {
+  /* margin-left: 190px; */
+  /* padding-right:2px; */
+  /*Menu styling - FOOTER*/
+  /* margin-left: 175px; */
+  margin-left: 15px;
+  /*Menu styling - FOOTER*/
+  padding-right: 15px;
+}
+
+/* footer */
+/* line 133, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999999;
+}
+/* line 138, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+footer a {
+  color: #555555;
+}
+/* line 140, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+footer a:hover {
+  color: #222222;
+}
+/* line 144, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+footer small {
+  float: left;
+}
+/* line 147, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+footer ul {
+  float: right;
+  list-style: none;
+}
+/* line 150, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+/* line 157, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.navbar .nav.pull-right {
+  float: right;
+  margin-right: 0;
+  margin-top: 5px;
+}
+
+/* miscellaneous */
+/* line 165, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* forms */
+/* line 175, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 182, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.listylenone {
+  list-style: none;
+}
+
+/* line 186, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+input {
+  height: auto !important;
+}
+
+/* line 190, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+#error_explanation {
+  color: #f00;
+}
+/* line 192, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+#error_explanation ul {
+  list-style: none;
+  margin: 0 0 18px 0;
+}
+
+/* Users index */
+/* backtotop button */
+/* line 207, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+#backtotop {
+  background: #F7F7F7;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px 5px 5px 5px;
+  bottom: 10px;
+  color: #333333;
+  cursor: pointer;
+  display: none;
+  height: 30px;
+  line-height: 30px;
+  padding: 5px;
+  position: fixed;
+  right: 10px;
+  text-align: center;
+  width: 31px;
+  height: 30px;
+  /*width: 100px;*/
+  /* text-indent: -9999px; */
+  z-index: 1;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: url("backtotop30.png") no-repeat left center;
+}
+
+/* line 230, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+#backtotop:hover {
+  background: #EEEEEE;
+  background: url("backtotop30black.png") no-repeat left center;
+}
+
+/* line 235, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 0px 0;
+  border-radius: 4px;
+}
+
+/* line 242, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.overflow {
+  overflow: auto;
+  height: 100%;
+  max-height: 1000px;
+}
+
+/* line 248, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.menu_border {
+  border-bottom: 1px solid lightgray;
+  list-style: none;
+}
+
+/* line 253, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.bs-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+
+/* line 261, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.bs-callout-danger {
+  border-left-color: #d9534f;
+}
+
+/* line 264, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.bs-callout-info {
+  border-left-color: #5bc0de;
+}
+
+/* line 267, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.bs-callout-warning {
+  border-left-color: #f0ad4e;
+}
+
+/* line 270, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.bs-callout-success {
+  border-left-color: #5cb85c;
+}
+
+/* line 273, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.bs-callout-primary {
+  border-left-color: #428bca;
+}
+
+/* line 277, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.brand img {
+  width: 50px;
+  margin-top: -8px;
+}
+
+/* line 281, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.metro .panel {
+  border: 1px #eaeaea solid;
+  margin-bottom: 20px;
+}
+
+/* line 286, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-dialog-titlebar-close {
+  position: relative;
+  float: right;
+  z-index: 99999999;
+  background-color: red;
+  height: 25px;
+  width: 45px;
+  top: 18px;
+  content: open-quote;
+  right: 10px;
+}
+
+/* line 297, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.nametile {
+  color: #ffffff;
+}
+
+/* line 301, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.metro .grid .row {
+  display: block;
+  margin-top: 0px !important;
+}
+
+/* line 307, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.overflow {
+  overflow: auto;
+  height: 100%;
+  max-height: 1500px;
+}
+
+/* line 314, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.pagination .previous_page {
+  padding: 4px 12px;
+  text-align: center;
+  vertical-align: middle !important;
+  background-color: #d9d9d9;
+  border: 1px transparent solid;
+  color: #222222;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  margin: auto;
+  color: inherit;
+  display: block;
+  float: left;
+  margin-right: 1px;
+}
+/* line 332, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.pagination .previous_page.disabled {
+  background-color: #f2f2f2;
+  color: #1e1e1e;
+  cursor: not-allowed;
+  padding: 4px 12px;
+  text-align: center;
+  vertical-align: middle !important;
+  background-color: #d9d9d9;
+  border: 1px transparent solid;
+  color: #222222;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  margin: auto;
+  color: inherit;
+  display: block;
+  float: left;
+  margin-right: 1px;
+}
+/* line 353, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.pagination .current {
+  padding: 4px 12px;
+  text-align: center;
+  vertical-align: middle !important;
+  background-color: #d9d9d9;
+  border: 1px transparent solid;
+  color: #222222;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  margin: auto;
+  color: inherit;
+  display: block;
+  float: left;
+  margin-right: 1px;
+  background-color: #4390df;
+  color: #ffffff;
+}
+/* line 373, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.pagination .next_page {
+  padding: 4px 12px;
+  text-align: center;
+  vertical-align: middle !important;
+  background-color: #d9d9d9;
+  border: 1px transparent solid;
+  color: #222222;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  margin: auto;
+  color: inherit;
+  display: block;
+  float: left;
+  margin-right: 1px;
+}
+/* line 391, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.pagination .next_page.disabled {
+  background-color: #f2f2f2;
+  color: #1e1e1e;
+  cursor: not-allowed;
+  padding: 4px 12px;
+  text-align: center;
+  vertical-align: middle !important;
+  background-color: #d9d9d9;
+  border: 1px transparent solid;
+  color: #222222;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  margin: auto;
+  color: inherit;
+  display: block;
+  float: left;
+  margin-right: 1px;
+}
+/* line 412, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.pagination a {
+  padding: 4px 12px;
+  text-align: center;
+  vertical-align: middle !important;
+  background-color: #d9d9d9;
+  border: 1px transparent solid;
+  color: #222222;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  margin: auto;
+  color: inherit;
+  display: block;
+  float: left;
+  margin-right: 1px;
+}
+/* line 432, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/custom.css.scss */
+.pagination span.gap {
+  background-color: #ffffff;
+  cursor: default;
+  display: block;
+  float: left;
+  margin-right: 1px;
+  position: relative;
+}
+/* line 1, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/scaffolds.css.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/scaffolds.css.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/scaffolds.css.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/scaffolds.css.scss */
+a {
+  color: #000;
+}
+/* line 23, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/scaffolds.css.scss */
+a:visited {
+  color: #666;
+}
+/* line 26, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/scaffolds.css.scss */
+a:hover {
+  color: #fff;
+}
+
+/* line 33, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/scaffolds.css.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 38, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/scaffolds.css.scss */
+#notice {
+  color: green;
+}
+
+/* line 42, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/scaffolds.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 48, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 55, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 65, /Users/alexandr/Alex/cba/cba_appraiser_soft/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}

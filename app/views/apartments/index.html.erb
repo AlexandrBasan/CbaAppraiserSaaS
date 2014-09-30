@@ -45,10 +45,12 @@
               </h5>
             </div>
             <div class="span6">
+              <h5 align="center">
               <% if @apartments.empty?%>
               <% else %>
                   <%= link_to "Очистить базу", apartments_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red" %>
               <% end %>
+              </h5>
             </div>
           </div>
         </div>

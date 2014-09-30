@@ -1,8 +1,8 @@
 <% provide(:title, 'All users') %>
-<h3 align="center"><%= 'Пользователи системы' %> <span class="badge"><%= @users.count %></span></h3>
+<h3 align="center"><%= 'Пользователи системы' %> <span class="bg-cobalt fg-white"><%= @users.count %></span></h3>
 <% if current_user.try(:admin?) %>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-striped table-hover hovered striped bordered">
       <thead>
       <tr>
         <th><%= (t :name) %></th>

@@ -69,6 +69,7 @@ class SystemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def system_params
-      params.require(:system).permit(:torg_apartment, :torg_earth, :torg_house, :floor_apartment, :location, :infrastructure)
+      params.require(:system).permit(:torg_apartment, :torg_earth, :torg_house, :floor_apartment,
+                                     :location, :infrastructure, :location_house, :infrastructura_house)
     end
 end

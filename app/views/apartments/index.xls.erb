@@ -1,0 +1,141 @@
+<div class="span12">
+  <h3 align="center">Квартиры</h3>
+  <div class="row">
+    <div class="span4">
+    <div class="panel" data-role="panel">
+      <div class="panel-header bg-lime">
+        <%= (I18n.t 'button.import') %> *.XLS
+      </div>
+      <div class="panel-content">
+        <%= form_tag import_apartments_path, multipart: true do %>
+            <%= file_field_tag :file %>
+            <%= submit_tag (I18n.t 'button.import'), class: "button large" %>
+        <% end %>
+      </div>
+    </div>
+      </div>
+    <div class="span4">
+      <div class="panel" data-role="panel">
+        <div class="panel-header bg-lightOrange">
+          <%= (I18n.t 'button.download') %> *.XLS
+        </div>
+        <div class="panel-content">
+          <button class="image-button primary">
+            <%= link_to (I18n.t 'button.download') + ' *CSV' , apartments_path(format: "csv")%>
+            <i class="icon-download-2"></i>
+          </button>
+          <button class="image-button primary">
+            <%= link_to (I18n.t 'button.download') + ' *XLS' , apartments_path(format: "xls")%>
+            <i class="icon-download-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="panel" data-role="panel">
+        <div class="panel-header bg-yellow">
+          <%= 'Обработка загруженных данных' %>
+        </div>
+        <div class="panel-content">
+          <div class="row">
+            <div class="span6">
+              <h5 align="center">
+                <% if @capartments.empty? %>
+                    <%= link_to "Обработать данные", processing_path, class: "button large bg-green" %>
+                <% else %>
+                    <%= link_to "Расчеты", calc_apartment_path, class: "button large bg-green" %>
+                <% end %>
+              </h5>
+            </div>
+            <div class="span6">
+              <h5 align="center">
+              <% if @apartments.empty?%>
+              <% else %>
+                  <%= link_to "Очистить базу", apartments_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red" %>
+              <% end %>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="panel" data-role="panel">
+  <div class="panel-header bg-cyan">
+Список квартир
+  </div>
+  <div class="panel-content">
+<div align="center">
+<%= will_paginate %>
+</div>
+
+<table class="table table-striped table-hover hovered striped bordered">
+  <thead>
+    <tr>
+      <th>Kод oбеспечення</th>
+      <th>Новый код</th>
+      <th>Номер счета</th>
+      <th>Альтернативный номер счета</th>
+      <th>Тип обеспечения</th>
+      <th>Область</th>
+      <th>Район</th>
+      <th>Тип населенного пунтка</th>
+      <th>Город</th>
+      <th>Тип улицы</th>
+      <th>Название улицы</th>
+      <th>Номер дома</th>
+      <th>Номер дома</th>
+      <th>Номер квартиры</th>
+      <th>Площадь</th>
+      <th>Жилая площадь, кв.м</th>
+      <th>Кол. комнат</th>
+      <th>Этаж</th>
+      <th>Этажность</th>
+      <th>Серия дома</th>
+      <th>№ района</th>
+      <th>Рыночная стоимость, грн</th>
+      <th>Рыночная стоимость, дол.США</th>
+      <th>Рыночная стоимость, евро</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @apartments.each do |apartment| %>
+      <tr>
+        <td><%= apartment.code_provision %></td>
+        <td><%= apartment.new_code %></td>
+        <td><%= apartment.account_number %></td>
+        <td><%= apartment.alt_account_number %></td>
+        <td><%= apartment.tip %></td>
+        <td><%= apartment.region %></td>
+        <td><%= apartment.district %></td>
+        <td><%= apartment.type_settlement %></td>
+        <td><%= apartment.city %></td>
+        <td><%= apartment.street_type %></td>
+        <td><%= apartment.street_name %></td>
+        <td><%= apartment.number_house %></td>
+        <td><%= apartment.number_house2 %></td>
+        <td><%= apartment.room_apartment %></td>
+        <td><%= apartment.area %></td>
+        <Cell><Data ss:Type="Number"><td><%= apartment.floor_area %></td></Data></Cell>
+        <td><%= apartment.number_rooms %></td>
+        <td><%= apartment.storey %></td>
+        <td><%= apartment.floors %></td>
+        <td><%= apartment.series_home %></td>
+        <td><%= apartment.district_number %></td>
+        <td><%= press(apartment.uah_market_value) %></td>
+        <td><%= press(apartment.usd_market_value) %></td>
+        <td><%= press(apartment.euro_market_value) %></td>
+        <td><%= link_to 'Edit', edit_apartment_path(apartment), class: "button normal bg-orange" %></td>
+        <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div align="center">
+  <%= will_paginate %>
+</div>
+  </div>
+</div>
+</div>

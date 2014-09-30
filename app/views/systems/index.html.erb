@@ -1,5 +1,5 @@
 <div class="panel" data-role="panel">
-  <div class="panel-header bg-cyan">
+  <div class="panel-header bg-cyan fg-white">
     Системные настройки
   </div>
   <div class="panel-content">
@@ -25,7 +25,7 @@
         <td><%= system.floor_apartment %>%</td>
         <td><%= system.location %>%</td>
         <td><%= system.infrastructure %>%</td>
-        <td><%= link_to 'Изменить', edit_system_path(system), class: "button normal bg-orange" %></td>
+        <td><%= link_to 'Изменить', edit_system_path(system), class: "button normal bg-orange fg-white" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -21,7 +21,7 @@
           <%= (I18n.t 'button.download') %> (*.XLS for Microsoft office)
         </div>
         <div class="panel-content">
-
+          <h5 align="center">
           <button class="image-button primary">
             <%= link_to (I18n.t 'button.download') + ' *CSV' , houses_path(format: "csv")%>
             <i class="icon-download-2"></i>
@@ -30,6 +30,7 @@
             <%= link_to (I18n.t 'button.download') + ' *XLS' , houses_path(format: "xls")%>
             <i class="icon-download-2"></i>
           </button>
+          </h5>
         </div>
       </div>
     </div>

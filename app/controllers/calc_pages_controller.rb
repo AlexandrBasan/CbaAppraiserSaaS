@@ -13,7 +13,11 @@ class CalcPagesController < ApplicationController
     @earths = Earth.paginate(page: params[:page])
     @anearths = Aneart.all
     @cearths = Cearth.all
-
+  end
+  def calc_earths_print
+    @earths = Earth.all
+    @anearths = Aneart.all
+    @cearths = Cearth.all
   end
   def calc_houses
     @houses = House.all

@@ -19,13 +19,13 @@ class Anhousehold < ActiveRecord::Base
     allowed_attributes = [ "number_district","danalog","darea_building","darea_land","dvalue_proposition_usd",
                            "dvalue_proposition_usd_no_land","dvalue_proposition_usd_kvm","dcategory_repair",
                            "dsource_information","zanalog","zarea","zpurpose","zvalue_proposition_usd",
-                           "zsource_information","zvalue_proposition_usd_kvm"]
+                           "zsource_information","zvalue_proposition_usd_kvm","mediana"]
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
     header = [ "number_district","danalog","darea_building","darea_land","dvalue_proposition_usd",
                "dvalue_proposition_usd_no_land","dvalue_proposition_usd_kvm","dcategory_repair",
                "dsource_information","zanalog","zarea","zpurpose","zvalue_proposition_usd",
-               "zsource_information","zvalue_proposition_usd_kvm"]
+               "zsource_information","zvalue_proposition_usd_kvm","mediana"]
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       product = find_by_id(row["number_district"]) || new

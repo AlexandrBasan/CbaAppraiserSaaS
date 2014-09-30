@@ -23,7 +23,7 @@ class AnhouseholdsController < ApplicationController
     if Anhousehold.check_import_errors == true
       respond_to do |format|
         format.html { flash[:success] = 'Импорт успешно завершен.'
-        redirect_to anhousehold_path }
+        redirect_to anhouseholds_path }
       end
     else
       @error_import = " code_provision: "

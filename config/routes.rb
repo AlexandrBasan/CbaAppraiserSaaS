@@ -36,6 +36,8 @@ CbaAppraiserSoft::Application.routes.draw do
   match '/calc_earths', to: 'calc_pages#calc_earths', via: 'get'
   match '/calc_houses', to: 'calc_pages#calc_houses', via: 'get'
   match '/calc_apartment_print', to: 'calc_pages#calc_apartments_print', via: 'get'
+  match '/calc_earth_print', to: 'calc_pages#calc_earths_print', via: 'get'
+  match '/calc_house_print', to: 'calc_pages#calc_houses_print', via: 'get'
 
   resources :apartments do
     collection do
@@ -81,6 +83,7 @@ CbaAppraiserSoft::Application.routes.draw do
 
    match '/processing', to: 'apartments#processing', via: 'get'
    match '/processing_earth', to: 'earths#processing_earth', via: 'get'
+   match '/processing_house', to: 'houses#processing_house', via: 'get'
 
   scope '/destroy_all' do
     resources :anhouseholds, only: [:index], to: 'anhouseholds#destroy_all', via: 'delete', as: 'anhouseholds_destroy_all'

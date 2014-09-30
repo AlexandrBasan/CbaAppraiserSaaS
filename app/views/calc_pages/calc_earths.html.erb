@@ -1,11 +1,11 @@
 <div class="span12">
-  <h3 align="center">Расчеты квартиры</h3>
+  <h3 align="center">Расчеты земли</h3>
   <h5 align="center">
-    <%= link_to "Распечатать", calc_apartment_print_path, class: "button large bg-green fg-white" %>
+    <%= link_to "Распечатать", calc_earth_print_path, class: "button large bg-green fg-white" %>
   </h5>
   <div class="panel" data-role="panel">
     <div class="panel-header bg-cyan fg-white">
-      Расчеты
+      Расчеты Земли
     </div>
     <div class="panel-content">
       <div align="center">
@@ -98,10 +98,10 @@
             <% end %>
             </tbody>
           </table>
-          Середнє арифметичне значення 1 кв. <%= number_with_precision(earth.median, precision: 2)  %><br/>
-          Ринкова вартість, дол.США <%= number_with_precision(earth.usd_market_value, precision: 2)  %><br/>
-          Ринкова вартість, грн <%= number_with_precision(earth.uah_market_value, precision: 2)  %><br/>
-          Ринкова вартість, евро <%= number_with_precision(earth.euro_market_value, precision: 2)  %>
+          Середнє арифметичне значення 1 кв. <%= number_with_precision(earth.median, precision: 0)  %><br/>
+          Ринкова вартість, дол.США <%= number_with_precision(earth.usd_market_value, precision: 0)  %><br/>
+          Ринкова вартість, грн <%= number_with_precision(earth.uah_market_value, precision: 0)  %><br/>
+          Ринкова вартість, евро <%= number_with_precision(earth.euro_market_value, precision: 0)  %>
           <div align="center">
             *********************************************************
           </div>

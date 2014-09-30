@@ -1,7 +1,7 @@
 <div class="span12">
   <h3 align="center">Квартиры</h3>
   <div class="row">
-    <div class="span6">
+    <div class="span4">
     <div class="panel" data-role="panel">
       <div class="panel-header bg-lime">
         <%= (I18n.t 'button.import') %> *.XLS
@@ -14,7 +14,7 @@
       </div>
     </div>
       </div>
-    <div class="span6">
+    <div class="span4">
       <div class="panel" data-role="panel">
         <div class="panel-header bg-lightOrange">
           <%= (I18n.t 'button.download') %> *.XLS
@@ -28,34 +28,33 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="panel" data-role="panel">
-    <div class="panel-header bg-yellow">
-      <%= 'Обработка загруженных данных' %>
-    </div>
-    <div class="panel-content">
-      <div class="row">
-        <div class="span6">
-          <h5 align="center">
-            <% if @capartments.empty? %>
-                <%= link_to "Обработать данные", processing_path, class: "button large bg-green" %>
-            <% else %>
-                <%= link_to "Расчеты", calc_apartment_path, class: "button large bg-green" %>
-          <% end %>
-          </h5>
+    <div class="span4">
+      <div class="panel" data-role="panel">
+        <div class="panel-header bg-yellow">
+          <%= 'Обработка загруженных данных' %>
         </div>
-        <div class="span6">
-          <% if @apartments.empty?%>
-          <% else %>
-              <%= link_to "Очистить базу", apartments_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red" %>
-          <% end %>
+        <div class="panel-content">
+          <div class="row">
+            <div class="span6">
+              <h5 align="center">
+                <% if @capartments.empty? %>
+                    <%= link_to "Обработать данные", processing_path, class: "button large bg-green" %>
+                <% else %>
+                    <%= link_to "Расчеты", calc_apartment_path, class: "button large bg-green" %>
+                <% end %>
+              </h5>
+            </div>
+            <div class="span6">
+              <% if @apartments.empty?%>
+              <% else %>
+                  <%= link_to "Очистить базу", apartments_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red" %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 <div class="panel" data-role="panel">
   <div class="panel-header bg-cyan">
 Список квартир
@@ -133,4 +132,5 @@
   <%= will_paginate %>
 </div>
   </div>
+</div>
 </div>

@@ -33,13 +33,7 @@
       </ul>
     </div>
 
-        <span class="element-divider"></span>
-        <div class="element">
-          <a class="dropdown-toggle" href="#"> <%= current_user.email %></a>
-          <ul class="dropdown-menu" data-role="dropdown">
-            <%= render 'layouts/header/header_account_button' %>
-          </ul>
-        </div>
+
 
         <span class="element-divider"></span>
       <% if current_user && current_user.try(:admin?) %>
@@ -82,7 +76,13 @@
       <% else %>
 
       <% end %>
-
+    <span class="element-divider"></span>
+    <div class="element">
+      <a class="dropdown-toggle" href="#"> <%= current_user.email %></a>
+      <ul class="dropdown-menu" data-role="dropdown">
+        <%= render 'layouts/header/header_account_button' %>
+      </ul>
+    </div>
   </nav>
 </nav>
 </header>

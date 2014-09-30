@@ -115,7 +115,6 @@ ActiveRecord::Schema.define(version: 20140929213151) do
     t.integer  "aneart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "repair"
   end
 
   create_table "chouses", force: true do |t|

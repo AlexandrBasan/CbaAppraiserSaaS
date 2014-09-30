@@ -26,7 +26,7 @@ class HousesController < ApplicationController
   def processing
     @ho = House.all
     @ho.each do |house|
-      Anhousehold.where(number_district: apart.district_number).each do |anho|
+      Anhousehold.where(number_district: house.district_number).each do |anho|
         @chouse = Chouse.new
         @chouse.house_id = house.id
         @chouse.anhousehold_id = anho.id

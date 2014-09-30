@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929213151) do
+ActiveRecord::Schema.define(version: 20140930171137) do
 
   create_table "anaprtments", force: true do |t|
     t.integer  "district_number"
@@ -93,6 +93,12 @@ ActiveRecord::Schema.define(version: 20140929213151) do
     t.decimal  "median"
   end
 
+  create_table "auctions", force: true do |t|
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "capartments", force: true do |t|
     t.integer  "auction"
     t.integer  "tip_house"
@@ -116,6 +122,7 @@ ActiveRecord::Schema.define(version: 20140929213151) do
     t.integer  "aneart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "repair"
   end
 
   create_table "chouses", force: true do |t|
@@ -217,14 +224,8 @@ ActiveRecord::Schema.define(version: 20140929213151) do
     t.datetime "updated_at"
     t.integer  "location"
     t.integer  "infrastructure"
-  end
-
-  create_table "tests", force: true do |t|
-    t.string   "col_1_s"
-    t.integer  "col_2_i"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "col_3_ru"
+    t.integer  "location_house"
+    t.integer  "infrastructura_house"
   end
 
   create_table "tiphouses", force: true do |t|

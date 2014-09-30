@@ -6,6 +6,7 @@ class AnaprtmentsController < ApplicationController
   # GET /anaprtments
   # GET /anaprtments.json
   def index
+    @capartments = Capartment.all
     @anaprtments= Anaprtment.paginate(page: params[:page])
     @a_anaprtments= Anaprtment.all
     respond_to do |format|

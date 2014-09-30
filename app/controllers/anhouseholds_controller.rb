@@ -7,6 +7,7 @@ class AnhouseholdsController < ApplicationController
   # GET /anhouseholds
   # GET /anhouseholds.json
   def index
+    @chouse = Chouse.all
     @anhouseholds = Anhousehold.paginate(page: params[:page])
     @a_anhouseholds = Anhousehold.all
     respond_to do |format|

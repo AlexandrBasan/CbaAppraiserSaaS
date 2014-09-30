@@ -5,6 +5,7 @@ class AneartsController < ApplicationController
   # GET /anearts
   # GET /anearts.json
   def index
+    @cearth= Cearth.all
     @aneart= Aneart.new
     @anearts= Aneart.paginate(page: params[:page])
     @a_anearts= Aneart.all

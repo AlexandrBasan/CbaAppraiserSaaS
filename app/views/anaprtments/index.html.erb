@@ -42,7 +42,7 @@
         <div class="panel-content">
           <div class="row">
             <div class="span6">
-              <              <% if @capartments.empty? %>
+                           <% if @capartments.empty? %>
                   <%= link_to "Обработать данные", processing_path, class: "button default bg-green fg-white" %>
               <% else %>
                   <%= link_to "Расчеты", calc_apartment_path, class: "button default bg-green fg-white" %>

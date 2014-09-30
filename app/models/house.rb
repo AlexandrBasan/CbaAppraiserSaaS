@@ -3,10 +3,7 @@ class House < ActiveRecord::Base
   def self.to_csv(options = {})
     (CSV.generate(options) do |csv|
       # column headers for table - language
-      column_header = [ "code_provision","tip","region","district","city","street_type",
-                        "street_name","street_name2","number_home","number_housing",
-                        "room_apartment","total_area","floor_area","area_land","district_number",
-                        "category_repair","uah_market_value","usd_market_value","euro_market_value"]
+      column_header = ["Kод oбеспечення", "Тип обеспечения", "Область", "Район", "Город", "Тип улицы", "Название улицы", "Название улицы", "Номер дома", "Номер корпуса", "Номер квартиры", "Общая площадь, кв.м", "Жилая площадь, кв.м", "Площадь земельного участка, Га", "№ района", "Категория ремонту", "Рыночная стоимость, грн", "Рыночная стоимость, дол.США", "Рыночная стоимость, евро"]
       csv << column_names
       # column headers for table - language
       csv << column_header

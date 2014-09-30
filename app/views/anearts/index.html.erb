@@ -96,9 +96,9 @@
         <td><%= aneart.analogs_address %></td>
         <td><%= aneart.area %></td>
         <td><%= aneart.purpose %></td>
-        <td><%= aneart.value_proposition_usd %></td>
+        <td><%= press(aneart.value_proposition_usd) %></td>
         <td><%= aneart.information_source %></td>
-        <td><%= aneart.value_proposition_usdone %></td>
+        <td><%= press(aneart.value_proposition_usdone) %></td>
         <td><%= link_to 'Edit', edit_aneart_path(aneart), class: "button normal bg-orange" %></td>
         <td><%= link_to 'Destroy', aneart, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
       </tr>

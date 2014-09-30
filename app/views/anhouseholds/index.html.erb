@@ -106,9 +106,9 @@
         <td><%= anhousehold.zanalog %></td>
         <td><%= anhousehold.zarea %></td>
         <td><%= anhousehold.zpurpose %></td>
-        <td><%= anhousehold.zvalue_proposition_usd %></td>
+        <td><%= press(anhousehold.zvalue_proposition_usd) %></td>
         <td><%= anhousehold.zsource_information %></td>
-        <td><%= anhousehold.zvalue_proposition_usd_kvm %></td>
+        <td><%= press(anhousehold.zvalue_proposition_usd_kvm) %></td>
         <th><%= anhousehold.mediana %></th>
         <td><%= link_to 'Edit', edit_anhousehold_path(anhousehold), class: "button normal bg-orange" %></td>
         <td><%= link_to 'Destroy', anhousehold, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>

@@ -4,9 +4,7 @@ has_many :cearths
   def self.to_csv(options = {})
     (CSV.generate(options) do |csv|
       # column headers for table - language
-      column_header = [ "district_number","analogs_address","area","purpose",
-                        "value_proposition_usd","information_source",
-                        "value_proposition_usdone"]
+      column_header = [ "№ района", "Аналоги, адреса", "Площа, кв.м.", "Призначення", "Вартість пропозиції/дол. США", "Джерело інформації", "Вартість пропозиції, дол. США/м2"]
       csv << column_names
       # column headers for table - language
       csv << column_header

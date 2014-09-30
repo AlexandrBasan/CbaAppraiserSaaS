@@ -4,10 +4,7 @@ class Anhousehold < ActiveRecord::Base
   def self.to_csv(options = {})
     (CSV.generate(options) do |csv|
       # column headers for table - language
-      column_header = [ "number_district","danalog","darea_building","darea_land","dvalue_proposition_usd",
-                        "dvalue_proposition_usd_no_land","dvalue_proposition_usd_kvm","dcategory_repair",
-                        "dsource_information","zanalog","zarea","zpurpose","zvalue_proposition_usd",
-                        "zsource_information","zvalue_proposition_usd_kvm"]
+      column_header = [ "№ района", "Аналоги, адреса", "Площа будівля, приміщення, кв.м.", "Площа землі, кв.м.", "Вартість пропозиції/дол. США", "Вартість пропозиції без землі/дол. США", "Вартість пропозиції, м.кв./дол. США", "Категорія ремонту", "Джерело інформації", "Аналоги, адреса", "Площа, кв.м.", "Призначення", "Вартість пропозиції/дол. США", "Джерело інформації", "Вартість пропозиції, дол. США/м2", "Медіана"]
       csv << column_names
       # column headers for table - language
       csv << column_header

@@ -92,12 +92,12 @@
         <td><%= anaprtment.source %></td>
         <td><%= anaprtment.area %></td>
         <td><%= anaprtment.number_rooms %></td>
-        <td><%= anaprtment.cost_analogue_usd %></td>
+        <td><%= press(anaprtment.cost_analogue_usd) %></td>
         <td><%= anaprtment.floor %></td>
         <td><%= anaprtment.storeys %></td>
         <td><%= anaprtment.building_type %></td>
         <td><%= anaprtment.category_repair %></td>
-        <td><%= anaprtment.cost_one %></td>
+        <td><%= press(anaprtment.cost_one) %></td>
         <td><%= link_to 'Edit', edit_anaprtment_path(anaprtment), class: "button normal bg-orange" %></td>
         <td><%= link_to 'Destroy', anaprtment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button normal bg-red" %></td>
       </tr>

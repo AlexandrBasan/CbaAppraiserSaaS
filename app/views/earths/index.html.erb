@@ -44,9 +44,15 @@
             <div class="span6">
               <h5 align="center">
                 <% if @cearths.empty? %>
-                    <%= link_to "Обработать данные", processing_earth_path, class: "button default bg-green fg-white" %>
+                    <button class="button default bg-green fg-white">
+                    <%= link_to "Обработать данные", processing_earth_path %>
+                      <i class="icon-stats"></i>
+                    </button>
                 <% else %>
-                    <%= link_to "Расчеты", calc_earths_path, class: "button default bg-green fg-white" %>
+                    <button class="button default bg-green fg-white">
+                    <%= link_to "Расчеты", calc_earths_path %>
+                    <i class="icon-calculate"></i>
+                    </button>
                 <% end %>
               </h5>
             </div>

@@ -42,7 +42,12 @@
         <div class="panel-content">
           <div class="row">
             <div class="span6">
-              <h5 align="center"><%= link_to "Обработать данные", calc_houses_path, class: "button default bg-green fg-white" %></h5>
+              <h5 align="center">
+                <button class="button default bg-green fg-white">
+                  <%= link_to "Обработать данные", calc_houses_path %>
+                <i class="icon-stats"></i>
+                </button>
+              </h5>
             </div>
             <div class="span6">
               <h5 align="center">

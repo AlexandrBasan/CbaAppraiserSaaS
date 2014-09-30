@@ -10,7 +10,7 @@
         <div class="panel-content">
           <%= form_tag import_earths_path, multipart: true do %>
               <%= file_field_tag :file %>
-              <%= submit_tag (I18n.t 'button.import'), class: "button large" %>
+              <%= submit_tag (I18n.t 'button.import'), class: "button default fg-white" %>
           <% end %>
         </div>
       </div>
@@ -43,9 +43,9 @@
             <div class="span6">
               <h5 align="center">
                 <% if @cearths.empty? %>
-                    <%= link_to "Обработать данные", processing_earth_path, class: "button large bg-green" %>
+                    <%= link_to "Обработать данные", processing_earth_path, class: "button default bg-green fg-white" %>
                 <% else %>
-                    <%= link_to "Расчеты", calc_earths_path, class: "button large bg-green" %>
+                    <%= link_to "Расчеты", calc_earths_path, class: "button default bg-green fg-white" %>
                 <% end %>
               </h5>
             </div>
@@ -53,7 +53,7 @@
               <h5 align="center">
               <% if @cearths.empty?%>
               <% else %>
-                  <%= link_to "Очистить базу", earths_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red" %>
+                  <%= link_to "Очистить базу", earths_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button default bg-red fg-white" %>
               <% end %>
               </h5>
             </div>

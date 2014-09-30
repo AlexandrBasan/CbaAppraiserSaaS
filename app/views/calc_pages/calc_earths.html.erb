@@ -1,10 +1,10 @@
 <div class="span12">
   <h3 align="center">Расчеты квартиры</h3>
   <h5 align="center">
-    <%= link_to "Распечатать", calc_apartment_print_path, class: "button large bg-green" %>
+    <%= link_to "Распечатать", calc_apartment_print_path, class: "button large bg-green fg-white" %>
   </h5>
   <div class="panel" data-role="panel">
-    <div class="panel-header bg-cyan">
+    <div class="panel-header bg-cyan fg-white">
       Расчеты
     </div>
     <div class="panel-content">
@@ -69,7 +69,7 @@
                   <td><%= cearth.diff_area %>%</td>
                   <td><%= cearth.rooms %>%</td>
                   <td><%= number_with_precision(capartment.adj_cost_value, precision: 2)  %></td>
-                  <td><%= link_to 'Edit', edit_capartment_path(capartment), class: "button normal bg-orange" %></td>
+                  <td><%= link_to 'Edit', edit_capartment_path(capartment), class: "button normal bg-orange fg-white" %></td>
                 </tr>
 
             <% end %>

@@ -9,7 +9,7 @@
         <div class="panel-content">
           <%= form_tag import_anearts_path, multipart: true do %>
               <%= file_field_tag :file %>
-              <%= submit_tag (I18n.t 'button.import'), class: "button large" %>
+              <%= submit_tag (I18n.t 'button.import'), class: "button default fg-white" %>
           <% end %>
         </div>
       </div>
@@ -40,13 +40,13 @@
         <div class="panel-content">
           <div class="row">
             <div class="span6">
-              <h5 align="center"><%= link_to "Обработать данные", calc_earths_path, class: "button large bg-green fg-white" %></h5>
+              <h5 align="center"><%= link_to "Обработать данные", calc_earths_path, class: "button default bg-green fg-white" %></h5>
             </div>
             <div class="span6">
               <h5 align="center">
               <% if @anearts.empty?%>
               <% else %>
-                  <%= link_to "Очистить базу", anearts_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red fg-white" %>
+                  <%= link_to "Очистить базу", anearts_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button default bg-red fg-white" %>
               <% end %>
                   </h5>
             </div>

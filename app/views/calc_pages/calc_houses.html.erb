@@ -1,181 +1,125 @@
-<% @apartments.each do |apartment| %>
-    <% @full_all = 0.0 %>
-    <h2>Інформація про об'єкт оцінки </h2>
-    <table class="table table-striped table-hover hovered striped bordered">
-      <thead>
-      <tr>
-        <th>Код забеспечення</th>
-        <th>Номер рахунку</th>
-        <th>Область</th>
-        <th>Населений пункт</th>
-        <th>Вулиця</th>
-        <th>№ будинку</th>
-        <th>№ квартири</th>
-        <th>Загальна площа</th>
-        <th>Тип будинку</th>
-        <th>Поверх/поверхівість</th>
-        <th>№ района</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td><%= apartment.code_provision %></td>
-        <td><%= apartment.account_number %></td>
-        <td><%= apartment.region %></td>
-        <td><%= apartment.city %></td>
-        <td><%= apartment.street_name %></td>
-        <td><%= apartment.number_house2 %></td>
-        <td><%= apartment.room_apartment %></td>
-        <td><%= apartment.area %></td>
-        <td><%= apartment.series_home %></td>
-        <td><%= apartment.storey %>/<%= apartment.floors %></td>
-        <td><%= apartment.district_number %></td>
-      </tr>
-      </tbody>
-    </table>
-    <h2>Інформація про об'єкти порівняння(аналоги)</h2>
-    <table class="table table-striped table-hover hovered striped bordered">
-      <thead>
-      <tr>
-        <th>Місце розташування аналога</th>
-        <th>Джерело інформації</th>
-        <th>Площа,кв.м.</th>
-        <th>Кількість кімнат</th>
-        <th>Вартість аналога(дол.США)</th>
-        <th>Поверх</th>
-        <th>Поверховість</th>
-        <th>Тип</th>
-        <th>Категорія ремонту</th>
-        <th>Вартість 1 м.кв.(дол. США)</th>
-      </tr>
-      </thead>
-      <tbody>
+<div class="span12">
+  <h3 align="center">Расчеты дом</h3>
+  <h5 align="center">
+    <%= link_to "Распечатать", calc_earth_print_path, class: "button large bg-green fg-white" %>
+  </h5>
+  <div class="panel" data-role="panel">
+    <div class="panel-header bg-cyan fg-white">
+      Расчеты Дом
+    </div>
+    <div class="panel-content">
+      <div align="center">
+        <%= will_paginate @houses %>
+      </div>
+      <% @houses.each do |house| %>
+          <h2>Інформація про об'єкт оцінки </h2>
+          <table class="table table-striped table-hover hovered striped bordered">
+            <thead>
+            <tr>
+              <th>Тип обеспечення</th>
+              <th>Код обеспечення</th>
+              <th>Область</th>
+              <th>Населений пункт</th>
+              <th>Вулиця</th>
+              <th>Общая площадь,кв. м.</th>
+              <th>Категорія ремонту</th>
+              <th>№ района</th>
+              <th>Действие</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><%= house.tip %></td>
+              <td><%= house.code_provision %></td>
+              <td><%= house.region %></td>
+              <td><%= house.city %></td>
+              <td><%= house.street_name %></td>
+              <td><%= house.total_area %></td>
+              <td><%= house.category_repair %></td>
+              <td><%= house.district_number %></td>
+              <td><%= link_to 'Изменить', edit_house_path(house), class: "button normal bg-orange" %></td>
+            </tr>
+            </tbody>
+          </table>
+          <h2>Інформація про об'єкти порівняння(аналоги)</h2>
+          <table class="table table-striped table-hover hovered striped bordered">
+            <thead>
+            <tr>
+              <th>Аналоги, адреса</th>
+              <th>Площа будівлі, кв.м.</th>
+              <th>Площа землі, кв.м.</th>
+              <th>Вартість пропозиції(дол.США)</th>
+              <th>Вартість пропозиції без землі (дол.США)</th>
+              <th>Вартість пропозиції без землі за 1 м.кв.(дол. США)</th>
+              <th>Категорія ремонту</th>
+              <th>Джерело інформації</th>
+            </tr>
+            </thead>
+            <tbody>
 
-      <% @anaprtments.where(district_number: apartment.district_number).each do |anaprtment| %>
-          <tr>
+            <% @anhouses.where(number_district: house.district_number).each do |anhouse| %>
+                <tr>
 
-            <td><%= anaprtment.location %></td>
-            <td><%= anaprtment.source %></td>
-            <td><%= anaprtment.area %></td>
-            <td><%= anaprtment.number_rooms %></td>
-            <td><%= number_with_precision(anaprtment.cost_analogue_usd, precision: 2) %></td>
-            <td><%= anaprtment.floor %></td>
-            <td><%= anaprtment.storeys %></td>
-            <td><%= anaprtment.building_type %></td>
-            <td><%= anaprtment.category_repair %></td>
-            <td><%= number_with_precision(anaprtment.cost_one, precision: 2) %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-    <h2>Розрахунок вартості обекта оцінки</h2>
-    <table class="table table-striped table-hover hovered striped bordered">
-      <thead>
-      <tr>
-        <td colspan="2">Розрахунки</td>
-        <td colspan="6">Коригування</td>
-      </tr>
-      <tr>
-        <th>Аналоги, адреса</th>
-        <th>Вартість пропозиції, кв.м.</th>
-        <th>Торг</th>
-        <th>Тип будинку</th>
-        <th>Вартість ремонтно - оздоблювальних робіт</th>
-        <th>Знаходження об'єкту порівняння в межах будинку поверх</th>
-        <th>Коригування на відмінність в кількості кімнат</th>
-        <th>Скоригована вартість пропозиції, 1 кв.м. дол. США</th>
-      </tr>
-      </thead>
-      <tbody>
+                  <td><%= anhouse.danalog %></td>
+                  <td><%= anhouse.darea_building %></td>
+                  <td><%= anhouse.darea_land %></td>
+                  <td><%= number_with_precision(anhouse.dvalue_proposition_usd, precision: 2)  %></td>
+                  <td><%= number_with_precision(anhouse.dvalue_proposition_usd_no_land, precision: 2)  %></td>
+                  <td><%= number_with_precision(anhouse.dvalue_proposition_usd_kvm, precision: 2)  %></td>
+                  <td><%= anhouse.dcategory_repair %></td>
+                  <td><%= anhouse.dsource_information %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+          <h2>Розрахунок вартості обекта оцінки</h2>
+          <table class="table table-striped table-hover hovered striped bordered">
+            <thead>
+            <tr>
+              <td colspan="2">Розрахунки</td>
+              <td colspan="6">Коригування</td>
+            </tr>
+            <tr>
+              <th>Аналоги, адреса</th>
+              <th>Вартість пропозиції, кв.м.</th>
+              <th>Торг</th>
+              <th>Місцезнаходження</th>
+              <th>Наявність інфраструктури</th>
+              <th>На відмінність площ</th>
+              <th>Категорія ремонту</th>
+              <th>Скоригована вартість пропозиції, 1 кв.м. дол. США</th>
+              <th>Действие</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @chouse.where(house_id: house.id).each do |chouse| %>
+                <tr>
+                  <td><%= chouse.anhousehold.danalog %></td>
+                  <td><%= number_with_precision(chouse.anhousehold.dvalue_proposition_usd_kvm, precision: 2)  %></td>
+                  <td><%= chouse.auction %></td>
+                  <td><%= chouse.location %></td>
+                  <td><%= chouse.infrastructure %></td>
+                  <td><%= chouse.diff_area %></td>
+                  <td><%= chouse.category_repair %></td>
+                  <td><%= number_with_precision(chouse.adj_cost_value, precision: 2)  %></td>
+                  <td><%= link_to 'Редагування', edit_chouse_path(chouse), class: "button normal bg-orange fg-white" %></td>
+                </tr>
 
-      <% @anaprtments.where(district_number: apartment.district_number).each do |anaprtment| %>
-          <tr>
-
-
-            <td><%= anaprtment.location %></td>
-            <td><%= @cost_anal = number_with_precision(anaprtment.cost_one, precision: 2) %></td>
-            <td><%= @torg %>%</td>
-            <td><% @tiphouses.where(num_analog: anaprtment.building_type).each do |tiphouse| %>
-
-                  <% if apartment.series_home == 1 %>
-                      <%= @tip_buld = tiphouse.o1 %>%
-                  <% elsif apartment.series_home == 2 %>
-                      <%= @tip_buld = tiphouse.o2 %>%
-                  <% elsif apartment.series_home == 3 %>
-                      <%= @tip_buld = tiphouse.o3 %>%
-                  <% else apartment.series_home == 4 %>
-                      <%= @tip_buld = tiphouse.o4 %>%
-                  <% end %>
-
-              <% end %>
-            </td>
-            <td><% if anaprtment.category_repair == 'Високоякісний' %>
-                  <%= @repair = @repairs.first.high %>
-              <% elsif anaprtment.category_repair == 'Євроремонт' %>
-                  <%= @repair = @repairs.first.eurorepair %>
-              <% elsif anaprtment.category_repair == 'Покращений' %>
-                  <%= @repair = @repairs.first.advanced %>
-              <% else anaprtment.category_repair == 'Простий' %>
-                  <%= @repair = @repairs.first.simple %>
-              <% end %>
-            </td>
-            <td>
-
-
-              <% @flo = 0 %>
-              <% if apartment.storey == 1 || apartment.storey == apartment.floors %>
-                  <% if anaprtment.floor != 1 || anaprtment.floor != anaprtment.storeys %>
-                      <% @flo = @flo - 5 %>
-                  <% else %>
-                      <% @flo = @flo - 0 %>
-                  <% end %>
-              <% else %>
-                  <% @flo = @flo - 0 %>
-              <% end %>
-              <% if anaprtment.floor == 1 || anaprtment.floor == anaprtment.storeys %>
-                  <% if apartment.storey != 1 || apartment.storey != apartment.floors %>
-
-                      <% @flo = @flo + 5 %>
-                  <% else %>
-                      <% @flo = @flo - 0 %>
-                  <% end %>
-              <% else %>
-                  <% @flo = @flo - 0 %>
-              <% end %>
-              <%= @flo %>%
-
-
-            </td>
-            <td><% @kolroom.where(num_analog: anaprtment.number_rooms).each do |kolroom| %>
-
-                  <% if apartment.number_rooms == 1 %>
-                      <%= @kolr = kolroom.o1 %>%
-                  <% elsif apartment.number_rooms == 2 %>
-                      <%= @kolr = kolroom.o2 %>%
-                  <% elsif apartment.number_rooms == 3 %>
-                      <%= @kolr = kolroom.o3 %>%
-                  <% else apartment.number_rooms == 4 %>
-                      <%= @kolr = kolroom.o4 %>%
-                  <% end %>
-
-              <% end %>
-            </td>
-            <td>
-              <%= @full = number_with_precision(@cost_anal.to_s.to_d*((100 + @torg + @tip_buld + @flo + @kolr).to_s.to_d/100), precision: 2) %>
-              <% @full_all = @full_all.to_f.to_d + @full.to_s.to_d %>
-
-            </td>
-          </tr>
+            <% end %>
+            </tbody>
+          </table>
+          Середнє арифметичне значення 1 кв. <%= number_with_precision(house.median, precision: 0)  %><br/>
+          Ринкова вартість, дол.США <%= number_with_precision(house.usd_market_value, precision: 0)  %><br/>
+          Ринкова вартість, грн <%= number_with_precision(house.uah_market_value, precision: 0)  %><br/>
+          Ринкова вартість, евро <%= number_with_precision(house.euro_market_value, precision: 0)  %>
+          <div align="center">
+            *********************************************************
+          </div>
 
       <% end %>
-      </tbody>
-    </table>
-    Середнє арифметичне значення 1 кв.м./дол.США  <%= number_with_precision(@full_all.to_f.to_d/@anaprtments.where(district_number:
-                                                                                                                           apartment.district_number).count, precision: 2) %> <br/>
-    Ринкова вартість, дол.США  <%= @valueusd = number_with_precision(apartment.area*
-                                                                             (@full_all.to_f.to_d/@anaprtments.where(district_number: apartment.district_number).count), precision: 2) %><br/>
-    Ринкова вартість, грн <%= @valueuah = number_with_precision(@valueusd.to_f.to_d * Currency.first.value, precision: 2) %><br/>
-    Ринкова вартість, евро <%= number_with_precision(@valueuah.to_f.to_d / Currency.last.value, precision: 2) %>
-
-<% end %>
-<div class="divider"></div>
+      <div align="center">
+        <%= will_paginate @houses %>
+      </div>
+    </div>
+  </div>
+</div>

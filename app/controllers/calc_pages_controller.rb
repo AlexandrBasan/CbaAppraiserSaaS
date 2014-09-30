@@ -20,6 +20,11 @@ class CalcPagesController < ApplicationController
     @cearths = Cearth.all
   end
   def calc_houses
+    @houses = House.paginate(page: params[:page])
+    @anhouses = Anhousehold.all
+    @chouse = Chouse.all
+  end
+  def calc_houses_print
     @houses = House.all
     @anhouses = Anhousehold.all
     @chouse = Chouse.all

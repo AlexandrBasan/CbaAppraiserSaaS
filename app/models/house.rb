@@ -1,4 +1,5 @@
 class House < ActiveRecord::Base
+has_many :chouses
 
   def self.to_csv(options = {})
     (CSV.generate(options) do |csv|

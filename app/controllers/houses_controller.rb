@@ -6,6 +6,7 @@ class HousesController < ApplicationController
   # GET /houses
   # GET /houses.json
   def index
+    @chouses = Chouse.all
     @houses= House.paginate(page: params[:page])
     @a_houses= House.all
     respond_to do |format|
@@ -23,7 +24,7 @@ class HousesController < ApplicationController
   end
 
 
-  def processing
+  def processing_house
     @ho = House.all
     @ho.each do |house|
       Anhousehold.where(number_district: house.district_number).each do |anho|
@@ -33,7 +34,7 @@ class HousesController < ApplicationController
         @chouse.save
       end
     end
-    redirect_to (house_path) and return
+    redirect_to (houses_path) and return
   end
 
   def import

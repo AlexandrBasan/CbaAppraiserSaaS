@@ -308,3 +308,132 @@ button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui
   height: 100%;
   max-height: 1500px;
 }
+
+.pagination {
+  .previous_page { padding: 4px 12px;
+    text-align: center;
+    vertical-align: middle !important;
+    background-color: #d9d9d9;
+    border: 1px transparent solid;
+    color: #222222;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    margin: auto;
+    color: inherit;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .previous_page.disabled { background-color: #f2f2f2;
+    color: #1e1e1e;
+    cursor: not-allowed;
+    padding: 4px 12px;
+    text-align: center;
+    vertical-align: middle !important;
+    background-color: #d9d9d9;
+    border: 1px transparent solid;
+    color: #222222;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    margin: auto;
+    color: inherit;
+    display: block;
+    float: left;
+    margin-right: 1px;}
+  .current { padding: 4px 12px;
+    text-align: center;
+    vertical-align: middle !important;
+    background-color: #d9d9d9;
+    border: 1px transparent solid;
+    color: #222222;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    margin: auto;
+    color: inherit;
+    display: block;
+    float: left;
+    margin-right: 1px;
+    background-color: #4390df;
+    color: #ffffff;}
+  .next_page { padding: 4px 12px;
+    text-align: center;
+    vertical-align: middle !important;
+    background-color: #d9d9d9;
+    border: 1px transparent solid;
+    color: #222222;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    margin: auto;
+    color: inherit;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .next_page.disabled { background-color: #f2f2f2;
+    color: #1e1e1e;
+    cursor: not-allowed;
+    padding: 4px 12px;
+    text-align: center;
+    vertical-align: middle !important;
+    background-color: #d9d9d9;
+    border: 1px transparent solid;
+    color: #222222;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    margin: auto;
+    color: inherit;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  a {
+    padding: 4px 12px;
+    text-align: center;
+    vertical-align: middle !important;
+    background-color: #d9d9d9;
+    border: 1px transparent solid;
+    color: #222222;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    margin: auto;
+    color: inherit;
+    display: block;
+    float: left;
+    margin-right: 1px;
+  }
+  span.gap {
+    background-color: #ffffff;
+    cursor: default;
+    display: block;
+    float: left;
+    margin-right: 1px;
+    position: relative;
+  }
+}

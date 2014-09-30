@@ -53,5 +53,34 @@
     <h1>We're sorry, but something went wrong.</h1>
   </div>
   <p>If you are the application owner check the logs for more information.</p>
+
+  <p>This is 500 app error.</p>
+  <p>If at the time of this screen you downloaded the data into the system, the data is removed from the system or data was calculated, you need to wait until the data is processed, and then return to the main page. Typically, data calculation takes about 1 minute.</p>
+  <!--<p>Если в момент возникновения этого экрана Вы загружали данные в систему, удаляли данные из системы или расчитывали данные, Вам необходимо подождать пока данные обработаются, а затем вернуться на главную страницу. Обычно расчет данных занимает около 1 минуты.</p>-->
+  <p>
+      <b style="font-size: 12px;">Please wait:</b></br>
+      <b style="font-size: 24px; color: red;"><span id="countdown" class="timer"></span></b></br>
+      <b style="font-size: 12px;">and return to Home</b>
+      <script>
+          var seconds = 60;
+          function secondPassed() {
+              var minutes = Math.round((seconds - 30)/60);
+              var remainingSeconds = seconds % 60;
+              if (remainingSeconds < 10) {
+                  remainingSeconds = "0" + remainingSeconds;
+              }
+              document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
+              if (seconds == 0) {
+                  clearInterval(countdownTimer);
+                  document.getElementById('countdown').innerHTML = "You may RETURN TO HOME";
+              } else {
+                  seconds--;
+              }
+          }
+
+          var countdownTimer = setInterval('secondPassed()', 1000);
+      </script>
+  </p>
+  <p><a href="https://cba-appraiser.herokuapp.com/" class="button">Return to Home</a></p>
 </body>
 </html>

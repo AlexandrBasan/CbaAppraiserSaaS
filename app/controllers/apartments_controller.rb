@@ -11,9 +11,7 @@ class ApartmentsController < ApplicationController
       format.html
       # export to csv and xls
       format.csv { send_data @apartments.to_csv }
-      format.xls { send_data csv_data,
-                             :type => 'text/csv; charset=iso-8859-1; header=present',
-                             :disposition => "attachment; filename=#{filename}.csv"}
+      format.xls
     end
   end
 

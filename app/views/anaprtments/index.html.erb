@@ -2,7 +2,7 @@
 <div class="span12">
   <h3 align="center">Аналоги квартир</h3>
   <div class="row">
-    <div class="span6">
+    <div class="span4">
       <div class="panel" data-role="panel">
         <div class="panel-header bg-lime">
           <%= (I18n.t 'button.import') %> *.XLS
@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="span6">
+    <div class="span4">
       <div class="panel" data-role="panel">
         <div class="panel-header bg-lightOrange">
           <%= (I18n.t 'button.download') %> *.XLS
@@ -29,28 +29,29 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="panel" data-role="panel">
-    <div class="panel-header bg-yellow">
-      <%= 'Обработка загруженных данных' %>
-    </div>
-    <div class="panel-content">
-      <div class="row">
-        <div class="span6">
-          <h5 align="center"><%= link_to "Обработать данные", calc_apartment_path, class: "button large bg-green" %></h5>
+    <div class="span4">
+      <div class="panel" data-role="panel">
+        <div class="panel-header bg-yellow">
+          <%= 'Обработка загруженных данных' %>
         </div>
-        <div class="span6">
-          <% if @anaprtments.empty?%>
-          <% else %>
-              <%= link_to "Очистить базу", anaprtments_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red" %>
-          <% end %>
+        <div class="panel-content">
+          <div class="row">
+            <div class="span6">
+              <h5 align="center"><%= link_to "Обработать данные", calc_apartment_path, class: "button large bg-green" %></h5>
+            </div>
+            <div class="span6">
+              <h5 align="center">
+              <% if @anaprtments.empty?%>
+              <% else %>
+                  <%= link_to "Очистить базу", anaprtments_destroy_all_index_path, data: { confirm: 'Are you sure?' }, class: "button large bg-red" %>
+              <% end %>
+              </h5>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 <div class="panel" data-role="panel">
   <div class="panel-header bg-cyan">
     Список аналогов квартир
@@ -106,4 +107,5 @@
 </div>
 <br>
 
-<%= link_to 'New Anaprtment', new_anaprtment_path %>
+<%= link_to 'New Anaprtment', new_anaprtment_path, class: "button large info" %>
+</div>

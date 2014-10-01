@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001074838) do
+ActiveRecord::Schema.define(version: 20141001080340) do
 
   create_table "anaprtments", force: true do |t|
     t.integer  "district_number"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20141001074838) do
     t.decimal  "area"
     t.string   "purpose"
     t.decimal  "value_proposition_usd"
-    t.string   "information_source"
+    t.text     "information_source",       limit: 255
     t.decimal  "value_proposition_usdone"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -51,12 +51,12 @@ ActiveRecord::Schema.define(version: 20141001074838) do
     t.decimal  "dvalue_proposition_usd_no_land"
     t.decimal  "dvalue_proposition_usd_kvm"
     t.string   "dcategory_repair"
-    t.string   "dsource_information"
+    t.text     "dsource_information",            limit: 255
     t.string   "zanalog"
     t.decimal  "zarea"
     t.string   "zpurpose"
     t.decimal  "zvalue_proposition_usd"
-    t.string   "zsource_information"
+    t.text     "zsource_information",            limit: 255
     t.decimal  "zvalue_proposition_usd_kvm"
     t.integer  "mediana"
     t.datetime "created_at"

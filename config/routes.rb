@@ -38,7 +38,6 @@ CbaAppraiserSoft::Application.routes.draw do
   match '/calc_apartment_print', to: 'calc_pages#calc_apartments_print', via: 'get'
   match '/calc_earth_print', to: 'calc_pages#calc_earths_print', via: 'get'
   match '/calc_house_print', to: 'calc_pages#calc_houses_print', via: 'get'
-
   resources :apartments do
     collection do
       post :import

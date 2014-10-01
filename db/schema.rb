@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930171137) do
+ActiveRecord::Schema.define(version: 20141001074838) do
 
   create_table "anaprtments", force: true do |t|
     t.integer  "district_number"
     t.integer  "numberpp"
     t.string   "location"
-    t.string   "source"
+    t.text     "source",            limit: 255
     t.decimal  "area"
     t.integer  "number_rooms"
     t.decimal  "cost_analogue_usd"

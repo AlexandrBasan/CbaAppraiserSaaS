@@ -4,7 +4,8 @@ header {
 
 .print {
     height: 1000px;
-
+    page-break-before: always;
+    page-break-after: always;
 }
 td {
     height: 50px;

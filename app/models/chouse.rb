@@ -41,8 +41,11 @@ class Chouse < ActiveRecord::Base
     @uah= self.house.usd_market_value.to_s.to_d*Currency.first.value.to_s.to_d
     House.find(self.house_id).update(uah_market_value: @uah)
 
-    @euro= self.house.uah_market_value.to_s.to_d/Currency.last.value.to_s.to_d
+    @euro= @uah/Currency.last.value.to_s.to_d
     House.find(self.house_id).update(euro_market_value: @euro)
+
+    #@euro= self.house.uah_market_value.to_s.to_d/Currency.last.value.to_s.to_d
+    #House.find(self.house_id).update(euro_market_value: @euro)
 
   end
 

@@ -23,7 +23,9 @@ class EarthsController < ApplicationController
 
   def processing_earth
     @ea = Earth.all
-    @ea.each do |earth|
+    array = Array.new([])
+    @ea.each_with_index do |earth, index|
+      array << index
       Aneart.where(district_number: earth.district_number).each do |anea|
         @earth = Cearth.new
         @earth.earth_id = earth.id
@@ -31,6 +33,7 @@ class EarthsController < ApplicationController
         @earth.save
       end
     end
+    flash[:success] = array
     redirect_to (earths_path) and return
   end
   def import

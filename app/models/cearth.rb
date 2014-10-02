@@ -27,7 +27,7 @@ end
     @uah= self.earth.usd_market_value.to_s.to_d*Currency.first.value.to_s.to_d
     Earth.find(self.earth_id).update(uah_market_value: @uah)
 
-    @euro= self.earth.uah_market_value.to_s.to_d/Currency.last.value.to_s.to_d
+    @euro= self.earth.uah_market_value.to_s.to_d*Currency.last.value.to_s.to_d
     Earth.find(self.earth_id).update(euro_market_value: @euro)
   end
 

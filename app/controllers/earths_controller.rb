@@ -31,10 +31,7 @@ class EarthsController < ApplicationController
         @earth.save
       end
     end
-    respond_to do |format|
-      format.html { flash[:success] = @@euro_test_1
-      redirect_to (earths_path) and return }
-    end
+    redirect_to (earths_path) and return
   end
   def import
     Earth.import(params[:file])

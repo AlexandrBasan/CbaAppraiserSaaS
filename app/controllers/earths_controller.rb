@@ -24,13 +24,13 @@ class EarthsController < ApplicationController
   def processing_earth
     @ea = Earth.all
     array = Array.new([])
-    @ea.each_with_index do |earth, index|
-      array << index
-      Aneart.where(district_number: earth.district_number).each do |anea|
+    @ea.each do |earth|
+      Aneart.where(district_number: earth.district_number).each_with_index do |anea, index|
         @earth = Cearth.new
         @earth.earth_id = earth.id
         @earth.aneart_id = anea.id
         @earth.save
+        array << index
       end
     end
     flash[:success] = array

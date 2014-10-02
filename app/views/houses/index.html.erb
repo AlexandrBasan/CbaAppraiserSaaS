@@ -8,10 +8,14 @@
           <%= (I18n.t 'button.import') %> *.XLS
         </div>
         <div class="panel-content">
+          <div class="row">
+            <div class="span6">
           <%= form_tag import_houses_path, multipart: true do %>
               <%= file_field_tag :file %>
               <%= submit_tag (I18n.t 'button.import'), class: "button default fg-white" %>
           <% end %>
+              </div>
+            </div>
         </div>
       </div>
     </div>

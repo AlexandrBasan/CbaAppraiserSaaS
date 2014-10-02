@@ -46,6 +46,7 @@
         <div class="panel-content">
           <div class="row">
             <div class="span6">
+              <h5 align="center">
                            <% if @capartments.empty? %>
                   <button class="button default bg-green fg-white">
                   <%= link_to "Обработать данные", processing_path %>
@@ -57,6 +58,7 @@
                   <i class="icon-calculate"></i>
                   </button>
               <% end %>
+              </h5>
             </div>
             <div class="span6">
               <h5 align="center">

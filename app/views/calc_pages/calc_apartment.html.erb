@@ -118,10 +118,10 @@
       <% end %>
       </tbody>
     </table>
-        Середнє арифметичне значення 1 кв. <%= number_with_precision(apartment.median, precision: 2)  %><br/>
-        Ринкова вартість, дол.США <%= number_with_precision(apartment.usd_market_value, precision: 2)  %><br/>
-        Ринкова вартість, грн <%= number_with_precision(apartment.uah_market_value, precision: 2)  %><br/>
-        Ринкова вартість, евро <%= number_with_precision(apartment.euro_market_value, precision: 2)  %>
+        Середнє арифметичне значення 1 кв. <%= apartment.median.round %><br/>
+        Ринкова вартість, дол.США <%= apartment.usd_market_value.round %><br/>
+        Ринкова вартість, грн <%= apartment.uah_market_value.round %><br/>
+        Ринкова вартість, евро <%= apartment.euro_market_value.round %>
         <div align="center">
           *********************************************************
         </div>

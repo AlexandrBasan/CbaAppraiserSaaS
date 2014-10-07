@@ -108,10 +108,10 @@
             <% end %>
             </tbody>
           </table>
-          Середнє арифметичне значення 1 кв. <%= number_with_precision(house.median, precision: 2)  %><br/>
-          Ринкова вартість, дол.США <%= number_with_precision(house.usd_market_value, precision: 2)  %><br/>
-          Ринкова вартість, грн <%= number_with_precision(house.uah_market_value, precision: 2)  %><br/>
-          Ринкова вартість, евро <%= number_with_precision(house.euro_market_value, precision: 2)  %>
+          Середнє арифметичне значення 1 кв. <%= house.median.round %><br/>
+          Ринкова вартість, дол.США <%= house.usd_market_value.round %><br/>
+          Ринкова вартість, грн <%= house.uah_market_value.round %><br/>
+          Ринкова вартість, евро <%= house.euro_market_value.round %>
           <div align="center">
             *********************************************************
           </div>

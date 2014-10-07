@@ -144,7 +144,7 @@ def bef_total
   @usd= self.apartment.area.to_s.to_d*@median
   Apartment.find(self.apartment_id).update(usd_market_value: @usd)
 
-  @uah= self.apartment.usd_market_value.to_s.to_d*Currency.first.value.to_s.to_d
+  @uah= @usd*Currency.first.value.to_s.to_d
   Apartment.find(self.apartment_id).update(uah_market_value: @uah)
 
   @euro= @uah/Currency.last.value.to_s.to_d

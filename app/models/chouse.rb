@@ -34,8 +34,8 @@ class Chouse < ActiveRecord::Base
     @median = @sum.sum(:adj_cost_value)/@sum.count
     House.find(self.house_id).update(median: @median)
 
-
-    @usd= self.house.total_area.to_s.to_d*self.house.median.to_s.to_d
+    @usd_total = ((self.house.total_area).to_s).to_d
+    @usd= @usd_total*@median
     House.find(self.house_id).update(usd_market_value: @usd)
 
     @uah= self.house.usd_market_value.to_s.to_d*Currency.first.value.to_s.to_d

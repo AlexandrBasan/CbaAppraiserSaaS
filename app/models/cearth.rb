@@ -18,16 +18,16 @@ end
 
     @sum= Cearth.where(earth_id: self.earth_id)
     @median = @sum.sum(:adj_cost_value)/@sum.count
-    Earth.find(self.earth_id).update(median: @median)
+    Earth.find(self.earth_id).update(median: @median.round)
 
-    @usd= (self.earth.area_land.to_s.to_d*10000)*@median
-    Earth.find(self.earth_id).update(usd_market_value: @usd)
+    @usd= (self.earth.area_land.to_s.to_d*10000)*@median.round
+    Earth.find(self.earth_id).update(usd_market_value: @usd.round)
 
-    @uah= @usd*Currency.first.value.to_s.to_d
-    Earth.find(self.earth_id).update(uah_market_value: @uah)
+    @uah= @usd.round*Currency.first.value.to_s.to_d
+    Earth.find(self.earth_id).update(uah_market_value: @uah.round)
 
-    @euro= @uah/Currency.last.value.to_s.to_d
-    Earth.find(self.earth_id).update(euro_market_value: @euro)
+    @euro= @uah.round/Currency.last.value.to_s.to_d
+    Earth.find(self.earth_id).update(euro_market_value: @euro.round)
 
     #@euro= self.earth.uah_market_value.to_s.to_d/Currency.last.value.to_s.to_d
     #Earth.find(self.earth_id).update(euro_market_value: @euro)

@@ -32,17 +32,17 @@ class Chouse < ActiveRecord::Base
   def suma
     @sum= Chouse.where(house_id: self.house_id)
     @median = @sum.sum(:adj_cost_value)/@sum.count
-    House.find(self.house_id).update(median: @median)
+    House.find(self.house_id).update(median: @median.round)
 
     @usd_total = ((self.house.total_area).to_s).to_d
-    @usd= @usd_total*@median
-    House.find(self.house_id).update(usd_market_value: @usd)
+    @usd= @usd_total*@median.round
+    House.find(self.house_id).update(usd_market_value: @usd.round)
 
-    @uah= @usd*Currency.first.value.to_s.to_d
-    House.find(self.house_id).update(uah_market_value: @uah)
+    @uah= @usd.round*Currency.first.value.to_s.to_d
+    House.find(self.house_id).update(uah_market_value: @uah.round)
 
-    @euro= @uah/Currency.last.value.to_s.to_d
-    House.find(self.house_id).update(euro_market_value: @euro)
+    @euro= @uah.round/Currency.last.value.to_s.to_d
+    House.find(self.house_id).update(euro_market_value: @euro.round)
 
     #@euro= self.house.uah_market_value.to_s.to_d/Currency.last.value.to_s.to_d
     #House.find(self.house_id).update(euro_market_value: @euro)

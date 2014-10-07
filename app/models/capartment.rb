@@ -139,16 +139,16 @@ after_save :bef_total
 def bef_total
   @sum= Capartment.where(apartment_id: self.apartment_id)
   @median = @sum.sum(:adj_cost_value)/@sum.count
-  Apartment.find(self.apartment_id).update(median: @median)
+  Apartment.find(self.apartment_id).update(median: @median.round)
 
-  @usd= self.apartment.area.to_s.to_d*@median
-  Apartment.find(self.apartment_id).update(usd_market_value: @usd)
+  @usd= self.apartment.area.to_s.to_d*@median.round
+  Apartment.find(self.apartment_id).update(usd_market_value: @usd.round)
 
-  @uah= @usd*Currency.first.value.to_s.to_d
-  Apartment.find(self.apartment_id).update(uah_market_value: @uah)
+  @uah= @usd.round*Currency.first.value.to_s.to_d
+  Apartment.find(self.apartment_id).update(uah_market_value: @uah.round)
 
-  @euro= @uah/Currency.last.value.to_s.to_d
-  Apartment.find(self.apartment_id).update(euro_market_value: @euro)
+  @euro= @uah.round/Currency.last.value.to_s.to_d
+  Apartment.find(self.apartment_id).update(euro_market_value: @euro.round)
 
   #@euro= self.apartment.uah_market_value.to_s.to_d/Currency.last.value.to_s.to_d
   #Apartment.find(self.apartment_id).update(euro_market_value: @euro)

@@ -48,7 +48,7 @@
                   <td><%= anearth.area %></td>
                   <td><%= anearth.value_proposition_usd %></td>
                   <td><%= anearth.value_proposition_usdone %></td>
-                  <td><%= anearth.information_source[0..45] %>..</td>
+                  <td><%= anearth.information_source %>..</td>
                 </tr>
             <% end %>
             </tbody>
@@ -86,9 +86,9 @@
             </tbody>
           </table>
           Середнє арифметичне значення 1 кв. <%= number_with_precision(earth.median, precision: 2)  %><br/>
-          Ринкова вартість, дол.США <%= number_with_precision(earth.usd_market_value, precision: 0)  %><br/>
-          Ринкова вартість, грн <%= number_with_precision(earth.uah_market_value, precision: 0)  %><br/>
-          Ринкова вартість, евро <%= number_with_precision(earth.euro_market_value, precision: 0)  %>
+          Ринкова вартість, дол.США <%= number_with_precision(earth.usd_market_value, precision: 2)  %><br/>
+          Ринкова вартість, грн <%= number_with_precision(earth.uah_market_value, precision: 2)  %><br/>
+          Ринкова вартість, евро <%= number_with_precision(earth.euro_market_value, precision: 2)  %>
 
 </div>
 

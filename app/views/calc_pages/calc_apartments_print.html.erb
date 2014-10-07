@@ -56,7 +56,7 @@
             <tr>
 
               <td><%= anaprtment.location %></td>
-              <td style="max-width: 150px; word-break: break-all"><%= anaprtment.source[0..45] %>..</td>
+              <td style="max-width: 150px; word-break: break-all"><%= anaprtment.source %>..</td>
               <td><%= anaprtment.area %></td>
               <td><%= anaprtment.number_rooms %></td>
               <td><%= number_with_precision(anaprtment.cost_analogue_usd, precision: 2) %></td>
@@ -104,9 +104,9 @@
             </tbody>
           </table>
           Середнє арифметичне значення 1 кв. <%= number_with_precision(apartment.median, precision: 2)  %><br/>
-          Ринкова вартість, дол.США <%= number_with_precision(apartment.usd_market_value, precision: 0)  %><br/>
-          Ринкова вартість, грн <%= number_with_precision(apartment.uah_market_value, precision: 0)  %><br/>
-          Ринкова вартість, евро <%= number_with_precision(apartment.euro_market_value, precision: 0)  %>
+          Ринкова вартість, дол.США <%= number_with_precision(apartment.usd_market_value, precision: 2)  %><br/>
+          Ринкова вартість, грн <%= number_with_precision(apartment.uah_market_value, precision: 2)  %><br/>
+          Ринкова вартість, евро <%= number_with_precision(apartment.euro_market_value, precision: 2)  %>
 
       </div>
       <% end %>

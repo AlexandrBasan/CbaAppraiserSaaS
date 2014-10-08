@@ -113,7 +113,7 @@ after_save :bef_total
       self.storey = 0
     end
 
-    self.rooms = -((anaprtment.number_rooms-1)*System.first.rooms)+((apartment.number_rooms-1)*System.first.rooms)
+    self.rooms = -((apartment.number_rooms-1)*System.first.rooms)+((anaprtment.number_rooms-1)*System.first.rooms)
 
  self.adj_cost_value = self.anaprtment.cost_one.to_s.to_d*((100 + self.auction.to_s.to_i +
      self.tip_house.to_s.to_i + self.storey.to_s.to_i + self.rooms.to_s.to_i).to_s.to_d/100) + self.value_repair.to_s.to_d

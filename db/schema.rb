@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001080340) do
+ActiveRecord::Schema.define(version: 20141008101919) do
 
   create_table "anaprtments", force: true do |t|
     t.integer  "district_number"
@@ -226,6 +226,7 @@ ActiveRecord::Schema.define(version: 20141001080340) do
     t.integer  "infrastructure"
     t.integer  "location_house"
     t.integer  "infrastructura_house"
+    t.integer  "rooms"
   end
 
   create_table "tiphouses", force: true do |t|

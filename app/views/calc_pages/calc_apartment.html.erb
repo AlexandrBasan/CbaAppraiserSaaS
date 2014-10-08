@@ -27,6 +27,7 @@
         <th>Тип будинку</th>
         <th>Поверх/поверхівість</th>
         <th>№ района</th>
+        <th>Кількість кімнат</th>
         <th>Действие</th>
       </tr>
       </thead>
@@ -42,7 +43,8 @@
         <td><%= apartment.area %></td>
         <td><%= apartment.series_home %></td>
         <td><%= apartment.storey %>/<%= apartment.floors %></td>
-        <td><%= apartment.district_number %></td>
+         <td><%= apartment.district_number %></td>
+        <td><%= apartment.number_rooms %></td>
         <td><%= link_to 'Edit', edit_apartment_path(apartment), class: "button normal bg-orange fg-white" %></td>
       </tr>
       </tbody>

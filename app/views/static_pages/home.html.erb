@@ -113,18 +113,6 @@
               </div>
 
           <% end %>
-          <%= link_to (kolrooms_path) do %>
-              <div class="tile bg-lightOlive">
-                <div class="tile-content icon">
-                  <i class="icon-folder-2"></i>
-                </div>
-                <div class="tile-status">
-                  <span class="name">Количество комнат</span>
-                  <div class="badge bg-red"><%= @kolrooms.count %></div>
-                </div>
-              </div>
-
-          <% end %>
       </div>
     <% else %>
         <div class="center jumbotron">

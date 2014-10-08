@@ -14,6 +14,7 @@
       <th>Инфраструктура для земли</th>
       <th>Местоположение для домов</th>
       <th>Инфраструктура для домов</th>
+      <th>Для квартир, комнаты</th>
       <th>Действие</th>
     </tr>
   </thead>
@@ -29,6 +30,7 @@
         <td><%= system.infrastructure %>%</td>
         <td><%= system.location_house %>%</td>
         <td><%= system.infrastructura_house %>%</td>
+        <td><%= system.rooms %>%</td>
         <td><%= link_to 'Изменить', edit_system_path(system), class: "button normal bg-orange fg-white" %></td>
       </tr>
     <% end %>

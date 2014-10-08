@@ -68,69 +68,52 @@ after_save :bef_total
                self.value_repair = 0
      end
 
-    if self.apartment.storey == 1 || self.apartment.storey == self.apartment.floors
-                 if self.anaprtment.floor != 1 || self.anaprtment.floor != self.anaprtment.storeys
-                   self.storey = -System.first.floor_apartment.to_s.to_i
-                 else
-                   self.storey = 0.to_s.to_i
+    if self.apartment.storey == 1
+                 if self.anaprtment.floor != 1
+                   self.storey = -System.first.floor_apartment.to_i
+                 elsif self.anaprtment.floor != self.anaprtment.storeys
+                   self.storey = -System.first.floor_apartment.to_i
                  end
-    else
-      self.storey = 0.to_s.to_i
- end
-  if self.anaprtment.floor == 1 || self.anaprtment.floor == self.anaprtment.storeys
-                if self.apartment.storey != 1 || self.apartment.storey != self.apartment.floors
-                  self.storey = +System.first.floor_apartment.to_s.to_i
-                else
-                  self.storey = 0.to_s.to_i
-                end
-  else
-    self.storey =0.to_s.to_i
-  end
-
-    if self.apartment.number_rooms == 1
-      if self.anaprtment.number_rooms == 1
-        self.rooms = Kolroom.find(1).o1
-      elsif self.anaprtment.number_rooms == 2
-        self.rooms = Kolroom.find(2).o1
-      elsif self.anaprtment.number_rooms == 3
-        self.rooms = Kolroom.find(3).o1
-      elsif self.anaprtment.number_rooms == 4
-        self.rooms = Kolroom.find(4).o1
-      end
-
-    elsif self.apartment.number_rooms == 2
-      if self.anaprtment.number_rooms == 1
-        self.rooms = Kolroom.find(1).o2
-      elsif self.anaprtment.number_rooms == 2
-        self.rooms = Kolroom.find(2).o2
-      elsif self.anaprtment.number_rooms == 3
-        self.rooms = Kolroom.find(3).o2
-      elsif self.anaprtment.number_rooms == 4
-        self.rooms = Kolroom.find(4).o2
-      end
-
-    elsif self.apartment.number_rooms == 3
-      if self.anaprtment.number_rooms == 1
-        self.rooms = Kolroom.find(1).o3
-      elsif self.anaprtment.number_rooms == 2
-        self.rooms = Kolroom.find(2).o3
-      elsif self.anaprtment.number_rooms == 3
-        self.rooms = Kolroom.find(3).o3
-      elsif self.anaprtment.number_rooms == 4
-        self.rooms = Kolroom.find(4).o3
-      end
-
-    elsif self.apartment.number_rooms == 4
-      if self.anaprtment.number_rooms == 1
-        self.rooms = Kolroom.find(1).o4
-      elsif self.anaprtment.number_rooms == 2
-        self.rooms = Kolroom.find(2).o4
-      elsif self.anaprtment.number_rooms == 3
-        self.rooms = Kolroom.find(3).o4
-      elsif self.anaprtment.number_rooms == 4
-        self.rooms = Kolroom.find(4).o4
+    elsif self.apartment.storey == self.apartment.floors
+      if self.anaprtment.floor != 1
+        self.storey = -System.first.floor_apartment.to_i
+      elsif self.anaprtment.floor != self.anaprtment.storeys
+        self.storey = -System.first.floor_apartment.to_i
       end
     end
+
+  if self.anaprtment.floor == 1
+                if self.apartment.storey != 1
+                  self.storey = +System.first.floor_apartment.to_i
+                elsif self.apartment.storey != self.apartment.floors
+                  self.storey = +System.first.floor_apartment.to_i
+                end
+  elsif self.anaprtment.floor == self.anaprtment.storeys
+    if self.apartment.storey != 1
+      self.storey = +System.first.floor_apartment.to_i
+    elsif self.apartment.storey != self.apartment.floors
+      self.storey = +System.first.floor_apartment.to_i
+    end
+  end
+    if self.anaprtment.floor == 1
+      if self.apartment.storey == 1
+        self.storey = 0
+      elsif self.apartment.storey == self.apartment.floors
+        self.storey = 0
+      end
+    elsif self.anaprtment.floor == self.anaprtment.storeys
+      if self.apartment.storey == 1
+        self.storey = 0
+      elsif self.apartment.storey == self.apartment.floors
+        self.storey = 0
+      end
+    end
+
+    if self.storey.nil?
+      self.storey = 0
+    end
+
+    self.rooms = -((anaprtment.number_rooms-1)*System.first.rooms)+((apartment.number_rooms-1)*System.first.rooms)
 
  self.adj_cost_value = self.anaprtment.cost_one.to_s.to_d*((100 + self.auction.to_s.to_i +
      self.tip_house.to_s.to_i + self.storey.to_s.to_i + self.rooms.to_s.to_i).to_s.to_d/100) + self.value_repair.to_s.to_d

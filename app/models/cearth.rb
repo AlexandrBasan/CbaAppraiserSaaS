@@ -5,9 +5,15 @@ class Cearth < ActiveRecord::Base
   after_save :suma
 
   def calc
+    if self.auction.nil?
     self.auction = System.first.torg_earth
+    end
+    if self.location.nil?
     self.location = System.first.location
+    end
+    if self.infrastructure.nil?
     self.infrastructure = System.first.infrastructure
+    end
     self.diff_area = ((self.aneart.area.to_s.to_d/(self.earth.area_land.to_s.to_d*10000))**0.1-1)*100
     self.adj_cost_value = self.aneart.value_proposition_usdone.to_s.to_d*((100 + self.auction.to_s.to_i +
         self.location.to_s.to_i + self.infrastructure.to_s.to_i + self.diff_area.to_s.to_i).to_s.to_d/100)

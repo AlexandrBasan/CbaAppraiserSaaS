@@ -12,52 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :auction %><br>
+    <%= f.label 'Торг' %><br>
     <%= f.number_field :auction %>
   </div>
   <div class="field">
-    <%= f.label :location %><br>
+    <%= f.label 'Місцезнаходження' %><br>
     <%= f.number_field :location %>
   </div>
   <div class="field">
-    <%= f.label :infrastructure %><br>
+    <%= f.label 'Наявність інфраструктури' %><br>
     <%= f.number_field :infrastructure %>
   </div>
   <div class="field">
-    <%= f.label :diff_area %><br>
+    <%= f.label 'На відмінність площ' %><br>
     <%= f.number_field :diff_area %>
   </div>
   <div class="field">
-    <%= f.label :category_repair %><br>
+    <%= f.label 'Категорія ремонту' %><br>
     <%= f.number_field :category_repair %>
   </div>
   <div class="field">
-    <%= f.label :adj_cost_value %><br>
+    <%= f.label 'Скоригована вартість' %><br>
     <%= f.text_field :adj_cost_value %>
-  </div>
-  <div class="field">
-    <%= f.label :median %><br>
-    <%= f.text_field :median %>
-  </div>
-  <div class="field">
-    <%= f.label :money_usd %><br>
-    <%= f.text_field :money_usd %>
-  </div>
-  <div class="field">
-    <%= f.label :money_euro %><br>
-    <%= f.text_field :money_euro %>
-  </div>
-  <div class="field">
-    <%= f.label :money_uah %><br>
-    <%= f.text_field :money_uah %>
-  </div>
-  <div class="field">
-    <%= f.label :house_id %><br>
-    <%= f.number_field :house_id %>
-  </div>
-  <div class="field">
-    <%= f.label :anhousehold_id %><br>
-    <%= f.number_field :anhousehold_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -19,9 +19,16 @@ class Chouse < ActiveRecord::Base
     else
       self.category_repair = 0
     end
+
+    if self.auction.nil?
     self.auction = System.first.torg_house
+    end
+    if self.location.nil?
     self.location = System.first.location_house
+    end
+    if self.infrastructure.nil?
     self.infrastructure = System.first.infrastructura_house
+    end
 
 
     self.diff_area = ((self.anhousehold.darea_building.to_s.to_d/self.house.total_area.to_s.to_d)**0.1-1)*100

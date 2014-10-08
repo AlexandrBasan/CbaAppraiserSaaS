@@ -6,7 +6,9 @@ after_save :bef_total
 
 
   def calc
+    if self.auction.nil?
     self.auction = System.first.torg_apartment
+    end
     if self.apartment.series_home == 1
                        if self.anaprtment.building_type == 1
                          self.tip_house = Tiphouse.find(1).o1
